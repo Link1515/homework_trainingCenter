@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline-block排版</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Roboto', 'Arial', 'sans-serif';
+        background-color: #181818;
+        color: #fff;
+      }
+
+      img {
+        width: 100%;
+        vertical-align: top;
+      }
+
+      .container {
+        width: 1280px;
+        margin: 50px auto;
+        font-size: 0;
+      }
+
+      .item {
+        width: 300px;
+        height: 250px;
+        margin: 0 10px;
+        margin-bottom: 40px;
+        display: inline-block;
+      }
+
+      .item > img {
+        height: 160px;
+        margin-bottom: 10px;
+        object-fit: cover;
+      }
+
+      .info img {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        margin-left: 4px;
+        border-radius: 50%;
+      }
+
+      .info .txt {
+        display: inline-block;
+        width: 250px;
+        margin-left: 10px;
+      }
+
+      .info .txt h3 {
+        margin-bottom: 5px;
+        overflow: hidden;
+        font-weight: normal;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .info h4,
+      .info p {
+        font-size: 14px;
+        color: #959595;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/QsmePfJhwvM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBTjPEEBIVhrl5Kj9GpSjv6xMP_ag"
+        />
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/AKedOLR2W5VRz8Zcd2aDZPVJvjo_qkJB_J9GsEAluksI=s68-c-k-c0x00ffffff-no-rj" />
+          <div class="txt">
+            <h3>🎊太神啦！北市小四學生，讓全校不用寫作業！👏｜志祺七七 #shorts</h3>
+            <h4>志祺七七 X 圖文不符</h4>
+            <p>觀看次數: 5546次．16分鐘前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/EgMx3G6ZyfQ/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLDh6UB_aezD4nQgjUBBvrveASpR4A"
+        />
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/ytc/AKedOLS2ds6Od3YUj7G23Y2VTMZkSxUHIHsTVy0Bvdp8fQ=s68-c-k-c0x00ffffff-no-rj"
+          />
+          <div class="txt">
+            <h3>【我就是任性】我要吃邪惡的垃圾食物沒有人阻止我嗎？</h3>
+            <h4>鬥士工作是Fighter Studio Hk</h4>
+            <p>觀看次數: 35萬次．2週前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/UQitXPTWdwk/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLBsn243gamIg1z14n4wFPRUxZY7nQ"
+        />
+        <div class="info">
+          <img
+            src="	https://yt3.ggpht.com/ytc/AKedOLQ24832wRnKV3eRDJg2hHKAfc1Iu6-5-aE-XrxDDg=s68-c-k-c0x00ffffff-no-rj"
+          />
+          <div class="txt">
+            <h3>
+              【Stanley】中路T1最無腦隱藏角埃可尚！無腦推線！無恥繩索絲毫不怕對面的吸奶攻勢！各種跑線打團輕鬆掌握遊戲優勢！佛心胖主播竟不捨讓觀眾看廣告？以及每次都堅持手動按廣告的理由？
+            </h3>
+            <h4>Stanley 史丹利</h4>
+            <p>觀看次數: 3.8萬次．1小時前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/8B651tELGyo/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLA3CWyO7oVTEnakmUsW01-LSxCHYw"
+        />
+        <div class="info">
+          <img
+            src="https://i.ytimg.com/vi/8B651tELGyo/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLA3CWyO7oVTEnakmUsW01-LSxCHYw"
+          />
+          <div class="txt">
+            <h3>【Huan】 1650 Super、1660 Super? | NVIDIA GTX 16系列顯卡到底怎麼選?？</h3>
+            <h4>Huan</h4>
+            <p>觀看次數: 33萬次．1年前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/3xPnMyYU9B8/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCEX5qGaa1enca0uNP2Piuh656g6A"
+        />
+        <div class="info">
+          <img src="	https://yt3.ggpht.com/ytc/AKedOLSjBiaNuuMFnIiNbDrA4A07OqzZqkWYMGWxZVdm=s68-c-k-c0x00ffffff-no-rj" />
+          <div class="txt">
+            <h3>
+              【DinTer】史丹利中單之路特好贏？！靈魂收割艾克Ekko JG腰帶+巫妖+金人！超級發育角高速扭轉戰局？自信中野組合
+              隊友竟不買單？！
+            </h3>
+            <h4>Dinter</h4>
+            <p>觀看次數: 4.4萬次．4小時前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="	https://i.ytimg.com/vi/7oS37BtJppY/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLA5kwNF6kAKHUEekiwaB-UmW5xfdA"
+        />
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/ytc/AKedOLRdElh7G6aI_HNVtwZaidqLckwl20fFa0rv3koDDw=s68-c-k-c0x00ffffff-no-rj"
+          />
+          <div class="txt">
+            <h3>
+              【一刀未剪】拜登總統邀台灣參與全球武漢肺炎高峰會 前副總統陳建仁與會
+              大仁哥:台灣續續與理念相同夥伴合作│【焦點人物大現場】20210923│三立新聞台
+            </h3>
+            <h4>三立LIVE新聞</h4>
+            <p>觀看次數: 6110次．3小時前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/0o2DU-TCGYc/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLDopGLRDzhkL1Mygb7eRGfSCSyQ_Q"
+        />
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/AKedOLTTBTEa5bxa8XKM3GieyAUQuwypNFj9wQriEdYz=s68-c-k-c0x00ffffff-no-rj" />
+          <div class="txt">
+            <h3>【海贼王】罗杰终于到达最终之岛！知晓了世界的全部真相！这个800年没有人到过的岛屿，就叫它拉夫德鲁吧</h3>
+            <h4>先锋动漫</h4>
+            <p>觀看次數: 13萬次．1個月前</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://i.ytimg.com/vi/0wt7e2EaeyU/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCeTNz4gymIhPMzAgxQEPvI9AKQSA"
+        />
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/IXLa5VomPA0Lh37dtstRX-Q3cDuC0PFAIVauM0UcsghFyAji9Xhom9hi9vIJLV3U6yQyb0pc_Q=s68-c-k-c0x00ffffff-no-rj"
+          />
+          <div class="txt">
+            <h3>去美國想搶銀行不會說怎麼辦？｜LESSON 30: 前行！闖入銀行 魯莽存錢 輕率提錢｜鹽酥英語</h3>
+            <h4>CFABC 鵝肉麵</h4>
+            <p>觀看次數: 7.3萬次．2年前</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

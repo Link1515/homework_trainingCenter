@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: '標楷體';
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 對聯 */
+.sentence {
+  height: 650px;
+  font-size: 2rem;
+  margin: 0 2rem;
+  writing-mode: vertical-lr;
+}
+
+/* 棋盤 ----------------------------------- */
+.chess {
+  padding: 40px 50px;
+  border: 1px solid #000;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.chess::before {
+  content: '';
+  background: url('https://static.vecteezy.com/system/resources/previews/000/163/377/original/laminate-background-with-wooden-texture-vector.jpg');
+  filter: sepia(50%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #000;
+}
+
+.boundary-river {
+  text-align: center;
+  font-size: 0;
+}
+
+.boundary-river span {
+  font-size: 2.5rem;
+  margin: 0 4.8rem;
+}
+
+.cross-45 {
+  background-image: linear-gradient(45deg, transparent 49.5%, #000 49.5%, #000 50.5%, transparent 50.5%);
+}
+
+.cross-315 {
+  background-image: linear-gradient(315deg, transparent 49.5%, #000 49.5%, #000 50.5%, transparent 50.5%);
+}
+
+/* 棋子 ------------------------------------- */
+.black-row-1 div,
+.black-row-2 div,
+.black-row-3 div,
+.red-row-1 div,
+.red-row-2 div,
+.red-row-3 div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 2rem;
+  border: 1px solid #000;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.black-row-1 div::after,
+.black-row-2 div::after,
+.black-row-3 div::after,
+.red-row-1 div::after,
+.red-row-2 div::after,
+.red-row-3 div::after {
+  content: '';
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin: 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.red-row-1 div::after,
+.red-row-2 div::after,
+.red-row-3 div::after {
+  border-color: #f00;
+}
+
+.red-row-1 div,
+.red-row-2 div,
+.red-row-3 div {
+  color: #f00;
+}
+
+/* 黑紅旗共用樣式 */
+.black-row-1,
+.black-row-2,
+.black-row-3,
+.red-row-1,
+.red-row-2,
+.red-row-3 {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* 黑棋位置 */
+.black-row-1 {
+  width: 526px;
+  top: 17.5px;
+}
+
+.black-row-2 {
+  width: 405px;
+  top: 139.5px;
+}
+
+.black-row-3 {
+  width: 526px;
+  top: 197.5px;
+}
+
+/* 紅棋位置 */
+
+.red-row-1 {
+  width: 526px;
+  bottom: 17.5px;
+}
+
+.red-row-2 {
+  width: 405px;
+  bottom: 139.5px;
+}
+
+.red-row-3 {
+  width: 526px;
+  bottom: 197.5px;
+}

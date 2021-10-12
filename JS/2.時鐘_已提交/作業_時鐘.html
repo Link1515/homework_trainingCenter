@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mincraft Clock !</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="clock">
+      <div class="center hour-circle"></div>
+      <div class="center min-circle"></div>
+      <div class="center sec-circle"></div>
+      <div class="center center-cover"></div>
+      <div class="center outer-cover"></div>
+      <p class="screen">
+        <span>2</span>
+        <span>:</span>
+        <span>30</span>
+        <span>:</span>
+        <span>30</span>
+      </p>
+    </div>
+
+    <script>
+      const hourCircle = document.querySelector('.hour-circle');
+      const minCircle = document.querySelector('.min-circle');
+      const secCircle = document.querySelector('.sec-circle');
+      const screen = document.querySelector('.screen');
+
+      // 畫 secCircle 刻度
+      for (let i = 0; i < 60; i++) {
+        const span = document.createElement('span');
+        if (i === 0 || i % 5 === 0) {
+          span.setAttribute('style', 'height: 15px; background: #f00;');
+        }
+        secCircle.appendChild(span);
+        span.style.transform = `rotate(${6 * i}deg) translateY(calc(-100px - 50%))`;
+      }
+
+      // 劃 minCircle 刻度
+      for (let i = 0; i < 60; i++) {
+        const span = document.createElement('span');
+        if (i === 0 || i % 5 === 0) {
+          span.innerText = i;
+        }
+        minCircle.appendChild(span);
+        span.style.transform = `rotate(${-6 * i}deg) translateY(calc(-150px + 50%))`;
+      }
+
+      function timeUpdate() {
+        const time = new Date();
+
+        // 簡單修正secCircle反轉
+        if (time.getSeconds() > 0) {
+          secCircle.style.transition = 'transform 0.5s';
+        }
+        if (time.getSeconds() > 58) {
+          secCircle.style.transition = 'transform 0s';
+        }
+
+        // 讓時鐘轉動
+        secCircle.style.transform = `rotate(${6 * time.getSeconds()}deg)`;
+        minCircle.style.transform = `rotate(${6 * time.getMinutes()}deg)`;
+        hourCircle.style.transform = `rotate(${15 * time.getHours() + 15 * (time.getMinutes() / 60)}deg)`;
+
+        console.log(15 * time.getHours() + 15 * (time.getMinutes() / 60));
+
+        // 時鐘螢幕
+        screen.children[0].innerText = numFormat(time.getHours());
+        screen.children[2].innerText = numFormat(time.getMinutes());
+        screen.children[4].innerText = numFormat(time.getSeconds());
+      }
+
+      function numFormat(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+      timeUpdate();
+      const timer = setInterval(timeUpdate, 1000);
+    </script>
+  </body>
+</html>

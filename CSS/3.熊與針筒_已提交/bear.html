@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bear</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+
+      .ears,
+      .eyes,
+      .v-sign {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      /* 臉 */
+      .face {
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      /* 腮紅 */
+      .face::before,
+      .face::after {
+        content: '';
+        width: 90px;
+        height: 90px;
+        background-color: #f00;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      .face::before {
+        left: -18px;
+      }
+      .face::after {
+        right: -18px;
+      }
+
+      /* 耳朵 */
+      .ears::before,
+      .ears::after {
+        content: '';
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 12px solid #000;
+
+        position: absolute;
+        top: 0;
+      }
+      .ears::before {
+        left: 36px;
+      }
+      .ears::after {
+        right: 36px;
+      }
+
+      /* 眼睛 */
+      .eyes::before,
+      .eyes::after {
+        content: '';
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background-color: #000;
+        border: 12px solid #fff;
+
+        position: absolute;
+        top: 65px;
+      }
+      .eyes::before {
+        left: 70px;
+      }
+      .eyes::after {
+        right: 70px;
+      }
+
+      /* 鼻子嘴巴區 */
+      .nose-mouth-area {
+        width: 160px;
+        height: 110px;
+        background-color: #fff;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      /* 鼻子 */
+      .nose-mouth-area::before {
+        content: '';
+        width: 38px;
+        height: 25px;
+        background-color: #000;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 8px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      /* 嘴巴 */
+      .nose-mouth-area::after {
+        content: '';
+        width: 100px;
+        height: 40px;
+        background-color: #000;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      /* v字形 */
+      .v-sign::before,
+      .v-sign::after {
+        content: '';
+        width: 45px;
+        height: 50px;
+        background-color: #fff;
+        transform-origin: bottom;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 30px;
+        margin: auto;
+      }
+      .v-sign::before {
+        transform: skewX(50deg);
+      }
+      .v-sign::after {
+        transform: skewX(-50deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="face">
+      <div class="ears"></div>
+      <div class="eyes"></div>
+      <div class="nose-mouth-area"></div>
+      <div class="v-sign"></div>
+    </div>
+  </body>
+</html>

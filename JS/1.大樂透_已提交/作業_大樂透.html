@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const rand = (min, max) => {
+        result = Math.round(Math.random() * (max - min) + min);
+
+        return result;
+      };
+
+      let lotteryNum = {
+        A: [],
+        B: 0,
+      };
+
+      // A區
+      for (let i = 0; i < 6; i++) {
+        let ranNum = rand(1, 38);
+        if (!lotteryNum.A.includes(ranNum)) {
+          lotteryNum.A.push(ranNum);
+        } else {
+          i--;
+        }
+      }
+
+      // B區
+      lotteryNum.B = rand(1, 8);
+
+      document.write(`A區: ${lotteryNum.A.join(' ')}`);
+      document.write('<br>');
+      document.write(`B區: ${lotteryNum.B}`);
+    </script>
+  </body>
+</html>

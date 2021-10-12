@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: '微軟正黑體';
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 100%),
+    url('./img/bg-full.jpg') center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.box {
+  width: 70%;
+  height: 75%;
+  border: 1px solid rgb(82, 82, 82);
+  display: flex;
+}
+
+.product {
+  width: 50%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('./img/main.jpg') center / cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product .pic {
+  width: 160px;
+}
+
+.product .txt {
+  color: #fff;
+  text-align: center;
+  width: 80%;
+}
+
+.product h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.character {
+  width: 50%;
+}
+
+.cloud {
+  height: 50%;
+  padding: 30px;
+  background: url('./img/cloud.png') no-repeat right bottom / auto 90%;
+  background-color: #aaa;
+  display: flex;
+  align-items: center;
+}
+
+.tifa {
+  height: 50%;
+  padding: 30px;
+  background: url('./img/tifa.png') no-repeat 20px bottom / auto 90%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.info {
+  width: 65%;
+}
+
+.info h3 {
+  font-size: 2rem;
+}
