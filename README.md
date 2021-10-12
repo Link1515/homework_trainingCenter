@@ -4,17 +4,17 @@
 
 ### Dateline: 2021/11/07
 
-- ff7 flexbox
-- 象棋
+- [ ] ff7 flexbox
+- [ ] 象棋
 
 ### Dateline: 2021/10/31
 
-- 我的第一個網頁
-- inline-block 與 float 排版
-- 熊與針筒
-- youtube 排版
+- [x] 我的第一個網頁
+- [x] inline-block 與 float 排版
+- [x] 熊與針筒
+- [x] youtube 排版
 
 ## JS homework
 
-- 時鐘
-- 顏色選擇器
+- [x] 時鐘
+- [ ] 顏色選擇器
