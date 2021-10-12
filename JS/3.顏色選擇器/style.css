@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: '微軟正黑體';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controller {
+  width: 260px;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+}
+
+.controller .bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.controller button {
+  padding: 0.25rem 0.5rem;
+  outline: none;
+  border: none;
+  background-color: rgb(0, 153, 255);
+  border-radius: 300px;
+  cursor: pointer;
+}
+
+.controller button:hover {
+  background-color: rgb(0, 121, 202);
+}
+
+.controller p {
+  display: flex;
+  align-items: center;
+}
+
+.controller #colorCode {
+  width: 120px;
+  outline: none;
+  padding: 0 0.5rem;
+  text-align: center;
+  margin-left: 1rem;
+}

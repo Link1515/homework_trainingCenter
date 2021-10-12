@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>color picker</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="controller">
+      <div class="bar">
+        <label for="red">紅色R</label><input type="range" id="red" />
+        <button>random</button>
+      </div>
+      <div class="bar">
+        <label for="green">綠色G</label><input type="range" id="green" />
+        <button>random</button>
+      </div>
+      <div class="bar">
+        <label for="blue">藍色B</label><input type="range" id="blue" />
+        <button>random</button>
+      </div>
+      <p>當前顏色: <input type="text" id="colorCode" onfocus="this.select()" readonly /></p>
+    </div>
+
+    <script>
+      const rangeBars = document.querySelectorAll('.bar input');
+      const randBtns = document.querySelectorAll('.bar button');
+      const colorCode = document.querySelector('#colorCode');
+
+      let color = {
+        R: '128',
+        G: '128',
+        B: '128',
+      };
+
+      colorUpdate();
+
+      function colorUpdate(rangeBar) {
+        if (rangeBar) {
+          if (rangeBar.id === 'red') {
+            color.R = rangeBar.value;
+          } else if (rangeBar.id === 'green') {
+            color.G = rangeBar.value;
+          } else if (rangeBar.id === 'blue') {
+            color.B = rangeBar.value;
+          }
+        }
+
+        document.body.style.backgroundColor = `rgb(${color.R},${color.G},${color.B})`;
+
+        colorCode.value = `rgb(${color.R},${color.G},${color.B})`;
+      }
+
+      for (const bar of rangeBars) {
+        // range 範圍 與 初始值
+        bar.max = 255;
+        bar.min = 0;
+        bar.value = 128;
+
+        bar.onclick = () => {
+          colorUpdate(bar);
+        };
+      }
+
+      for (const btn of randBtns) {
+        btn.onclick = () => {
+          randNum = Math.random() * 255;
+          btn.previousElementSibling.value = randNum;
+
+          colorUpdate(btn.previousElementSibling);
+        };
+      }
+    </script>
+  </body>
+</html>
