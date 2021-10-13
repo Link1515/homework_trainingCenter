@@ -1,5 +1,7 @@
 # homework_trainingCenter
 
+- 打勾代表已繳交作業
+
 ## css homework
 
 ### Dateline: 2021/11/07
