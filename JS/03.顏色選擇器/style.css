@@ -13,7 +13,6 @@ body {
 }
 
 .container {
-  /* width: 260px; */
   background-color: #000;
   color: #fff;
   padding: 1rem 1.5rem;
@@ -123,4 +122,12 @@ body {
 
 .gradient-option input:first-child {
   margin-right: 2rem;
+}
+
+/* 底部資訊 */
+.footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #aaa;
 }

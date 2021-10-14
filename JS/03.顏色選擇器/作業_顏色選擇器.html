@@ -61,7 +61,7 @@
       <div class="mode">
         <input type="radio" name="mode" id="pure" checked /><label for="pure">純色</label>
         <input type="radio" name="mode" id="linear" /><label for="linear">線性漸層</label>
-        <input type="radio" name="mode" id="radius" /><label for="radius">徑向漸層</label>
+        <input type="radio" name="mode" id="radial" /><label for="radial">徑向漸層</label>
       </div>
 
       <!-- 純色顏色顯示 -->
@@ -80,6 +80,8 @@
         </li>
         <li>角度: <input type="text" id="degInfo" onfocus="this.select()" readonly /></li>
       </ul>
+
+      <p class="footer">按 H 鍵 顯示 / 隱藏 控制面板</p>
     </div>
 
     <script>
@@ -88,6 +90,7 @@
       const posRange = document.querySelectorAll('.posBar input');
       const degRange = document.querySelector('#deg');
       // block
+      const container = document.querySelector('.container');
       const controller2 = document.querySelector('.controller2');
       const posBar = document.querySelectorAll('.posBar');
       const degBar = document.querySelector('.degBar');
@@ -100,7 +103,7 @@
       // mode
       const pureMode = document.querySelector('#pure');
       const linearMode = document.querySelector('#linear');
-      const radiusMode = document.querySelector('#radius');
+      const radialMode = document.querySelector('#radial');
       // display info
       const pureColorCode = document.querySelector('#pureColorCode');
       const colorCode1 = document.querySelector('#colorCode1');
@@ -172,6 +175,18 @@
 
       pureMode.onchange = pureOn;
       linearMode.onchange = linearOn;
+      radialMode.onchange = radialOn;
+
+      // 按h隱藏控制面板
+      container.style.display = 'block';
+      document.onkeydown = (event) => {
+        console.log(event.keyCode);
+        if (event.keyCode === 72 && container.style.display === 'block') {
+          container.style.display = 'none';
+        } else if (event.keyCode === 72 && container.style.display === 'none') {
+          container.style.display = 'block';
+        }
+      };
 
       // 顏色資料更新
       function colorUpdate(colorRange) {
@@ -200,7 +215,7 @@
 
         if (pureMode.checked) {
           pureColorCode.value = `rgb(${color1.R},${color1.G},${color1.B})`;
-        } else if (linearMode.checked) {
+        } else if (linearMode.checked || radialMode.checked) {
           colorCode1.value = `rgb(${color1.R},${color1.G},${color1.B})`;
           colorCode2.value = `rgb(${color2.R},${color2.G},${color2.B})`;
         }
@@ -238,6 +253,8 @@
           document.body.style.background = `rgb(${color1.R},${color1.G},${color1.B})`;
         } else if (linearMode.checked) {
           document.body.style.background = `linear-gradient(${deg}deg, rgb(${color1.R},${color1.G},${color1.B}) ${pos1}%, rgb(${color2.R},${color2.G},${color2.B}) ${pos2}%)`;
+        } else if (radialMode.checked) {
+          document.body.style.background = `radial-gradient(rgb(${color1.R},${color1.G},${color1.B}) ${pos1}%, rgb(${color2.R},${color2.G},${color2.B}) ${pos2}%)`;
         }
       }
 
@@ -257,9 +274,6 @@
 
         deg = '180';
 
-        // for (const bar of colRange) {
-        //   bar.value = 128;
-        // }
         for (let i = 0; i < colRange.length; i++) {
           if (i < 3) {
             colRange[i].value = '255';
@@ -300,6 +314,21 @@
         colorUpdate();
         posUpdate();
         degUpdate();
+        backgroundUpdate();
+      }
+
+      function radialOn() {
+        controller2.style.display = 'block';
+        for (const bar of posBar) {
+          bar.style.display = 'block';
+        }
+        degBar.style.display = 'none';
+        pureOpt.style.display = 'none';
+        gradOpt.style.display = 'block';
+
+        allReset();
+        colorUpdate();
+        posUpdate();
         backgroundUpdate();
       }
     </script>
