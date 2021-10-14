@@ -4,10 +4,10 @@
 
 ## css homework
 
-### Dateline: 2021/11/07
+### Dateline: 2021/11/08
 
-- [ ] ff7 flexbox
-- [ ] 象棋
+- [x] ff7 flexbox
+- [x] 象棋
 - [ ] 媒體查詢
 
 ### Dateline: 2021/10/31
