@@ -13,20 +13,19 @@
         <!-- 控制區1 -->
         <div class="controller1">
           <div class="bar">
-            <label for="red">紅色R1</label><input type="range" id="red1" />
+            <label for="red1">紅色R1</label><input type="range" id="red1" />
             <button>random</button>
           </div>
           <div class="bar">
-            <label for="green">綠色G1</label><input type="range" id="green1" />
+            <label for="green1">綠色G1</label><input type="range" id="green1" />
             <button>random</button>
           </div>
           <div class="bar">
-            <label for="blue">藍色B1</label><input type="range" id="blue1" />
+            <label for="blue1">藍色B1</label><input type="range" id="blue1" />
             <button>random</button>
           </div>
           <!-- 漸層模式的控制條 -->
-
-          <div class="posbar">
+          <div class="posBar">
             <label for="pos1">位置1</label><input type="range" id="pos1" max="100%" min="0%" value="50%" />
             <button>random</button>
           </div>
@@ -34,27 +33,27 @@
         <!-- 控制區2 -->
         <div class="controller2">
           <div class="bar">
-            <label for="red">紅色R2</label><input type="range" id="red2" />
+            <label for="red2">紅色R2</label><input type="range" id="red2" />
             <button>random</button>
           </div>
           <div class="bar">
-            <label for="green">綠色G2</label><input type="range" id="green2" />
+            <label for="green2">綠色G2</label><input type="range" id="green2" />
             <button>random</button>
           </div>
           <div class="bar">
-            <label for="blue">藍色B2</label><input type="range" id="blue2" />
+            <label for="blue2">藍色B2</label><input type="range" id="blue2" />
             <button>random</button>
           </div>
           <!-- 漸層模式的控制條 -->
-          <div class="posbar">
-            <label for="pos1">位置2</label><input type="range" id="pos2" max="100%" min="0%" value="50%" />
+          <div class="posBar">
+            <label for="pos2">位置2</label><input type="range" id="pos2" max="100" min="0" value="50" />
             <button>random</button>
           </div>
         </div>
       </div>
 
-      <div class="degbar">
-        <label for="deg1">角度</label><input type="range" id="deg2" max="359" min="0" value="180" />
+      <div class="degBar">
+        <label for="deg">角度</label><input type="range" id="deg" max="359" min="0" value="180" />
         <button>random</button>
       </div>
 
@@ -66,122 +65,243 @@
       </div>
 
       <!-- 純色顏色顯示 -->
-      <p class="currentColor">當前顏色: <input type="text" id="pureColorCode" onfocus="this.select()" readonly /></p>
+      <p class="pure-option">當前顏色: <input type="text" id="pureColorCode" onfocus="this.select()" readonly /></p>
 
       <!-- 漸層資訊顯示 -->
       <ul class="gradient-option">
-        <li>顏色1: <input type="text" id="colorCode1" onfocus="this.select()" readonly /></li>
-        <li>顏色2: <input type="text" id="colorCode2" onfocus="this.select()" readonly /></li>
-        <li>角度: <input type="text" id="gradientDeg" onfocus="this.select()" readonly /></li>
+        <li>
+          顏色1: <input type="text" id="colorCode1" onfocus="this.select()" readonly /> 顏色2:
+          <input type="text" id="colorCode2" onfocus="this.select()" readonly />
+        </li>
+        <li>
+          位置1:
+          <input type="text" id="posInfo1" onfocus="this.select()" readonly /> 位置2:
+          <input type="text" id="posInfo2" onfocus="this.select()" readonly />
+        </li>
+        <li>角度: <input type="text" id="degInfo" onfocus="this.select()" readonly /></li>
       </ul>
     </div>
 
     <script>
-      const ctrlBar = document.querySelectorAll(' .bar input');
-      // const ctrlBar1 = document.querySelectorAll('.controller1 .bar input');
-      // const ctrlBar2 = document.querySelectorAll('.controller2 .bar input');
-      const ctrlGBar1 = document.querySelectorAll('.controller1 .gbar input');
-      const ctrlGBar2 = document.querySelectorAll('.controller2 .gbar input');
+      // range
+      const colRange = document.querySelectorAll(' .bar input');
+      const posRange = document.querySelectorAll('.posBar input');
+      const degRange = document.querySelector('#deg');
+      // block
       const controller2 = document.querySelector('.controller2');
-      const posbar = document.querySelectorAll('.posbar');
+      const posBar = document.querySelectorAll('.posBar');
+      const degBar = document.querySelector('.degBar');
+      const pureOpt = document.querySelector('.pure-option');
+      const gradOpt = document.querySelector('.gradient-option');
+      // btn
       const colorRandbtn = document.querySelectorAll('.bar button');
+      const posRandbtn = document.querySelectorAll('.posBar button');
+      const degRandbtn = document.querySelector('.degBar button');
+      // mode
       const pureMode = document.querySelector('#pure');
       const linearMode = document.querySelector('#linear');
       const radiusMode = document.querySelector('#radius');
+      // display info
       const pureColorCode = document.querySelector('#pureColorCode');
+      const colorCode1 = document.querySelector('#colorCode1');
+      const colorCode2 = document.querySelector('#colorCode2');
+      const posInfo1 = document.querySelector('#posInfo1');
+      const posInfo2 = document.querySelector('#posInfo2');
+      const degInfo = document.querySelector('#degInfo');
 
-      let color1 = {
-        R: '128',
-        G: '128',
-        B: '128',
-      };
+      let color1 = {};
+      let color2 = {};
+      let pos1 = '';
+      let pos2 = '';
+      let deg = '';
 
-      let color2 = {
-        R: '128',
-        G: '128',
-        B: '128',
-      };
+      // color range initialize & color random btn setting
+      for (const btn of colorRandbtn) {
+        let range = btn.previousElementSibling;
+        range.max = 255;
+        range.min = 0;
+        range.value = 128;
 
-      // color range 範圍 與 初始值
-      for (const bar of ctrlBar) {
-        bar.max = 255;
-        bar.min = 0;
-        bar.value = 128;
+        range.onchange = () => {
+          colorUpdate(range);
+          backgroundUpdate();
+        };
+
+        btn.onclick = () => {
+          randNum = Math.random() * 255;
+          range.value = randNum;
+
+          colorUpdate(range);
+          backgroundUpdate();
+        };
       }
 
-      function colorUpdate(rangeBar) {
-        if (rangeBar) {
-          switch (rangeBar.id) {
+      // position range bar & position random btn
+      for (const btn of posRandbtn) {
+        let range = btn.previousElementSibling;
+
+        range.onchange = () => {
+          posUpdate(range);
+          backgroundUpdate();
+        };
+
+        btn.onclick = () => {
+          randNum = Math.random() * 100;
+          range.value = randNum;
+
+          posUpdate(range);
+          backgroundUpdate();
+        };
+      }
+
+      // degree range bar & degree random btn
+      degRandbtn.previousElementSibling.onchange = () => {
+        degUpdate(degRandbtn.previousElementSibling);
+        backgroundUpdate();
+      };
+      degRandbtn.onclick = () => {
+        randNum = Math.random() * 359;
+        degRandbtn.previousElementSibling.value = randNum;
+
+        degUpdate(degRandbtn.previousElementSibling);
+        backgroundUpdate();
+      };
+
+      // 載入網頁預設為pure mode
+      pureOn();
+
+      pureMode.onchange = pureOn;
+      linearMode.onchange = linearOn;
+
+      // 顏色資料更新
+      function colorUpdate(colorRange) {
+        if (colorRange) {
+          switch (colorRange.id) {
             case 'red1':
-              color1.R = rangeBar.value;
+              color1.R = colorRange.value;
               break;
             case 'green1':
-              color1.G = rangeBar.value;
+              color1.G = colorRange.value;
               break;
             case 'blue1':
-              color1.B = rangeBar.value;
+              color1.B = colorRange.value;
+              break;
+            case 'red2':
+              color2.R = colorRange.value;
+              break;
+            case 'green2':
+              color2.G = colorRange.value;
+              break;
+            case 'blue2':
+              color2.B = colorRange.value;
               break;
           }
         }
 
         if (pureMode.checked) {
-          document.body.style.background = `rgb(${color1.R},${color1.G},${color1.B})`;
-
           pureColorCode.value = `rgb(${color1.R},${color1.G},${color1.B})`;
+        } else if (linearMode.checked) {
+          colorCode1.value = `rgb(${color1.R},${color1.G},${color1.B})`;
+          colorCode2.value = `rgb(${color2.R},${color2.G},${color2.B})`;
         }
       }
 
-      function colorRand() {
-        for (const btn of colorRandbtn) {
-          btn.onclick = () => {
-            randNum = Math.random() * 255;
-            btn.previousElementSibling.value = randNum;
-
-            colorUpdate(btn.previousElementSibling);
-          };
+      // 位置資料更新
+      function posUpdate(posRange) {
+        if (posRange) {
+          switch (posRange.id) {
+            case 'pos1':
+              pos1 = posRange.value;
+              break;
+            case 'pos2':
+              pos2 = posRange.value;
+              break;
+          }
         }
+
+        posInfo1.value = `${pos1}%`;
+        posInfo2.value = `${pos2}%`;
+      }
+
+      // 角度資料更新
+      function degUpdate(degRange) {
+        if (degRange) {
+          deg = degRange.value;
+        }
+
+        degInfo.value = `${deg}deg`;
+      }
+
+      // 背景更新
+      function backgroundUpdate() {
+        if (pureMode.checked) {
+          document.body.style.background = `rgb(${color1.R},${color1.G},${color1.B})`;
+        } else if (linearMode.checked) {
+          document.body.style.background = `linear-gradient(${deg}deg, rgb(${color1.R},${color1.G},${color1.B}) ${pos1}%, rgb(${color2.R},${color2.G},${color2.B}) ${pos2}%)`;
+        }
+      }
+
+      // reset
+      function allReset() {
+        // reset color
+        color1.R = '255';
+        color1.G = '255';
+        color1.B = '255';
+
+        color2.R = '0';
+        color2.G = '0';
+        color2.B = '0';
+
+        pos1 = '0';
+        pos2 = '100';
+
+        deg = '180';
+
+        // for (const bar of colRange) {
+        //   bar.value = 128;
+        // }
+        for (let i = 0; i < colRange.length; i++) {
+          if (i < 3) {
+            colRange[i].value = '255';
+          } else {
+            colRange[i].value = '0';
+          }
+        }
+
+        posRange[0].value = '0';
+        posRange[1].value = '100';
+        degRange.value = '180';
       }
 
       function pureOn() {
         controller2.style.display = 'none';
-        for (const bar of posbar) {
+        for (const bar of posBar) {
           bar.style.display = 'none';
         }
+        degBar.style.display = 'none';
+        pureOpt.style.display = 'block';
+        gradOpt.style.display = 'none';
 
-        // reset color
-        color1 = {
-          R: '128',
-          G: '128',
-          B: '128',
-        };
-
+        allReset();
         colorUpdate();
-
-        for (const bar of ctrlBar) {
-          bar.onclick = () => {
-            colorUpdate(bar);
-          };
-        }
-
-        colorRand();
+        backgroundUpdate();
       }
 
       function linearOn() {
         controller2.style.display = 'block';
-        for (const bar of posbar) {
+        for (const bar of posBar) {
           bar.style.display = 'block';
         }
+        degBar.style.display = 'block';
+        pureOpt.style.display = 'none';
+        gradOpt.style.display = 'block';
+
+        allReset();
+        colorUpdate();
+        posUpdate();
+        degUpdate();
+        backgroundUpdate();
       }
-      // 載入網頁預設為pure mode
-      pureOn();
-
-      pureMode.onchange = () => {
-        pureOn();
-      };
-
-      linearMode.onchange = () => {
-        linearOn();
-      };
     </script>
   </body>
 </html>

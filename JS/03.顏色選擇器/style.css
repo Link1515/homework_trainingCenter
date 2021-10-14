@@ -24,12 +24,12 @@ body {
   display: flex;
 }
 
-.posbar {
+.posBar {
   display: none;
 }
 
-.posbar #pos1,
-.posbar #pos2 {
+.posBar #pos1,
+.posBar #pos2 {
   margin-left: 1rem;
   margin-right: 0.5rem;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .top button,
-.degbar button {
+.degBar button {
   padding: 0.25rem 0.5rem;
   outline: none;
   border: none;
@@ -68,12 +68,13 @@ body {
   align-items: center;
 }
 
-.degbar {
-  margin: 0.5rem 0;
+.degBar {
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
   display: none;
 }
 
-.degbar input[type='range'] {
+.degBar input[type='range'] {
   margin-left: 1rem;
   margin-right: 0.5rem;
 }
@@ -89,12 +90,12 @@ body {
 }
 
 /* 純色當前顏色 */
-.currentColor {
+.pure-option {
   text-align: center;
   margin: 0.5rem 0;
 }
 
-.currentColor #pureColorCode {
+.pure-option #pureColorCode {
   width: 120px;
   outline: none;
   padding: 0 0.5rem;
@@ -108,12 +109,18 @@ body {
   display: none;
 }
 
-.gradient-option #colorCode1,
-.gradient-option #colorCode2,
-.gradient-option #gradientDeg {
+.gradient-option li {
+  margin: 0.25rem 0;
+}
+
+.gradient-option input {
   width: 120px;
   outline: none;
   padding: 0 0.5rem;
   text-align: center;
-  margin-left: 1rem;
+  margin: 0 0.5rem;
+}
+
+.gradient-option input:first-child {
+  margin-right: 2rem;
 }
