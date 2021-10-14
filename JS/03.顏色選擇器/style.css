@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -11,21 +12,45 @@ body {
   align-items: center;
 }
 
-.controller {
-  width: 260px;
+.container {
+  /* width: 260px; */
   background-color: #000;
   color: #fff;
   padding: 1rem 1.5rem;
   border-radius: 30px;
 }
 
-.controller .bar {
+.top {
+  display: flex;
+}
+
+.posbar {
+  display: none;
+}
+
+.posbar #pos1,
+.posbar #pos2 {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.controller2 {
+  margin-left: 2rem;
+  display: none;
+}
+
+.top .bar {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
 }
 
-.controller button {
+.top input[type='range'] {
+  margin: 0 0.5rem;
+}
+
+.top button,
+.degbar button {
   padding: 0.25rem 0.5rem;
   outline: none;
   border: none;
@@ -34,16 +59,58 @@ body {
   cursor: pointer;
 }
 
-.controller button:hover {
+.top button:hover {
   background-color: rgb(0, 121, 202);
 }
 
-.controller p {
+.top p {
   display: flex;
   align-items: center;
 }
 
-.controller #colorCode {
+.degbar {
+  margin: 0.5rem 0;
+  display: none;
+}
+
+.degbar input[type='range'] {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* 模式轉換 */
+.mode {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.mode label {
+  margin: 0 0.5rem;
+}
+
+/* 純色當前顏色 */
+.currentColor {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.currentColor #pureColorCode {
+  width: 120px;
+  outline: none;
+  padding: 0 0.5rem;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+/* 漸層選單 */
+.gradient-option {
+  text-align: center;
+  display: none;
+}
+
+.gradient-option #colorCode1,
+.gradient-option #colorCode2,
+.gradient-option #gradientDeg {
   width: 120px;
   outline: none;
   padding: 0 0.5rem;
