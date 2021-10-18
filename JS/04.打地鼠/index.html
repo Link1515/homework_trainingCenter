@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'DFPHeiW3-GB', 'Arial';
+        box-sizing: border-box;
+        background-color: #999;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        padding-top: 10rem;
+      }
+
+      .controller {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 2rem;
+      }
+
+      .controller input[type='radio'] {
+        margin-right: 0.25rem;
+      }
+
+      table {
+        text-align: center;
+      }
+
+      td {
+        background-color: #000;
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      #gameTable td {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: 0.1s;
+      }
+
+      #scoreTable {
+        width: 600px;
+        height: 250px;
+      }
+
+      .target:active {
+        background-color: #fa0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controller">
+      <button type="button" id="startbtn">開始</button>
+      <br />
+      <div>
+        <span>難度: </span>
+        <input type="radio" name="difficulty" id="easy" checked /><label for="easy">簡單</label>
+        <input type="radio" name="difficulty" id="normal" /><label for="normal">普通</label>
+        <input type="radio" name="difficulty" id="hard" /><label for="hard">困難</label>
+      </div>
+      <div>時間: <span id="timeText">0</span> 秒 | 分數: <span id="scoreText">0</span></div>
+    </div>
+    <table id="gameTable"></table>
+    <table id="scoreTable">
+      <tr>
+        <td colspan="7" style="font-size: 2rem">高分榜</td>
+      </tr>
+      <tr>
+        <td rowspan="2"></td>
+        <td colspan="2">簡單</td>
+        <td colspan="2">普通</td>
+        <td colspan="2">困難</td>
+      </tr>
+      <tr>
+        <td>玩家</td>
+        <td>分數</td>
+        <td>玩家</td>
+        <td>分數</td>
+        <td>玩家</td>
+        <td>分數</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td id="easy-first-player"></td>
+        <td id="easy-first-score"></td>
+        <td id="normal-first-player"></td>
+        <td id="normal-first-score"></td>
+        <td id="hard-first-player"></td>
+        <td id="hard-first-score"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+
+  <script>
+    const startbtn = document.getElementById('startbtn');
+    const difficulty = document.getElementsByName('difficulty');
+    const timeText = document.getElementById('timeText');
+    const scoreText = document.getElementById('scoreText');
+    const gameTable = document.getElementById('gameTable');
+    const scoreTable = document.getElementById('scoreTable');
+
+    let timer = '';
+    let score = 0;
+    let highScore = {
+      easy: {
+        first: {
+          name: '',
+          score: '',
+        },
+        second: {
+          name: '',
+          score: '',
+        },
+        third: {
+          name: '',
+          score: '',
+        },
+        fourth: {
+          name: '',
+          score: '',
+        },
+        fifth: {
+          name: '',
+          score: '',
+        },
+      },
+      normal: {
+        first: {
+          name: '',
+          score: '',
+        },
+        second: {
+          name: '',
+          score: '',
+        },
+        third: {
+          name: '',
+          score: '',
+        },
+        fourth: {
+          name: '',
+          score: '',
+        },
+        fifth: {
+          name: '',
+          score: '',
+        },
+      },
+      hard: {
+        first: {
+          name: '',
+          score: '',
+        },
+        second: {
+          name: '',
+          score: '',
+        },
+        third: {
+          name: '',
+          score: '',
+        },
+        fourth: {
+          name: '',
+          score: '',
+        },
+        fifth: {
+          name: '',
+          score: '',
+        },
+      },
+    };
+
+    // 遊戲開始
+    startbtn.onclick = () => {
+      let flag = '';
+      let col = '';
+      let row = '';
+      let count = 1000;
+
+      startbtn.disabled = true;
+      for (const dif of difficulty) {
+        dif.disabled = true;
+        if (dif.checked) {
+          flag = dif.id;
+        }
+      }
+      scoreTable.style.display = 'none';
+
+      // 難度
+      if (flag == 'easy') {
+        col = 16;
+        row = 9;
+        gameTable.style.minWidth = '850px';
+      } else if (flag == 'normal') {
+        col = 26;
+        row = 12;
+        gameTable.style.minWidth = '1400px';
+      } else if (flag == 'hard') {
+        col = 36;
+        row = 15;
+        gameTable.style.minWidth = '1900px';
+      }
+
+      // 繪製表格
+
+      for (let i = 0; i < row; i++) {
+        const tr = document.createElement('tr');
+        tr.id = `tr${i}`;
+        gameTable.appendChild(tr);
+        const trInTable = document.getElementById(`tr${i}`);
+        for (let j = 0; j < col; j++) {
+          const td = document.createElement('td');
+          td.id = `td${i}${j}`;
+          td.innerText = 'O';
+          trInTable.appendChild(td);
+        }
+      }
+
+      randomPlace(row, col);
+
+      timer = setInterval(() => {
+        count--;
+        timeText.innerText = count / 100;
+
+        if (count == 0) {
+          clearInterval(timer);
+          gameTable.innerHTML = '';
+
+          // 紀錄分數
+          if (score > highScore[flag].fifth.score) {
+            if (score > highScore[flag].first.score) {
+              const name = prompt('破紀錄! 你成為了第一名! 請輸入你的名字');
+              highScore[flag].first.score = score;
+              highScore[flag].first.name = name;
+            } else if (score > highScore[flag].second.score) {
+              const name = prompt('破紀錄! 你成為了第二名! 請輸入你的名字');
+              highScore[flag].second.score = score;
+              highScore[flag].second.name = name;
+            } else if (score > highScore[flag].third.score) {
+              const name = prompt('破紀錄! 你成為了第三名! 請輸入你的名字');
+              highScore[flag].third.score = score;
+              highScore[flag].third.name = name;
+            } else if (score > highScore[flag].fourth.score) {
+              const name = prompt('破紀錄! 你成為了第四名! 請輸入你的名字');
+              highScore[flag].fourth.score = score;
+              highScore[flag].fourth.name = name;
+            } else if (score > highScore[flag].fifth.score) {
+              const name = prompt('破紀錄! 你成為了第五名! 請輸入你的名字');
+              highScore[flag].fifth.score = score;
+              highScore[flag].fifth.name = name;
+            }
+          }
+
+          startbtn.disabled = false;
+          for (const dif of difficulty) {
+            dif.disabled = false;
+          }
+          scoreTable.style.display = 'table';
+        }
+      }, 10);
+    };
+
+    // 隨機一格換字
+    function randomPlace(row, col) {
+      const changeBlock = document.getElementById(
+        `td${Math.round(Math.random() * (row - 1))}${Math.round(Math.random() * (col - 1))}`
+      );
+
+      changeBlock.innerText = 'Q';
+      changeBlock.classList.add('target');
+
+      changeBlock.onclick = () => {
+        score++;
+        scoreText.innerText = score;
+        changeBlock.innerText = 'O';
+        changeBlock.onclick = null;
+        randomPlace(row, col);
+        changeBlock.classList.remove('target');
+      };
+    }
+  </script>
+</html>
