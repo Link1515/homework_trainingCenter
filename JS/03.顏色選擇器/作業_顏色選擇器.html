@@ -125,7 +125,7 @@
         range.min = 0;
         range.value = 128;
 
-        range.onchange = () => {
+        range.oninput = () => {
           colorUpdate(range);
           backgroundUpdate();
         };
@@ -143,7 +143,7 @@
       for (const btn of posRandbtn) {
         let range = btn.previousElementSibling;
 
-        range.onchange = () => {
+        range.oninput = () => {
           posUpdate(range);
           backgroundUpdate();
         };
@@ -158,7 +158,7 @@
       }
 
       // degree range bar & degree random btn
-      degRandbtn.previousElementSibling.onchange = () => {
+      degRandbtn.previousElementSibling.oninput = () => {
         degUpdate(degRandbtn.previousElementSibling);
         backgroundUpdate();
       };
