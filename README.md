@@ -21,3 +21,4 @@
 
 - [x] [時鐘](https://link1515.github.io/homework_trainingCenter/JS/02.%E6%99%82%E9%90%98/%E4%BD%9C%E6%A5%AD_%E6%99%82%E9%90%98.html)
 - [ ] [顏色選擇器](https://link1515.github.io/homework_trainingCenter/JS/03.%E9%A1%8F%E8%89%B2%E9%81%B8%E6%93%87%E5%99%A8/%E4%BD%9C%E6%A5%AD_%E9%A1%8F%E8%89%B2%E9%81%B8%E6%93%87%E5%99%A8.html)
+- [ ] 打地鼠
