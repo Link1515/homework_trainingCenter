@@ -61,6 +61,14 @@ button:disabled:hover {
   background-color: #f99;
 }
 
+#logo {
+  font-size: 4rem;
+}
+#logo span {
+  color: #0fa;
+  filter: blur(3px);
+}
+
 /* label */
 .labelContainer {
   height: 30px;

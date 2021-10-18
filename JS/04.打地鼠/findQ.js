@@ -5,6 +5,7 @@ const timeText = document.getElementById('timeText');
 const scoreText = document.getElementById('scoreText');
 const gameTable = document.getElementById('gameTable');
 const scoreTable = document.getElementById('scoreTable');
+const logo = document.getElementById('logo');
 // 表格資料
 const easyName = document.getElementsByClassName('easy-name');
 const easyScore = document.getElementsByClassName('easy-score');
@@ -63,6 +64,7 @@ startbtn.onclick = () => {
   let row = '';
   let count = 2000;
 
+  logo.style.display = 'none';
   gameTable.style.display = 'table';
   startbtn.disabled = true;
   for (const dif of difficulty) {
@@ -111,7 +113,10 @@ startbtn.onclick = () => {
 
     if (count == 0) {
       clearInterval(timer);
+      logo.style.display = 'block';
+      gameTable.style.display = 'none';
       gameTable.innerHTML = '';
+      scoreTable.style.display = 'table';
 
       // 顯示 gameover info
       gameoverInfo.style.display = 'flex';
@@ -145,8 +150,6 @@ startbtn.onclick = () => {
       for (const dif of difficulty) {
         dif.disabled = false;
       }
-      gameTable.style.display = 'none';
-      scoreTable.style.display = 'table';
     }
   }, 10);
 };
