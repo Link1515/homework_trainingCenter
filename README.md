@@ -4,11 +4,14 @@
 
 ## css homework
 
+### Dateline: 2021/11/15
+
+- [x] [媒體查詢](https://link1515.github.io/homework_trainingCenter/CSS/07.%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2/media_query_wda.html)
+
 ### Dateline: 2021/11/08
 
 - [x] [ff7 flexbox](https://link1515.github.io/homework_trainingCenter/CSS/05.ff7_flexbox/ff7_flexbox.html)
 - [x] [象棋](https://link1515.github.io/homework_trainingCenter/CSS/06.%E8%B1%A1%E6%A3%8B/chinese_chess.html)
-- [ ] [媒體查詢](https://link1515.github.io/homework_trainingCenter/CSS/07.%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2/media_query_wda.html)
 
 ### Dateline: 2021/10/31
 
