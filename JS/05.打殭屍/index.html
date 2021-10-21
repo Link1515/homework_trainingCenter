@@ -5,54 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        background-color: #999;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .box {
-        width: 400px;
-        height: 700px;
-        background-color: #000;
-        position: relative;
-        cursor: url('./plane.png') 50 41, auto;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .block {
-        width: 50px;
-        height: 50px;
-        background-color: #fa0;
-        position: absolute;
-        top: 50px;
-        left: 200px;
-      }
-
-      .bullet {
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        position: absolute;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="box">
-      <div class="block"></div>
+      <div class="planeArea"></div>
     </div>
 
-    <script src="./jquery-3.6.0.min.js"></script>
-    <script src="./airplaneGame.js"></script>
+    <button type="button" id="startBtn">開始</button>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/airplaneGame.js"></script>
   </body>
 </html>

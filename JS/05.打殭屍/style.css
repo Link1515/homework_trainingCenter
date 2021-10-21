@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #999;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box {
+  width: 400px;
+  height: 700px;
+  background-color: #000;
+  position: relative;
+  cursor: url('./images/plane.png') 50 41, auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* .box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 50px solid #000;
+  cursor: auto;
+  z-index: -1;
+} */
+
+.block {
+  width: 50px;
+  height: 50px;
+  background-color: #fa0;
+  position: absolute;
+  top: 50px;
+  left: 200px;
+}
+
+.bullet {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+}
+
+#startBtn {
+  display: inline-block;
+}
