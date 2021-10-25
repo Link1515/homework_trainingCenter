@@ -16,6 +16,10 @@ body {
   padding-top: 12rem;
 }
 
+td {
+  user-select: none;
+}
+
 button {
   outline: none;
   border: none;
