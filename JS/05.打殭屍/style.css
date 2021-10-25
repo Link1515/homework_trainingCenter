@@ -49,12 +49,27 @@ body {
 
 .planeArea {
   height: 320px;
-  cursor: url('./images/plane.png') 50 41, auto;
+  cursor: url('./images/plane2.png') 50 50, auto;
   z-index: 2;
 }
 
 .boundary {
   border-top: 5px solid rgb(235, 3, 24);
+}
+
+.highScore {
+  text-align: center;
+  font-size: 12rem;
+  color: rgba(251, 255, 5, 0.5);
+  /* color: #ff0; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2rem;
+}
+
+.highScore p {
+  font-size: 3rem;
 }
 
 #score {
@@ -64,7 +79,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 22rem;
+  top: 24rem;
   z-index: 0;
   user-select: none;
 }
@@ -76,7 +91,7 @@ body {
   background-color: rgb(235, 3, 24);
   font-size: 2rem;
   border-radius: 10px;
-  cursor: url('./images/plane.png') 50 41, auto;
+  cursor: url('./images/plane2.png') 50 50, auto;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -91,7 +106,9 @@ body {
 .block {
   width: 50px;
   height: 50px;
-  background-color: #fa0;
+  background: url('./images/block.png') no-repeat center / cover;
+  transform: rotate(180deg);
+  opacity: 1;
   position: absolute;
   top: 50px;
   left: 200px;

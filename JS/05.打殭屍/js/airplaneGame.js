@@ -1,8 +1,9 @@
-let count = 0;
+let score = 0;
 let clock = 60;
 let mouseX = 0;
 let mouseY = 0;
 let fireTimer = 0;
+let highScore = 0;
 
 $('#startBtn').on('click', gameStart);
 
@@ -40,15 +41,24 @@ function trigger() {
   }, 500);
 }
 
+// 取出本地高分
+if (localStorage.getItem('highScore')) {
+  highScore = localStorage.getItem('highScore');
+  $('.highScore span').text(highScore);
+} else {
+  $('.highScore').css('display', 'none');
+}
+
 // 遊戲開始
 function gameStart() {
   $('#startBtn').css('display', 'none');
   $('.planeArea').addClass('boundary');
+  $('.highScore').css('display', 'none');
 
   // reset
   clock = 0;
-  count = 0;
-  $('#score').text(count);
+  score = 0;
+  $('#score').text(score);
 
   let blockId = 0;
 
@@ -102,10 +112,21 @@ function gameStart() {
             bulletLeft + _block.width() > blockLeft &&
             bulletLeft < blockLeft + _block.width()
           ) {
-            _block.remove();
+            _block
+              .css('background', "url('./images/boom.png') no-repeat center / cover")
+              .stop()
+              .animate(
+                {
+                  opacity: 0,
+                },
+                300,
+                function () {
+                  _block.remove();
+                }
+              );
             _bullet.remove();
-            count++;
-            $('#score').text(count);
+            score++;
+            $('#score').text(score);
           }
         });
         if (_bullet.offset().top < 0) {
@@ -119,17 +140,23 @@ function gameStart() {
     clock++;
     $('.countdown span').css('right', `${($('.countdown').width() * clock) / 200}px`);
 
-    console.log(clock);
     if (clock > 200) {
       clearInterval(timer);
       clearInterval(deterTimer);
       clearInterval(blockTimer);
       clearInterval(fireTimer);
 
+      $('.highScore').css('display', 'block');
       $('.planeArea').removeClass('boundary');
       $('.planeArea').off();
       $('.block').remove();
       $('#startBtn').css('display', 'block');
+
+      if (score > highScore) {
+        highScore = score;
+        $('.highScore span').text(highScore);
+        localStorage.setItem('highScore', highScore);
+      }
     }
   }, 100);
 }
