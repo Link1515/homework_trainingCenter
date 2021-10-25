@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'VT323', monospace;
 }
 
 .box {
@@ -17,9 +20,48 @@ body {
   height: 700px;
   background-color: #000;
   position: relative;
-  cursor: url('./images/plane.png') 50 41, auto;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: url('./images/plane.png') 50 41, auto;
+}
+
+.planeArea {
+  height: 350px;
+  z-index: 2;
+}
+
+#score {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22rem;
+  z-index: 0;
+  user-select: none;
+}
+
+#startBtn {
+  padding: 0.25rem 0.5rem;
+  outline: none;
+  border: 8px solid #666;
+  background-color: rgb(235, 3, 24);
+  font-size: 2rem;
+  border-radius: 10px;
+  cursor: url('./images/plane.png') 50 41, auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+#startBtn:active {
+  background-color: rgb(167, 2, 16);
 }
 
 .block {
@@ -29,6 +71,7 @@ body {
   position: absolute;
   top: 50px;
   left: 200px;
+  z-index: 20;
 }
 
 .bullet {
@@ -36,8 +79,5 @@ body {
   height: 30px;
   background-color: #fff;
   position: absolute;
-}
-
-#startBtn {
-  display: inline-block;
+  z-index: 10;
 }
