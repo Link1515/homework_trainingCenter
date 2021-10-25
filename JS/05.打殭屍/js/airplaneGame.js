@@ -34,11 +34,8 @@ function trigger() {
         {
           top: '-=1000px',
         },
-        {
-          specialEasing: {
-            top: 'linear',
-          },
-        }
+        1500,
+        'linear'
       );
   }, 500);
 }
@@ -46,9 +43,10 @@ function trigger() {
 // 遊戲開始
 function gameStart() {
   $('#startBtn').css('display', 'none');
+  $('.planeArea').addClass('boundary');
 
   // reset
-  clock = 10;
+  clock = 0;
   count = 0;
   $('#score').text(count);
 
@@ -57,7 +55,7 @@ function gameStart() {
   // block產生
   const blockTimer = setInterval(function () {
     if ($('.block').length < 10) {
-      for (let i = 0; i < rand(3); i++) {
+      for (let i = 0; i < rand(5); i++) {
         $(
           `<div class="block" id="block${blockId}" style="left: ${rand($('.box').width() - 50)}px; top: ${rand(
             250
@@ -70,23 +68,19 @@ function gameStart() {
   }, 800);
 
   // 滑鼠控制飛機砲彈
-  $('.box').on('mousemove', function (e) {
+  $('.planeArea').on('mousemove', function (e) {
     mouseX = e.offsetX;
-    if (e.target.classList.contains('box')) {
-      mouseY = e.offsetY;
-    } else {
-      mouseY = e.offsetY + 352;
-    }
-    // mouseY = e.offsetY + 355;
-
-    console.log(e.target);
+    // if (e.target.classList.contains('box')) {
+    //   mouseY = e.offsetY;
+    // } else {
+    //   mouseY = e.offsetY + 352;
+    // }
+    mouseY = e.offsetY + 355;
   });
 
-  trigger();
+  $('.planeArea').on('mouseenter', trigger);
 
-  $('.box').on('mouseenter', trigger);
-
-  $('.box').on('mouseleave', function () {
+  $('.planeArea').on('mouseleave', function () {
     clearInterval(fireTimer);
   });
 
@@ -122,16 +116,20 @@ function gameStart() {
   }, 10);
 
   const timer = setInterval(function () {
-    clock--;
-    // console.log(clock);
-    if (clock === 0) {
+    clock++;
+    $('.countdown span').css('right', `${($('.countdown').width() * clock) / 200}px`);
+
+    console.log(clock);
+    if (clock > 200) {
       clearInterval(timer);
       clearInterval(deterTimer);
       clearInterval(blockTimer);
       clearInterval(fireTimer);
-      $('.box').off();
+
+      $('.planeArea').removeClass('boundary');
+      $('.planeArea').off();
       $('.block').remove();
       $('#startBtn').css('display', 'block');
     }
-  }, 1000);
+  }, 100);
 }

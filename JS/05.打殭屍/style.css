@@ -15,8 +15,28 @@ body {
   font-family: 'VT323', monospace;
 }
 
-.box {
+.container {
   width: 400px;
+}
+
+.countdown {
+  height: 20px;
+  background-color: #000;
+  border: 8px solid #000;
+  position: relative;
+}
+
+.countdown span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(235, 3, 24);
+  transition: 0.1s;
+}
+
+.box {
   height: 700px;
   background-color: #000;
   position: relative;
@@ -25,12 +45,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  cursor: url('./images/plane.png') 50 41, auto;
 }
 
 .planeArea {
-  height: 350px;
+  height: 320px;
+  cursor: url('./images/plane.png') 50 41, auto;
   z-index: 2;
+}
+
+.boundary {
+  border-top: 5px solid rgb(235, 3, 24);
 }
 
 #score {
@@ -76,8 +100,8 @@ body {
 
 .bullet {
   width: 30px;
-  height: 30px;
-  background-color: #fff;
+  height: 48px;
+  background: url('./images/bullet.png');
   position: absolute;
   z-index: 10;
 }
