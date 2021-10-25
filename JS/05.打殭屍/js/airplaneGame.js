@@ -3,7 +3,7 @@ let clock = 60;
 let mouseX = 0;
 let mouseY = 0;
 let fireTimer = 0;
-let highScore = 0;
+let highScore_plane = 0;
 
 $('#startBtn').on('click', gameStart);
 
@@ -43,8 +43,8 @@ function trigger() {
 
 // 取出本地高分
 if (localStorage.getItem('highScore')) {
-  highScore = localStorage.getItem('highScore');
-  $('.highScore span').text(highScore);
+  highScore_plane = localStorage.getItem('highScore');
+  $('.highScore span').text(highScore_plane);
 } else {
   $('.highScore').css('display', 'none');
 }
@@ -152,10 +152,10 @@ function gameStart() {
       $('.block').remove();
       $('#startBtn').css('display', 'block');
 
-      if (score > highScore) {
-        highScore = score;
-        $('.highScore span').text(highScore);
-        localStorage.setItem('highScore', highScore);
+      if (score > highScore_plane) {
+        highScore_plane = score;
+        $('.highScore span').text(highScore_plane);
+        localStorage.setItem('highScore', highScore_plane);
       }
     }
   }, 100);
