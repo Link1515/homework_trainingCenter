@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conatiner {
+  width: 1140px;
+}
+
+#game {
+  transform-style: preserve-3d;
+}
+
+.upper-box,
+.lower-box {
+  display: flex;
+}
+
+.upper-box {
+  margin-bottom: 4rem;
+}
+
+.flag,
+.countryName {
+  width: 200px;
+  height: 150px;
+  margin: 0 1rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 1s;
+}
+
+.front {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+  background-color: #0fa;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  background-color: #fa0;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.open-flag,
+.open-countryName {
+  transform: rotateY(180deg);
+}
