@@ -1,9 +1,9 @@
-const countryNameData = ['台灣', '美國', '加拿大'];
+const countryNameData = ['台灣<br>Taiwan', '美國<br>America', '加拿大<br>Canada'];
 
 for (let i = 0; i < 3; i++) {
   // 上方旗幟卡片生成
   $('.upper-box').append(`
-    <div class="flag" data-num="${i}">
+    <div class="flag" data-cardID="${i}">
       <div class="back"></div>
       <div class="front"></div>
     </div>
@@ -12,9 +12,9 @@ for (let i = 0; i < 3; i++) {
 
   // 下方國名卡片生成
   $('.lower-box').append(`
-    <div class="countryName" data-num="${i}">
+    <div class="countryName" data-cardID="${i}">
       <div class="back"></div>
-      <div class="front"></div>
+      <div class="front">${countryNameData[i]}</div>
     </div>
   `);
 }
@@ -29,16 +29,31 @@ for (let i = 0; i < 3; i++) {
 // 卡片配對判斷
 function cardMatch() {
   if ($('.open-flag').length && $('.open-countryName').length) {
-    if ($('.open-flag').attr('data-num') === $('.open-countryName').attr('data-num')) {
+    if ($('.open-flag').attr('data-cardID') === $('.open-countryName').attr('data-cardID')) {
       $('.open-flag').addClass('OK').off();
       $('.open-countryName').addClass('OK').off();
       $('.open-flag div').fadeTo(800, 0);
-      $('.open-countryName div').fadeTo(800, 0);
+      $('.open-countryName div').fadeTo(1000, 0);
+
+      // 插入解決的卡片
+      $('#solved').append(`
+      <div class="solved-card">
+        <div class="front">
+          <div style="background-image: url(./images/1_${$('.open-flag').attr('data-cardID')}.png)"></div>
+          <p>${$('.open-countryName .front').html()}</p>
+        </div>
+        <div class="back"></div>
+      </div>
+      `);
+      setTimeout(function () {
+        $('.solved-card').addClass('turnFront');
+        $('.solved-card .front').fadeTo(1000, 1);
+      });
     }
-    setTimeout(() => {
+    setTimeout(function () {
       $('.flag').removeClass('open-flag');
       $('.countryName').removeClass('open-countryName');
-    }, 800);
+    }, 1000);
   }
 }
 

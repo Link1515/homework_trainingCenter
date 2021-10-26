@@ -19,13 +19,15 @@ body {
   transform-style: preserve-3d;
 }
 
+#game h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .upper-box,
 .lower-box {
   display: flex;
-}
-
-.upper-box {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .flag,
@@ -43,9 +45,16 @@ body {
   height: 100%;
   position: absolute;
   background-position: center;
-  background-repeat: no-repeat;
   transform: rotateY(180deg);
+  background-repeat: no-repeat;
   background-color: #0fa;
+}
+
+.countryName .front {
+  font-size: 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
 }
 
 .back {
@@ -58,5 +67,44 @@ body {
 
 .open-flag,
 .open-countryName {
+  transform: rotateY(180deg);
+}
+
+#solved {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.solved-card {
+  position: relative;
+  width: 200px;
+  height: 180px;
+  margin: 0 1rem;
+  text-align: center;
+  font-size: 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  transition: 1s;
+}
+
+.solved-card .front {
+  opacity: 0;
+  background-color: transparent;
+}
+
+.solved-card .back {
+  background-color: transparent;
+}
+
+.solved-card .front div {
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.turnFront {
   transform: rotateY(180deg);
 }
