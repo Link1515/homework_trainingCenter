@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div id="game">
-        <h2>國旗</h2>
-        <div class="upper-box"></div>
-        <h2>國名</h2>
-        <div class="lower-box"></div>
-      </div>
+    <div class="container" id="info">
+      <h1>各國國旗學習平台</h1>
+      <button type="button" id="startBtn">遊戲開始!</button>
+    </div>
+    <div class="container" id="game" style="display: none">
+      <h2>國旗</h2>
+      <div class="upper-box"></div>
+      <h2>國名</h2>
+      <div class="lower-box"></div>
       <div id="solved"></div>
+    </div>
+    <div class="nextStageInfo" style="display: none">
+      <div class="box">
+        <h2>你真棒!</h2>
+        <button>進入下一關</button>
+      </div>
     </div>
 
     <script src="./js/jquery-3.6.0.min.js"></script>
