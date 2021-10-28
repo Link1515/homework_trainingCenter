@@ -5,6 +5,14 @@ let mouseY = 0;
 let fireTimer = 0;
 let highScore_plane = 0;
 
+// 取出本地高分
+if (localStorage.getItem('highScore')) {
+  highScore_plane = localStorage.getItem('highScore');
+  $('.highScore span').text(highScore_plane);
+} else {
+  $('.highScore').css('display', 'none');
+}
+
 $('#startBtn').on('click', gameStart);
 
 // block移動動畫
@@ -28,32 +36,22 @@ function rand(num) {
 
 // 子彈發射函數
 function trigger() {
-  fireTimer = setInterval(() => {
-    $(`<div class="bullet" style="left: ${mouseX - 15}px; top: ${mouseY - 80}px"></div>`)
-      .appendTo('.box')
-      .animate(
-        {
-          top: '-=1000px',
-        },
-        1500,
-        'linear'
-      );
-  }, 500);
-}
-
-// 取出本地高分
-if (localStorage.getItem('highScore')) {
-  highScore_plane = localStorage.getItem('highScore');
-  $('.highScore span').text(highScore_plane);
-} else {
-  $('.highScore').css('display', 'none');
+  $(`<div class="bullet" style="left: ${mouseX - 15}px; top: ${mouseY - 80}px"></div>`)
+    .appendTo('.box')
+    .animate(
+      {
+        top: '-=1000px',
+      },
+      1500,
+      'linear'
+    );
 }
 
 // 遊戲開始
 function gameStart() {
-  $('#startBtn').css('display', 'none');
+  $('.controller').hide();
+  $('.highScore').hide();
   $('.planeArea').addClass('boundary');
-  $('.highScore').css('display', 'none');
 
   // reset
   clock = 0;
@@ -75,7 +73,7 @@ function gameStart() {
         blockId++;
       }
     }
-  }, 800);
+  }, 600);
 
   // 滑鼠控制飛機砲彈
   $('.planeArea').on('mousemove', function (e) {
@@ -83,11 +81,16 @@ function gameStart() {
     mouseY = e.offsetY + 355;
   });
 
-  $('.planeArea').on('mouseenter', trigger);
-
-  $('.planeArea').on('mouseleave', function () {
-    clearInterval(fireTimer);
-  });
+  if ($('#auto').is(':checked')) {
+    $('.planeArea').on('mouseenter', function () {
+      fireTimer = setInterval(trigger, 250);
+    });
+    $('.planeArea').on('mouseleave', function () {
+      clearInterval(fireTimer);
+    });
+  } else {
+    $('.planeArea').on('click', trigger);
+  }
 
   // 判斷子彈是否打到block
   const deterTimer = setInterval(() => {
@@ -143,11 +146,11 @@ function gameStart() {
       clearInterval(blockTimer);
       clearInterval(fireTimer);
 
-      $('.highScore').css('display', 'block');
       $('.planeArea').removeClass('boundary');
       $('.planeArea').off();
       $('.block').remove();
-      $('#startBtn').css('display', 'block');
+      $('.highScore').show();
+      $('.controller').show();
 
       if (score > highScore_plane) {
         highScore_plane = score;
