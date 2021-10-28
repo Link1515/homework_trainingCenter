@@ -68,7 +68,7 @@ button {
   margin-right: 10px;
 }
 
-/* ===== youtube project ===== */
+/* ===== youtube ===== */
 
 /* # fixed-top */
 .fixed-top {
@@ -124,6 +124,10 @@ button {
   margin-left: 20px;
   color: #fff;
   float: left;
+}
+
+.left-side .logo img {
+  height: 40px;
 }
 
 /* ### right-side */
