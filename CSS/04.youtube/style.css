@@ -380,7 +380,7 @@ main {
 
 /* ## video container */
 .video-container {
-  width: 1268px;
+  /* width: 1268px; */
   margin: 0 auto;
 }
 
@@ -396,6 +396,10 @@ main {
 
 .video-group:last-child:after {
   display: none;
+}
+
+.video-group:first-child:after {
+  background-color: transparent;
 }
 
 .video-group h2 {
@@ -419,12 +423,14 @@ main {
 }
 
 .video {
-  box-sizing: content-box;
-  width: 290px;
-  height: 280px;
+  /* box-sizing: content-box; */
+  box-sizing: border-box;
+  /* width: 290px; */
+  width: 25%;
+  /* height: 280px; */
   border-radius: 3px;
-  padding: 5px;
-  margin: 0 5px 5px;
+  padding: 1rem;
+  /* margin: 0 5px 5px; */
   color: #fff;
   float: left;
   position: relative;
@@ -443,18 +449,19 @@ main {
 }
 
 .video .avatar {
-  width: 36px;
-  height: 36px;
-  margin-left: 4px;
+  box-sizing: border-box;
+  width: 10%;
+  height: 10%;
   border-radius: 50%;
   overflow: hidden;
   float: left;
 }
 
 .video .txt {
-  width: 240px;
+  box-sizing: border-box;
+  width: 90%;
   float: left;
-  margin-left: 10px;
+  padding-left: 10px;
 }
 
 .video .txt h3 {
