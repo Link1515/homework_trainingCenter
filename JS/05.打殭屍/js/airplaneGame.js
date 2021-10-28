@@ -6,11 +6,11 @@ let fireTimer = 0;
 let highScore_plane = 0;
 
 // 取出本地高分
-if (localStorage.getItem('highScore')) {
-  highScore_plane = localStorage.getItem('highScore');
+if (localStorage.getItem('highScore_plane')) {
+  highScore_plane = localStorage.getItem('highScore_plane');
   $('.highScore span').text(highScore_plane);
 } else {
-  $('.highScore').css('display', 'none');
+  $('.highScore').hide();
 }
 
 $('#startBtn').on('click', gameStart);
@@ -155,7 +155,7 @@ function gameStart() {
       if (score > highScore_plane) {
         highScore_plane = score;
         $('.highScore span').text(highScore_plane);
-        localStorage.setItem('highScore', highScore_plane);
+        localStorage.setItem('highScore_plane', highScore_plane);
       }
     }
   }, 100);
