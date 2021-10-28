@@ -28,17 +28,16 @@ function rand(num) {
 
 // 子彈發射函數
 function trigger() {
-  fireTimer = setInterval(() => {
-    $(`<div class="bullet" style="left: ${mouseX - 15}px; top: ${mouseY - 80}px"></div>`)
-      .appendTo('.box')
-      .animate(
-        {
-          top: '-=1000px',
-        },
-        1500,
-        'linear'
-      );
-  }, 500);
+  $(`<div class="bullet" style="left: ${mouseX - 15}px; top: ${mouseY - 80}px"></div>`)
+    .appendTo('.box')
+    .animate(
+      {
+        top: '-=1000px',
+      },
+      1500,
+      'linear'
+    );
+  console.log('hi');
 }
 
 // 取出本地高分
@@ -83,11 +82,13 @@ function gameStart() {
     mouseY = e.offsetY + 355;
   });
 
-  $('.planeArea').on('mouseenter', trigger);
+  $('.planeArea').on('click', trigger);
 
-  $('.planeArea').on('mouseleave', function () {
-    clearInterval(fireTimer);
-  });
+  // $('.planeArea').on('mouseenter', trigger);
+
+  // $('.planeArea').on('mouseleave', function () {
+  //   clearInterval(fireTimer);
+  // });
 
   // 判斷子彈是否打到block
   const deterTimer = setInterval(() => {
@@ -141,7 +142,7 @@ function gameStart() {
       clearInterval(timer);
       clearInterval(deterTimer);
       clearInterval(blockTimer);
-      clearInterval(fireTimer);
+      // clearInterval(fireTimer);
 
       $('.highScore').css('display', 'block');
       $('.planeArea').removeClass('boundary');
