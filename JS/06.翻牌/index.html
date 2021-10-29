@@ -4,25 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>各國國旗學習平台</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container" id="info">
+    <!-- 遊戲初始動畫 -->
+    <div class="container" id="home">
       <h1>各國國旗學習平台</h1>
       <button type="button" id="startBtn">遊戲開始!</button>
     </div>
+
+    <!-- 遊戲 -->
     <div class="container" id="game" style="display: none">
       <h2>國旗</h2>
       <div class="upper-box"></div>
       <h2>國名</h2>
       <div class="lower-box"></div>
       <div id="solved"></div>
+      <button type="button" id="homeBtn">回首頁</button>
     </div>
+
+    <!-- 下一關訊息 -->
     <div class="nextStageInfo" style="display: none">
       <div class="box">
         <h2>你真棒!</h2>
-        <button>進入下一關</button>
+        <button id="nextBtn">進入下一關</button>
+      </div>
+    </div>
+
+    <div class="finalInfo" style="display: none">
+      <h2>YOU WIN!</h2>
+      <div class="btns">
+        <button type="button" id="replayBtn">再次挑戰</button>
+        <button type="button" id="homeBtn">回首頁</button>
       </div>
     </div>
 
