@@ -7,9 +7,8 @@
 
 body {
   padding: 2rem 0;
-  overflow: auto;
-  background: url('./images/world.jpg') no-repeat center / cover;
-  font-family: 'Noto Sans TC', sans-serif;
+  background: url('../images/world.jpg') no-repeat center / cover;
+  font-family: '微軟正黑體', 'Noto Sans TC', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,48 +16,34 @@ body {
   position: relative;
 }
 
-button {
-  border: none;
-  outline: none;
-  padding: 0.25rem 1.5rem;
-  font-size: 2rem;
-  border-radius: 10rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #aaa;
-}
-
 .container {
+  min-height: calc(100vh - 4rem);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#home {
-  height: calc(100vh - 4rem);
-}
-
 #home div {
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.2);
-  border: 5px solid #000;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   border-radius: 2rem;
-  backdrop-filter: blur(10px);
-  color: rgb(45, 218, 160);
+  border: 5px solid #000;
+  background-color: #fff;
 }
 
 #home h1 {
-  font-size: 6rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
-  -webkit-text-stroke: 2px black;
   padding: 0 2rem;
-  background-color: #fff;
+  color: #000;
+  border-radius: 30rem;
+}
+
+#home button {
+  font-size: 2rem;
 }
 
 #game h2 {
@@ -180,7 +165,7 @@ button:hover {
   height: 200px;
   padding: 1.5rem;
   text-align: center;
-  backdrop-filter: blur(10px);
+  background-color: #fff;
   border: 5px solid #000;
   border-radius: 1rem;
   position: absolute;
@@ -200,8 +185,8 @@ button:hover {
 }
 
 @media screen and (max-width: 1400px) {
-  button {
-    font-size: 1.5rem;
+  button.button-28 {
+    width: 100%;
   }
 
   .container {
@@ -217,7 +202,7 @@ button:hover {
   .lower-box,
   #solved {
     flex-wrap: wrap;
-    /* justify-content: space-around; */
+    justify-content: space-around;
   }
 
   .flag,
