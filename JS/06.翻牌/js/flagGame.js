@@ -66,7 +66,9 @@ $('#replayBtn').on('click', function () {
 // 回首頁按鈕
 $('#homeBtn').on('click', function () {
   $('.finalInfo').hide();
+  $('#game').hide();
   $('#home').show();
+  gameHtmlReset();
 });
 
 function gameHtmlReset() {
