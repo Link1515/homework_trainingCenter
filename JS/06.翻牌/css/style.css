@@ -14,14 +14,18 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  backdrop-filter: brightness(80%);
 }
 
 .container {
   min-height: calc(100vh - 4rem);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#home {
+  justify-content: center;
 }
 
 #home div {
@@ -51,7 +55,8 @@ body {
   line-height: 2rem;
   text-align: center;
   margin-bottom: 1rem;
-  background-color: rgb(143, 202, 32);
+  background-color: rgb(0, 136, 34);
+  color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
 }

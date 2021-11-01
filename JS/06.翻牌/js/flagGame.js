@@ -33,6 +33,40 @@ const countryNameData = [
     '查德<br>Chad'
   ]
 ];
+// audio
+// prettier-ignore
+const countryNameAudio = [
+  [
+    new Audio('./audio/Taiwan.mp3'),
+    new Audio('./audio/America.mp3'),
+    new Audio('./audio/Canada.mp3'),
+  ],
+  [
+    new Audio('./audio/Sweden.mp3'),
+    new Audio('./audio/Finland.mp3'),
+    new Audio('./audio/Norway.mp3'),
+    new Audio('./audio/Iceland.mp3'),
+    new Audio('./audio/Denmark.mp3'),
+    new Audio('./audio/Switzerland.mp3'),
+  ],
+  [
+    new Audio('./audio/Belgium.mp3'),
+    new Audio('./audio/Germany.mp3'),
+    new Audio('./audio/Netherlands.mp3'),
+    new Audio('./audio/France.mp3'),
+    new Audio('./audio/Italy.mp3'),
+    new Audio('./audio/Bulgaria.mp3'),
+  ],
+  [
+    new Audio('./audio/Mali.mp3'),
+    new Audio('./audio/Guinea.mp3'),
+    new Audio('./audio/Cameroon.mp3'),
+    new Audio('./audio/Senegal.mp3'),
+    new Audio('./audio/Nigeria.mp3'),
+    new Audio('./audio/Chad.mp3'),
+  ]
+];
+const wrongAudio = new Audio('./audio/wrong.mp3');
 
 // 遊戲開始按鈕
 $('#startBtn').on('click', function () {
@@ -168,11 +202,19 @@ function cardMatch() {
         <div class="back"></div>
       </div>
       `);
+
+      $('.solved-card .front').fadeTo(1000, 1);
       setTimeout(function () {
+        // 避免一創建 solved-card就加入class，會沒有翻轉動畫
         $('.solved-card').addClass('turnFront');
-        $('.solved-card .front').fadeTo(1000, 1);
       }, 0);
+
+      // 音效
+      countryNameAudio[stage][$('.open-flag').attr('data-cardID')].play();
+    } else {
+      wrongAudio.play();
     }
+
     setTimeout(function () {
       $('.flag').removeClass('open-flag');
       $('.countryName').removeClass('open-countryName');
