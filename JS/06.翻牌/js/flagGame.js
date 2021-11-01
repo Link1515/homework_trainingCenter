@@ -1,6 +1,9 @@
 let stage = 0;
 let cardLength = 0;
 let isMatching = false;
+let timer = 0;
+let totalTime = 0;
+let totalTurn = 0;
 // prettier-ignore
 const countryNameData = [
   [
@@ -67,44 +70,56 @@ const countryNameAudio = [
   ]
 ];
 const wrongAudio = new Audio('./audio/wrong.mp3');
+wrongAudio.volume = 0.4;
+const correctAudio = new Audio('./audio/correct.mp3');
+correctAudio.volume = 0.5;
+const clappingAudio = new Audio('./audio/clapping.mp3');
+clappingAudio.volume = 0.8;
 
 // 遊戲開始按鈕
 $('#startBtn').on('click', function () {
   $('#home').hide();
   $('#game').show();
 
-  // 重設下一關按鈕
-  $('#nextBtn').off();
-  nextBtnFun();
-
-  stage = 0;
-
-  gameHtmlReset();
-  cardCreate(stage);
+  gameStart();
 });
 
 // 再次挑戰按鈕
 $('#replayBtn').on('click', function () {
-  stage = 0;
   $('.finalInfo').hide();
   $('#game').show();
 
-  // 重設下一關按鈕
-  $('#nextBtn').off();
-  nextBtnFun();
-
-  gameHtmlReset();
-  cardCreate(stage);
+  gameStart();
 });
 
 // 回首頁按鈕
-$('#homeBtn').on('click', function () {
+$('.homeBtn').on('click', function () {
   $('.finalInfo').hide();
   $('#game').hide();
   $('#home').show();
   gameHtmlReset();
+  clockTurnOff();
+  console.log('hi');
 });
 
+// 遊戲開始函數(與重新開始共用)
+function gameStart() {
+  // 重設下一關按鈕
+  $('#nextBtn').off();
+  nextBtnFun();
+
+  stage = 0;
+  totalTime = 0;
+  $('#timeUsed').text(totalTime);
+  totalTurn = 0;
+  $('#turnTimes').text(totalTurn);
+
+  gameHtmlReset();
+  cardCreate(stage);
+  clockTurnOn();
+}
+
+// 遊戲html重設
 function gameHtmlReset() {
   $('#solved').html('');
   $('.upper-box').html('');
@@ -120,7 +135,21 @@ function nextBtnFun() {
 
     gameHtmlReset();
     cardCreate(stage);
+    clockTurnOn();
   });
+}
+
+// 開啟時鐘
+function clockTurnOn() {
+  timer = setInterval(() => {
+    totalTime++;
+    $('#timeUsed').text(totalTime);
+  }, 1000);
+}
+
+// 關閉時鐘
+function clockTurnOff() {
+  clearInterval(timer);
 }
 
 // 產生卡片 & 綁定事件
@@ -185,6 +214,8 @@ function cardMatch() {
   if ($('.open-flag').length && $('.open-countryName').length) {
     // 正在配對
     isMatching = true;
+    totalTurn++;
+    $('#turnTimes').text(totalTurn);
 
     if ($('.open-flag').attr('data-cardID') === $('.open-countryName').attr('data-cardID')) {
       $('.open-flag').addClass('OK').off();
@@ -222,18 +253,38 @@ function cardMatch() {
 
       // 判斷是否過關
       if ($('.turnFront').length === cardLength) {
+        clockTurnOff();
+
         // 是否全部過完
-        if (stage === 3) {
+        if (stage === countryNameData.length - 1) {
           $('#nextBtn').off();
           $('#nextBtn').html('挑戰成功!');
           $('#nextBtn').on('click', function () {
             $('.nextStageInfo').hide();
             $('#game').hide();
             $('.finalInfo').show();
+            $('.finalInfo').addClass('wordAnimate');
+            clappingAudio.play();
           });
         }
+
         $('.nextStageInfo').show();
+        correctAudio.play();
       }
     }, 1000);
   }
 }
+
+// 測試用跳關鈕 t，直接跳到勝利
+document.onkeydown = (e) => {
+  if (e.key === 't' || e.key === 'T') {
+    $('#home').hide();
+    $('.nextStageInfo').hide();
+    $('#game').hide();
+    $('.finalInfo').show();
+    $('.finalInfo').addClass('wordAnimate');
+    clappingAudio.play();
+
+    clockTurnOff();
+  }
+};

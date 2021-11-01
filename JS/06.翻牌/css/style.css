@@ -77,6 +77,7 @@ body {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
+  cursor: pointer;
 }
 
 .front {
@@ -184,9 +185,45 @@ body {
   margin-bottom: 2rem;
 }
 
-#homeBtn {
+.homeBtn {
   margin-top: 3rem;
   align-self: flex-end;
+}
+
+.finalInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.finalInfo h2 {
+  font-size: 8rem;
+  -webkit-text-stroke: 1px #fff;
+}
+
+.finalInfo .btns {
+  font-size: 0;
+}
+
+.finalInfo button {
+  margin: 1rem;
+}
+
+.finalInfo .homeBtn {
+  margin-top: 1rem;
+}
+
+.wordAnimate {
+  animation: wordBig 1s linear;
+}
+
+@keyframes wordBig {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 1400px) {
@@ -216,5 +253,13 @@ body {
     width: 30%;
     margin: 0;
     margin-bottom: 1rem;
+  }
+
+  .finalInfo h2 {
+    font-size: 6rem;
+  }
+
+  .finalInfo button {
+    margin: 0;
   }
 }

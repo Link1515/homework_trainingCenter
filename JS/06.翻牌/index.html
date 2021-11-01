@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- 遊戲初始動畫 -->
+    <!-- 遊戲初始畫面 -->
     <div class="container" id="home">
       <div>
         <h1>各國國旗學習平台</h1>
@@ -21,12 +21,13 @@
 
     <!-- 遊戲 -->
     <div class="container" id="game" style="display: none">
+      <div class="scoreCount">使用時間: <span id="timeUsed">0</span> 翻牌次數: <span id="turnTimes">0</span></div>
       <h2>國旗</h2>
       <div class="upper-box"></div>
       <h2>國名</h2>
       <div class="lower-box"></div>
       <div id="solved"></div>
-      <button type="button" class="button-28" id="homeBtn">回首頁</button>
+      <button type="button" class="button-28 homeBtn">回首頁</button>
     </div>
 
     <!-- 下一關訊息 -->
@@ -37,11 +38,12 @@
       </div>
     </div>
 
-    <div class="finalInfo" style="display: none">
+    <!-- 挑戰成功訊息 -->
+    <div class="finalInfo container" style="display: none">
       <h2>YOU WIN!</h2>
       <div class="btns">
-        <button type="button" id="replayBtn">再次挑戰</button>
-        <button type="button" id="homeBtn">回首頁</button>
+        <button class="button-28" type="button" id="replayBtn">再次挑戰</button>
+        <button type="button" class="button-28 homeBtn">回首頁</button>
       </div>
     </div>
 
