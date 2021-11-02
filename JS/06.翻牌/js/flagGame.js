@@ -88,6 +88,7 @@ $('#startBtn').on('click', function () {
 $('#replayBtn').on('click', function () {
   $('.finalInfo').hide();
   $('#game').show();
+  clappingAudio.load();
 
   gameStart();
 });
@@ -99,7 +100,7 @@ $('.homeBtn').on('click', function () {
   $('#home').show();
   gameHtmlReset();
   clockTurnOff();
-  console.log('hi');
+  clappingAudio.load();
 });
 
 // 遊戲開始函數(與重新開始共用)
@@ -165,7 +166,7 @@ function cardCreate(stage) {
     // 上方旗幟卡片生成
     $('.upper-box').append(`
       <div class="flag" data-cardID="${i}">
-        <div class="back"></div>
+        <div class="back">?</div>
         <div class="front"></div>
       </div>
     `);
@@ -174,7 +175,7 @@ function cardCreate(stage) {
     // 下方國名卡片生成
     $('.lower-box').append(`
       <div class="countryName" data-cardID="${i}">
-        <div class="back"></div>
+        <div class="back">!</div>
         <div class="front">${countryNameData[stage][i]}</div>
       </div>
     `);
@@ -254,6 +255,10 @@ function cardMatch() {
       // 判斷是否過關
       if ($('.turnFront').length === cardLength) {
         clockTurnOff();
+        $('.clock').text(totalTime);
+        $('.turn').text(totalTurn);
+        $('.nextStageInfo').show();
+        correctAudio.play();
 
         // 是否全部過完
         if (stage === countryNameData.length - 1) {
@@ -267,9 +272,6 @@ function cardMatch() {
             clappingAudio.play();
           });
         }
-
-        $('.nextStageInfo').show();
-        correctAudio.play();
       }
     }, 1000);
   }
