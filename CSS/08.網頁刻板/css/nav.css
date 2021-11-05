@@ -10,12 +10,9 @@ nav {
 
 /* menu */
 
-nav input[type='checkbox'] {
-  /* display: none; */
-}
-
 nav .menu {
   width: 100%;
+  height: 0;
   overflow: hidden;
   border-top: 1px solid #fff;
   background-color: #5a1e90;
@@ -31,7 +28,6 @@ nav .menu > ul {
 }
 
 nav .menu ul ul {
-  padding-left: 15px;
 }
 
 nav .menu a {
@@ -63,6 +59,13 @@ nav .hasSubMenu i {
   z-index: 1;
 }
 
+nav .hasSubMenu + ul {
+  height: 0;
+  padding-left: 15px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
 /* toggle button */
 nav .toggle-button {
   position: relative;
@@ -85,14 +88,34 @@ nav .toggle-button::after {
 nav .toggle-button span {
   top: 50%;
   transform: translateY(-50%);
+  transition: transform 0.3s;
 }
 
 nav .toggle-button::before {
   content: '';
   top: 0;
+  transition: top 0.3s 0.3s, transform 0.3s;
 }
 
-nav .toggle-button::after {
+nav .toggle-button:after {
   content: '';
   bottom: 0;
+  transition: bottom 0.3s 0.3s, transform 0.3s;
+}
+
+nav .toggle-button.active span {
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s 0.3s;
+}
+
+nav .toggle-button.active::before {
+  top: 9px;
+  transform: rotate(45deg);
+  transition: top 0.3s, transform 0.3s 0.3s;
+}
+
+nav .toggle-button.active::after {
+  bottom: 9px;
+  transform: rotate(-45deg);
+  transition: bottom 0.3s, transform 0.3s 0.3s;
 }
