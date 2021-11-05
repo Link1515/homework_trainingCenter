@@ -1,0 +1,61 @@
+@mixin btnAnimate($delay: 0s) {
+  transition: 0.2s $delay ease-in-out;
+}
+
+.primary-btn {
+  width: 8rem;
+  height: 2.5rem;
+  background-color: $color-orange;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  position: relative;
+
+  a {
+    height: 100%;
+    font-size: 1rem;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      ~ span {
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  span {
+    width: 25%;
+    background-color: $color-purple;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+
+    &:nth-of-type(1) {
+      right: 0;
+      @include btnAnimate();
+    }
+
+    &:nth-of-type(2) {
+      right: 25%;
+      @include btnAnimate(0.1s);
+    }
+
+    &:nth-of-type(3) {
+      left: 25%;
+      @include btnAnimate(0.2s);
+    }
+
+    &:nth-of-type(4) {
+      left: 0;
+      @include btnAnimate(0.3s);
+    }
+  }
+}

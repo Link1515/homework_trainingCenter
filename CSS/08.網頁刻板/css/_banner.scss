@@ -1,0 +1,30 @@
+.banner {
+  height: 750px;
+  padding-top: 80px;
+  background-color: #000;
+  color: #fff;
+
+  .item {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  h1 {
+    font-size: 35px;
+    font-family: 'Bubblegum Sans', cursive;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}

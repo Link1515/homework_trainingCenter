@@ -11,6 +11,11 @@ toggleBtn.onclick = () => {
   } else {
     toggleBtn.classList.remove('active');
     menu.style.height = '0px';
+    for (let i = 0; i < subToggleBtn.length; i++) {
+      subToggleBtn[i].classList.replace('fa-minus', 'fa-plus');
+      const subMenu = subToggleBtn[i].parentElement.nextElementSibling;
+      subMenu.style.height = '0px';
+    }
   }
 };
 
