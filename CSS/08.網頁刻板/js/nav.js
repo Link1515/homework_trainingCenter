@@ -1,9 +1,10 @@
-// 主選單
-const listHeight = parseInt(getComputedStyle(document.querySelector('.menu a')).height);
-const menu = document.querySelector('.menu');
-const toggleBtn = document.querySelector('.toggle-button');
-const menuHeight = document.querySelectorAll('.menu>ul>li').length * listHeight + 20;
+const menuListHeight = parseInt(getComputedStyle(document.querySelector('.nav_menu a')).height);
+const menu = document.querySelector('.nav_menu');
+const toggleBtn = document.querySelector('.nav_toggleBtn');
+const menuHeight = document.querySelectorAll('.nav_menu>ul>li').length * menuListHeight + 20;
+const subToggleBtn = document.querySelectorAll('.nav_menu i');
 
+// 主選單
 toggleBtn.onclick = () => {
   if (menu.style.height === '' || menu.style.height === '0px') {
     menu.style.height = menuHeight + 'px';
@@ -20,12 +21,10 @@ toggleBtn.onclick = () => {
 };
 
 // 次選單
-const subToggleBtn = document.querySelectorAll('.menu i');
-
 for (let i = 0; i < subToggleBtn.length; i++) {
   subToggleBtn[i].onclick = (e) => {
     const subMenu = e.target.parentElement.nextElementSibling;
-    const subMenuHeight = subMenu.children.length * listHeight;
+    const subMenuHeight = subMenu.children.length * menuListHeight;
 
     if (subMenu.style.height === '' || subMenu.style.height === '0px') {
       subMenu.style.height = subMenuHeight + 'px';

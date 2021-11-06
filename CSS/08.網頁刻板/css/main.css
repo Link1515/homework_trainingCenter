@@ -89,7 +89,7 @@ button {
   transition: 0.2s 0.3s ease-in-out;
 }
 
-nav {
+.nav {
   width: 100%;
   height: 80px;
   background-color: #5a1e90;
@@ -106,7 +106,7 @@ nav {
   z-index: 99;
 }
 
-nav .menu {
+.nav .nav_menu {
   width: 100%;
   height: 0;
   overflow: hidden;
@@ -119,26 +119,26 @@ nav .menu {
   transition: height 0.5s;
 }
 
-nav .menu a {
+.nav .nav_menu a {
   height: 40px;
   display: block;
   padding: 8px 0;
 }
 
-nav .menu > ul {
+.nav .nav_menu > ul {
   padding: 10px 20px;
   border-top: 1px solid #fff;
 }
 
-nav .hasSubMenu {
+.nav .nav_menuList-hasSubMenu {
   position: relative;
 }
 
-nav .hasSubMenu a {
+.nav .nav_menuList-hasSubMenu a {
   width: calc(100% - 30px);
 }
 
-nav .hasSubMenu i {
+.nav .nav_menuList-hasSubMenu i {
   width: 30px;
   height: 30px;
   display: -ms-grid;
@@ -152,7 +152,7 @@ nav .hasSubMenu i {
   z-index: 1;
 }
 
-nav .hasSubMenu + ul {
+.nav .nav_menuList-hasSubMenu + ul {
   height: 0;
   padding-left: 15px;
   overflow: hidden;
@@ -160,7 +160,7 @@ nav .hasSubMenu + ul {
   transition: height 0.5s;
 }
 
-nav .toggle-button {
+.nav .nav_toggleBtn {
   position: relative;
   width: 28px;
   height: 20px;
@@ -168,7 +168,7 @@ nav .toggle-button {
   -webkit-tap-highlight-color: transparent;
 }
 
-nav .toggle-button span, nav .toggle-button::before, nav .toggle-button::after {
+.nav .nav_toggleBtn span, .nav .nav_toggleBtn::before, .nav .nav_toggleBtn::after {
   display: block;
   width: 28px;
   height: 2px;
@@ -176,7 +176,7 @@ nav .toggle-button span, nav .toggle-button::before, nav .toggle-button::after {
   position: absolute;
 }
 
-nav .toggle-button span {
+.nav .nav_toggleBtn span {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -186,7 +186,7 @@ nav .toggle-button span {
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
-nav .toggle-button::before {
+.nav .nav_toggleBtn::before {
   content: '';
   top: 0;
   -webkit-transition: top 0.3s 0.3s, -webkit-transform 0.3s;
@@ -195,7 +195,7 @@ nav .toggle-button::before {
   transition: top 0.3s 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
-nav .toggle-button::after {
+.nav .nav_toggleBtn::after {
   content: '';
   bottom: 0;
   -webkit-transition: bottom 0.3s 0.3s, -webkit-transform 0.3s;
@@ -204,7 +204,7 @@ nav .toggle-button::after {
   transition: bottom 0.3s 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
-nav .toggle-button.active span {
+.nav .nav_toggleBtn.active span {
   -webkit-transform: translateY(-50%) rotate(45deg);
           transform: translateY(-50%) rotate(45deg);
   -webkit-transition: -webkit-transform 0.3s 0.3s;
@@ -213,7 +213,7 @@ nav .toggle-button.active span {
   transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
 }
 
-nav .toggle-button.active::before {
+.nav .nav_toggleBtn.active::before {
   top: 9px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -223,7 +223,7 @@ nav .toggle-button.active::before {
   transition: top 0.3s, transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
 }
 
-nav .toggle-button.active::after {
+.nav .nav_toggleBtn.active::after {
   bottom: 9px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -240,7 +240,7 @@ nav .toggle-button.active::after {
   color: #fff;
 }
 
-.banner .item {
+.banner .banner_item {
   height: 100%;
   text-align: center;
   display: -webkit-box;
@@ -258,7 +258,7 @@ nav .toggle-button.active::after {
           flex-direction: column;
 }
 
-.banner .item div {
+.banner .banner_item div {
   width: 80%;
   margin: 0 auto;
 }
