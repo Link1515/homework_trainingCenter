@@ -1,6 +1,6 @@
 const contactInfo = document.querySelector('.nav_contactInfo');
 const main = document.querySelector('.nav_main');
-let menuListHeight = parseInt(getComputedStyle(document.querySelector('.nav_menu a')).height);
+const menuListHeight = parseInt(getComputedStyle(document.querySelector('.nav_menu ul ul a')).height);
 const menu = document.querySelector('.nav_menu');
 const toggleBtn = document.querySelector('.nav_toggleBtn');
 const menuHeight = document.querySelectorAll('.nav_menu>ul>li').length * menuListHeight + 20;
@@ -56,8 +56,6 @@ window.onscroll = () => {
 
 // 視窗大小改變，修正nav
 window.onresize = () => {
-  menuListHeight = parseInt(getComputedStyle(document.querySelector('.nav_menu a')).height);
-
   if (window.innerWidth > 1200) {
     menu.style.height = '';
     for (let i = 0; i < subToggleBtn.length; i++) {
