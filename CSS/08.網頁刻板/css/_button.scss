@@ -5,7 +5,7 @@
 .primary-btn {
   width: 8rem;
   height: 2.5rem;
-  background-color: $color-orange;
+  background-color: $color-primary;
   overflow: hidden;
   border-radius: 0.5rem;
   position: relative;
@@ -33,7 +33,7 @@
 
   span {
     width: 25%;
-    background-color: $color-purple;
+    background-color: $color-secondary;
     position: absolute;
     top: 50%;
     bottom: 50%;

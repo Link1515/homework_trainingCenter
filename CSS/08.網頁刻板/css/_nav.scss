@@ -1,18 +1,66 @@
 .nav {
   width: 100%;
-  height: 80px;
-  background-color: $color-purple;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
   z-index: 99;
+}
+
+.nav_contactInfo {
+  height: 0;
+  background-color: $color-primary;
+  color: #ffdbd5;
+  overflow: hidden;
+  transition: height 0.5s;
+
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      font-size: 0;
+    }
+
+    a {
+      color: #ffdbd5;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    span {
+      margin-right: 30px;
+      font-size: 14px;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    div > a {
+      font-size: 1rem;
+      margin-left: 20px;
+    }
+  }
+}
+
+.nav_main {
+  height: 80px;
+  background-color: $color-secondary;
+  transition: background-color 0.5s;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .nav_menu {
     width: 100%;
     height: 0;
     overflow: hidden;
-    background-color: $color-purple;
+    background-color: $color-secondary;
     color: #fff;
     position: absolute;
     top: 100%;
@@ -21,21 +69,29 @@
 
     a {
       height: 40px;
+      line-height: 40px;
       display: block;
-      padding: 8px 0;
     }
 
     > ul {
+      max-height: calc(100vh - 80px);
+      overflow: auto;
       padding: 10px 20px;
       border-top: 1px solid #fff;
     }
   }
 
   .nav_menuList-hasSubMenu {
-    position: relative;
+    div {
+      position: relative;
+    }
 
     a {
       width: calc(100% - 30px);
+
+      i {
+        display: none;
+      }
     }
 
     i {
@@ -51,7 +107,7 @@
       z-index: 1;
     }
 
-    + ul {
+    ul {
       height: 0;
       padding-left: 15px;
       overflow: hidden;
@@ -94,21 +150,134 @@
       transition: bottom 0.3s 0.3s, transform 0.3s;
     }
 
-    &.active span {
+    &.nav_toggleBtn-active span {
       transform: translateY(-50%) rotate(45deg);
       transition: transform 0.3s 0.3s;
     }
 
-    &.active::before {
+    &.nav_toggleBtn-active::before {
       top: 9px;
       transform: rotate(45deg);
       transition: top 0.3s, transform 0.3s 0.3s;
     }
 
-    &.active::after {
+    &.nav_toggleBtn-active::after {
       bottom: 9px;
       transform: rotate(-45deg);
       transition: bottom 0.3s, transform 0.3s 0.3s;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav_contactInfo {
+    height: 40px;
+  }
+
+  .nav_main {
+    background-color: transparent;
+
+    .nav_menu {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      overflow: visible;
+      position: static;
+
+      > ul {
+        padding: 0;
+        border-top: none;
+        overflow: visible;
+        display: flex;
+
+        > li > a {
+          margin-left: 1.5rem;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+
+    .nav_menuList-hasSubMenu {
+      position: relative;
+
+      &:hover > ul {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      > ul {
+        width: max-content;
+        height: auto;
+        visibility: hidden;
+        overflow: visible;
+        border-radius: 5px;
+        padding: 10px 0;
+        background-color: #fff;
+        position: absolute;
+        opacity: 0;
+        top: 100%;
+        left: 1rem;
+        transform: translateY(10px);
+        transition: all 0.3s;
+
+        a {
+          color: $color-secondary;
+          padding-left: 1rem;
+          padding-right: 3rem;
+          width: auto;
+
+          &:hover {
+            background-color: $color-primary;
+            color: #fff;
+          }
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          border: 8px solid transparent;
+          border-bottom-color: #fff;
+          top: -15px;
+          left: 15px;
+        }
+      }
+
+      > div {
+        display: flex;
+
+        a {
+          display: flex;
+
+          i {
+            width: auto;
+            height: auto;
+            padding-left: 10px;
+            display: block;
+            position: static;
+          }
+        }
+
+        > a {
+          margin-left: 1.5rem;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+
+      i {
+        display: none;
+      }
+    }
+
+    .nav_toggleBtn {
+      display: none;
     }
   }
 }
