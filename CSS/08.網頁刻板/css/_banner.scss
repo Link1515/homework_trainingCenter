@@ -1,30 +1,112 @@
 .banner {
+  width: 100vw;
   height: 750px;
-  padding-top: 80px;
-  background-color: #000;
   color: #fff;
-
-  .banner_item {
-    height: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    div {
-      width: 80%;
-      margin: 0 auto;
-    }
-  }
+  position: relative;
 
   h1 {
     font-size: 35px;
     font-family: 'Bubblegum Sans', cursive;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   p {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.banner_box {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner_main {
+  height: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+
+.banner_prevBtn,
+.banner_nextBtn {
+  display: none;
+  width: 70px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(200, 200, 200, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.5s;
+  z-index: 20;
+}
+
+.banner_prevBtn:hover,
+.banner_nextBtn:hover {
+  background-color: $color-primary;
+}
+
+.banner_prevBtn {
+  left: 0;
+  border-radius: 0 50% 50% 0;
+}
+
+.banner_nextBtn {
+  right: 0;
+  border-radius: 50% 0 0 50%;
+}
+
+.banner_item {
+  width: 100vw;
+  padding-top: 80px;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../images/Banner_BestClass_Blog/1.jpg') no-repeat center / cover;
+  opacity: 1;
+  transition: opacity 0.5s;
+  z-index: 10;
+
+  div {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.banner_item-cloned {
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.banner_item-cloned-z5 {
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .banner_item {
+    div {
+      width: 40%;
+    }
+  }
+
+  .banner_prevBtn,
+  .banner_nextBtn {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    h1 {
+      font-size: 60px;
+    }
   }
 }

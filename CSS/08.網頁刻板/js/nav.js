@@ -6,6 +6,7 @@ const toggleBtn = document.querySelector('.nav_toggleBtn');
 const menuHeight = document.querySelectorAll('.nav_menu>ul>li').length * menuListHeight + 20;
 const subToggleBtn = document.querySelectorAll('.nav_menu .fa-plus');
 const subMenu = document.querySelectorAll('.nav_menuList-hasSubMenu');
+const toTopBtn = document.querySelector('.nav_toTopBtn');
 
 // 主選單
 toggleBtn.onclick = () => {
@@ -48,9 +49,11 @@ window.onscroll = () => {
   if (document.documentElement.scrollTop > 0) {
     contactInfo.style.height = '0px';
     main.style.backgroundColor = '#ff4b2b';
+    toTopBtn.classList.add('nav_toTopBtn-active');
   } else {
     contactInfo.style.height = '';
     main.style.backgroundColor = '';
+    toTopBtn.classList.remove('nav_toTopBtn-active');
   }
 };
 
