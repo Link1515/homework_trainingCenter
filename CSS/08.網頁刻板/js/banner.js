@@ -2,9 +2,9 @@ const nextBtn = document.querySelector('.banner_nextBtn');
 const prevBtn = document.querySelector('.banner_prevBtn');
 const box = document.querySelector('.banner_box');
 const main = document.querySelector('.banner_main');
-const item = document.querySelectorAll('.banner_item');
+let item = document.querySelectorAll('.banner_item');
 
-let count = 0;
+let count = 1;
 let transitionPic = '';
 
 // 設置背景圖
@@ -14,7 +14,30 @@ for (let i = 0; i < item.length; i++) {
     url('./images/Banner_BestClass_Blog/${i}.jpg') no-repeat center / cover`;
 }
 
-// main最後插入首個item
+// main 開頭插入末個 item
+main.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <div class="banner_item banner_mainlast-cloned" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url('./images/Banner_BestClass_Blog/${item.length - 1}.jpg') no-repeat center / cover">
+        <div>
+          <h1>${item[item.length - 1].querySelector('h1').innerHTML}</h1>
+          <p>
+            ${item[item.length - 1].querySelector('p').innerHTML}
+          </p>
+          <button class="primary-btn">
+            <a href="#">Contact Now</a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+`
+);
+
+// main 最後插入首個 item
 main.insertAdjacentHTML(
   'beforeend',
   `
@@ -62,34 +85,84 @@ for (let i = 0; i < item.length; i++) {
   );
 }
 
+// 重設 main 位置從 count 1 開始
+main.style.left = `-${count * 100}vw`;
+
 // 左右按鈕
 nextBtn.onclick = () => {
   let current = count;
 
-  countSetting('++');
+  fadeCountSetting('++');
   fadeInOut(current);
 };
 
 prevBtn.onclick = () => {
   let current = count;
 
-  countSetting('--');
+  fadeCountSetting('--');
   fadeInOut(current);
 };
 
-function countSetting(str) {
+// 觸控滑動
+let touchStartPos = 0;
+let touchNewPos = 0;
+
+main.addEventListener('touchstart', (e) => {
+  touchStartPos = e.touches[0].pageX;
+  touchNewPos = touchStartPos;
+  main.style.transition = '';
+});
+
+main.addEventListener('touchmove', (e) => {
+  touchNewPos = e.touches[0].pageX;
+  main.style.left = `calc(-${count * 100}vw - ${touchStartPos - touchNewPos}px)`;
+});
+
+main.addEventListener('touchend', () => {
+  main.style.transition = 'left 0.3s';
+  moveDetermine(touchStartPos, touchNewPos);
+});
+
+// 滑鼠點擊滑動
+let mouseStartPos = 0;
+let mouseNewPos = 0;
+
+main.onmousedown = (e) => {
+  main.style.transition = '';
+  mouseStartPos = e.pageX;
+  mouseNewPos = mouseStartPos;
+  main.onmousemove = (e) => {
+    mouseNewPos = e.pageX;
+    main.style.left = `calc(-${count * 100}vw - ${mouseStartPos - mouseNewPos}px)`;
+  };
+};
+
+main.onmouseup = () => {
+  main.onmousemove = null;
+  main.style.transition = 'left 0.3s';
+  moveDetermine(mouseStartPos, mouseNewPos);
+};
+
+// ************ function **************
+function fadeCountSetting(str) {
   if (str === '++') {
     count++;
-    count %= item.length;
   } else if (str === '--') {
     count--;
-    if (count < 0) {
-      count = item.length - 1;
-    }
+  }
+
+  // 設定 count 不會到最前與最後
+  if (count === main.childElementCount - 1) {
+    count = 1;
+  } else if (count === 0) {
+    conut = 3;
   }
 }
 
 function fadeInOut(cur) {
+  // 校正 cur
+  cur--;
+
   // 關閉 transition
   main.style.transition = '';
 
@@ -97,7 +170,7 @@ function fadeInOut(cur) {
   if (transitionPic) {
     transitionPic.classList.remove('banner_item-cloned-z5');
   }
-  transitionPic = document.querySelector(`#item-cloned-${count}`);
+  transitionPic = document.querySelector(`#item-cloned-${count - 1}`);
   transitionPic.classList.add('banner_item-cloned-z5');
 
   // 漸淡
@@ -109,27 +182,28 @@ function fadeInOut(cur) {
   }, 500);
 }
 
-// 觸控滑動
-let touchStartPos = 0;
-let touchNewPos = 0;
-
-main.addEventListener('touchstart', (e) => {
-  touchStartPos = e.touches[0].pageX;
-  main.style.transition = '';
-});
-
-main.addEventListener('touchmove', (e) => {
-  touchNewPos = e.touches[0].pageX;
-  main.style.left = `calc(-${count * 100}vw - ${touchStartPos - touchNewPos}px)`;
-});
-
-main.addEventListener('touchend', () => {
-  main.style.transition = 'left 0.5s';
-  if (touchStartPos - touchNewPos > 0) {
-    countSetting('++');
+function moveDetermine(startPos, NewPos) {
+  if (startPos - NewPos > 100) {
+    count++;
     main.style.left = `-${count * 100}vw`;
-  } else {
-    countSetting('--');
+    if (count === main.childElementCount - 1) {
+      setTimeout(() => {
+        main.style.transition = '';
+        count = 1;
+        main.style.left = `-${count * 100}vw`;
+      }, 300);
+    }
+  } else if (startPos - NewPos < -100) {
+    count--;
+    main.style.left = `-${count * 100}vw`;
+    if (count === 0) {
+      setTimeout(() => {
+        main.style.transition = '';
+        count = 3;
+        main.style.left = `-${count * 100}vw`;
+      }, 300);
+    }
+  } else if (startPos - NewPos < 100 && startPos - NewPos > -100) {
     main.style.left = `-${count * 100}vw`;
   }
-});
+}
