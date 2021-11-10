@@ -110,6 +110,7 @@ autoPlay();
 // 觸控滑動
 let touchStartPos = 0;
 let touchNewPos = 0;
+let isLoading = false;
 
 main.addEventListener('touchstart', (e) => {
   // 停止自動撥放
@@ -121,8 +122,10 @@ main.addEventListener('touchstart', (e) => {
 });
 
 main.addEventListener('touchmove', (e) => {
-  touchNewPos = e.touches[0].pageX;
-  main.style.left = `calc(-${count * 100}vw - ${touchStartPos - touchNewPos}px)`;
+  if (!isLoading) {
+    touchNewPos = e.touches[0].pageX;
+    main.style.left = `calc(-${count * 100}vw - ${touchStartPos - touchNewPos}px)`;
+  }
 });
 
 main.addEventListener('touchend', () => {
@@ -151,8 +154,10 @@ main.onmousedown = (e) => {
   mouseStartPos = e.pageX;
   mouseNewPos = mouseStartPos;
   main.onmousemove = (e) => {
-    mouseNewPos = e.pageX;
-    main.style.left = `calc(-${count * 100}vw - ${mouseStartPos - mouseNewPos}px)`;
+    if (!isLoading) {
+      mouseNewPos = e.pageX;
+      main.style.left = `calc(-${count * 100}vw - ${mouseStartPos - mouseNewPos}px)`;
+    }
   };
 };
 
@@ -202,21 +207,25 @@ function fadeInOut(cur) {
 }
 
 function moveDetermine(startPos, NewPos) {
-  if (startPos - NewPos > 100) {
+  if (startPos - NewPos > 100 && !isLoading) {
     count++;
     main.style.left = `-${count * 100}vw`;
     if (count === main.childElementCount - 1) {
+      isLoading = true;
       setTimeout(() => {
+        isLoading = false;
         main.style.transition = '';
         count = 1;
         main.style.left = `-${count * 100}vw`;
       }, 300);
     }
-  } else if (startPos - NewPos < -100) {
+  } else if (startPos - NewPos < -100 && !isLoading) {
     count--;
     main.style.left = `-${count * 100}vw`;
     if (count === 0) {
+      isLoading = true;
       setTimeout(() => {
+        isLoading = false;
         main.style.transition = '';
         count = 3;
         main.style.left = `-${count * 100}vw`;
