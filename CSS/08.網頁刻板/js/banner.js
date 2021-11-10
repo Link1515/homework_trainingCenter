@@ -88,7 +88,7 @@ for (let i = 0; i < item.length; i++) {
 // 重設 main 位置從 count 1 開始
 main.style.left = `-${count * 100}vw`;
 
-// 左右按鈕
+// 左右按鈕(淡入淡出)
 nextBtn.onclick = () => {
   let current = count;
 
@@ -103,11 +103,18 @@ prevBtn.onclick = () => {
   fadeInOut(current);
 };
 
+// 自動輪播(淡入淡出)
+let timer = 0;
+autoPlay();
+
 // 觸控滑動
 let touchStartPos = 0;
 let touchNewPos = 0;
 
 main.addEventListener('touchstart', (e) => {
+  // 停止自動撥放
+  clearInterval(timer);
+
   touchStartPos = e.touches[0].pageX;
   touchNewPos = touchStartPos;
   main.style.transition = '';
@@ -121,11 +128,23 @@ main.addEventListener('touchmove', (e) => {
 main.addEventListener('touchend', () => {
   main.style.transition = 'left 0.3s';
   moveDetermine(touchStartPos, touchNewPos);
+
+  // 開啟自動撥放
+  autoPlay();
 });
 
 // 滑鼠點擊滑動
 let mouseStartPos = 0;
 let mouseNewPos = 0;
+
+main.onmouseover = () => {
+  // 停止自動撥放
+  clearInterval(timer);
+};
+
+main.onmouseout = () => {
+  autoPlay();
+};
 
 main.onmousedown = (e) => {
   main.style.transition = '';
@@ -206,4 +225,13 @@ function moveDetermine(startPos, NewPos) {
   } else if (startPos - NewPos < 100 && startPos - NewPos > -100) {
     main.style.left = `-${count * 100}vw`;
   }
+}
+
+function autoPlay() {
+  timer = setInterval(() => {
+    let current = count;
+
+    fadeCountSetting('++');
+    fadeInOut(current);
+  }, 5000);
 }
