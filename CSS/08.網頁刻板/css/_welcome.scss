@@ -1,0 +1,55 @@
+.welcome {
+  background-color: $bg-alter;
+  padding: 90px 0;
+}
+
+.welcome_mainText {
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  button {
+    margin-top: 30px;
+  }
+}
+
+.welcome_subText {
+  div {
+    padding-top: 16px;
+  }
+
+  h2 {
+    margin: 7px 0;
+  }
+}
+
+.welcome_img {
+  padding-top: 40px;
+}
+
+@media (min-width: 992px) {
+  .welcome {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .welcome_mainText {
+    width: 48%;
+  }
+
+  .welcome_img {
+    padding: 0;
+    width: 48%;
+  }
+
+  .welcome_subText {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 48%;
+    }
+  }
+}

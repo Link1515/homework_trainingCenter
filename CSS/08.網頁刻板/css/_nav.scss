@@ -12,7 +12,6 @@
   transition: height 0.5s;
 
   .container {
-    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +50,7 @@
   transition: background-color 0.5s;
 
   .container {
+    max-width: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -196,7 +196,9 @@
 
   .nav_main {
     background-color: transparent;
-
+    .container {
+      max-width: 1140px;
+    }
     .nav_menu {
       width: auto;
       height: auto;

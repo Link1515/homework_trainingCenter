@@ -1,0 +1,47 @@
+.mainFeature {
+  padding: 90px 0;
+}
+
+.mainFeature_footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 48px;
+
+  .titleCard {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .titleCard_mainTitle {
+    font-size: 22px;
+  }
+
+  .primary-btn {
+    flex-shrink: 0;
+    margin-left: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainFeature {
+    padding: 90px 10px;
+  }
+
+  .mainFeature_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .cardType1 {
+      width: 48%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .mainFeature_content {
+    .cardType1 {
+      width: 23%;
+    }
+  }
+}
