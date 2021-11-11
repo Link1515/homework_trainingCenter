@@ -1,10 +1,11 @@
 @import 'variable';
 @import 'base';
 
-@import 'button';
-@import 'card';
+@import './components/button';
+@import './components/card';
+@import './components/carousel';
 
-@import 'nav';
-@import 'banner';
-@import 'mainFeature';
-@import 'welcome';
+@import './sections/nav';
+@import './sections/banner';
+@import './sections/mainFeature';
+@import './sections/welcome';

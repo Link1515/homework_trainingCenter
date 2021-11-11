@@ -1,0 +1,50 @@
+.carouselType1_box {
+  position: relative;
+  -webkit-user-drag: none;
+
+  .carouselType1_item-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+  }
+
+  .carouselType1_item-clone-z1 {
+    z-index: -1;
+  }
+}
+
+.carouselType1_main {
+  display: flex;
+  overflow: hidden;
+
+  .carouselType1_item {
+    flex-shrink: 0;
+    width: 100%;
+    transition: opacity 0.5s;
+  }
+}
+
+.carouselType1_switch {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    display: block;
+    margin: 0 5px;
+    width: 15px;
+    height: 5px;
+    border-radius: 5px;
+    border: 1px solid $color-secondary;
+    cursor: pointer;
+    transition: width 0.3s, background-color 0.3s;
+
+    &:hover {
+      width: 35px;
+      border-width: 0;
+      background-color: $color-primary;
+    }
+  }
+}

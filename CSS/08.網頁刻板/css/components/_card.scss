@@ -70,9 +70,27 @@
 
 // card type 2
 .cardType2 {
+  padding: 30px 15px;
+  margin: 15px 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
+  justify-content: space-between;
+}
+
+.cardTpye2_txt {
+  h2 {
+    color: $color-primary;
+  }
 }
 
 .cardType2_img {
-  width: 100px;
+  width: 150px;
+  padding-left: 20px;
+  padding-right: 10px;
+
+  img {
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px dashed $color-p;
+  }
 }
