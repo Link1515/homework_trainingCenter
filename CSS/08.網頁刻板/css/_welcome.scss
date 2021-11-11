@@ -24,7 +24,9 @@
 }
 
 .welcome_img {
-  padding-top: 40px;
+  margin-top: 40px;
+  position: relative;
+  transition: transform 0.1s;
 }
 
 @media (min-width: 992px) {
@@ -40,7 +42,7 @@
   }
 
   .welcome_img {
-    padding: 0;
+    margin-top: 0;
     width: 48%;
   }
 
