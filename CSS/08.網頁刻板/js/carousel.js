@@ -48,20 +48,47 @@ item[0].style.marginLeft = `-${count * itemWidth}px`;
 let timer = 0;
 autoPlay();
 
+// 觸控滑動
+let touchStartPos = 0;
+let touchNewPos = 0;
 let isLoading = false;
+
+main.addEventListener('touchstart', (e) => {
+  // 停止自動撥放
+  clearInterval(timer);
+
+  touchStartPos = e.touches[0].pageX;
+  touchNewPos = touchStartPos;
+  item[0].style.transition = '';
+});
+
+main.addEventListener('touchmove', (e) => {
+  if (!isLoading) {
+    touchNewPos = e.touches[0].pageX;
+    item[0].style.marginLeft = `calc(-${count * itemWidth}px - ${touchStartPos - touchNewPos}px)`;
+  }
+});
+
+main.addEventListener('touchend', () => {
+  item[0].style.transition = 'margin 0.3s';
+  moveDetermine(touchStartPos, touchNewPos);
+
+  // 開啟自動撥放
+  autoPlay();
+});
 
 // 滑鼠點擊滑動
 let mouseStartPos = 0;
 let mouseNewPos = 0;
 
-// main.onmouseover = () => {
-//   // 停止自動撥放
-//   clearInterval(timer);
-// };
+main.onmouseover = () => {
+  // 停止自動撥放
+  clearInterval(timer);
+};
 
-// main.onmouseout = () => {
-//   autoPlay();
-// };
+main.onmouseout = () => {
+  autoPlay();
+};
 
 main.onmousedown = (e) => {
   item[0].style.transition = '';
@@ -71,6 +98,7 @@ main.onmousedown = (e) => {
     if (!isLoading) {
       mouseNewPos = e.pageX;
       item[0].style.marginLeft = `calc(-${count * itemWidth}px - ${mouseStartPos - mouseNewPos}px)`;
+      console.log(mouseStartPos);
     }
   };
 };
@@ -79,6 +107,12 @@ main.onmouseup = () => {
   main.onmousemove = null;
   item[0].style.transition = 'margin 0.3s';
   moveDetermine(mouseStartPos, mouseNewPos);
+};
+
+// resize更新輪播圖寬度
+window.onresize = () => {
+  itemWidth = parseInt(getComputedStyle(item[0]).width);
+  item[0].style.marginLeft = `-${count * itemWidth}px`;
 };
 
 // ************ function **************
