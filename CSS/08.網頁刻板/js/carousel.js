@@ -3,6 +3,12 @@ const box = document.querySelector('.carouselType1_box');
 const main = document.querySelector('.carouselType1_main');
 let item = document.querySelectorAll('.carouselType1_main .carouselType1_item');
 let itemWidth = parseInt(getComputedStyle(item[0]).width);
+const btns = document.querySelector('.carouselType1_switch');
+
+// 參數
+const opacityDuration = 500;
+const movingDuration = 300;
+const autoPlayInterval = 5000;
 
 let count = 1;
 let transitionPic = '';
@@ -39,6 +45,31 @@ for (let i = 0; i < item.length; i++) {
   );
 }
 
+// switch 插入 span
+for (let i = 0; i < item.length; i++) {
+  btns.insertAdjacentHTML('afterbegin', '<span></span>');
+}
+
+for (let i = 0; i < btns.children.length; i++) {
+  btns.children[i].onclick = () => {
+    let current = count;
+
+    count = i + 1;
+    fadeInOut(current);
+    changeSwitch();
+
+    // 關閉自動撥放
+    clearInterval(timer);
+
+    setTimeout(() => {
+      autoPlay();
+    }, opacityDuration);
+  };
+}
+
+// btns 首個 child 加入 class
+btns.children[0].classList.add('switch-active');
+
 // 重取 item
 item = document.querySelectorAll('.carouselType1_main .carouselType1_item');
 // 重設 item[0] 位置從 count 1 開始
@@ -73,6 +104,9 @@ main.addEventListener('touchend', () => {
   item[0].style.transition = 'margin 0.3s';
   moveDetermine(touchStartPos, touchNewPos);
 
+  // 更換 switch
+  changeSwitch();
+
   // 開啟自動撥放
   autoPlay();
 });
@@ -98,7 +132,6 @@ main.onmousedown = (e) => {
     if (!isLoading) {
       mouseNewPos = e.pageX;
       item[0].style.marginLeft = `calc(-${count * itemWidth}px - ${mouseStartPos - mouseNewPos}px)`;
-      console.log(mouseStartPos);
     }
   };
 };
@@ -107,6 +140,9 @@ main.onmouseup = () => {
   main.onmousemove = null;
   item[0].style.transition = 'margin 0.3s';
   moveDetermine(mouseStartPos, mouseNewPos);
+
+  // 更換 switch
+  changeSwitch();
 };
 
 // resize更新輪播圖寬度
@@ -127,7 +163,7 @@ function fadeCountSetting(str) {
   if (count === main.childElementCount - 1) {
     count = 1;
   } else if (count === 0) {
-    conut = 3;
+    conut = main.childElementCount - 2;
   }
 }
 
@@ -145,10 +181,13 @@ function fadeInOut(cur) {
   // 漸淡
   item[cur].style.opacity = '0';
 
+  // 更換 switch
+  changeSwitch();
+
   setTimeout(() => {
     item[cur].style.opacity = '1';
     item[0].style.marginLeft = `-${count * itemWidth}px`;
-  }, 500);
+  }, opacityDuration);
 }
 
 function moveDetermine(startPos, NewPos) {
@@ -162,7 +201,7 @@ function moveDetermine(startPos, NewPos) {
         item[0].style.transition = '';
         count = 1;
         item[0].style.marginLeft = `-${count * itemWidth}px`;
-      }, 300);
+      }, movingDuration);
     }
   } else if (startPos - NewPos < -100 && !isLoading) {
     count--;
@@ -174,7 +213,7 @@ function moveDetermine(startPos, NewPos) {
         item[0].style.transition = '';
         count = 3;
         item[0].style.marginLeft = `-${count * itemWidth}px`;
-      }, 300);
+      }, movingDuration);
     }
   } else if (startPos - NewPos < 100 && startPos - NewPos > -100) {
     item[0].style.marginLeft = `-${count * itemWidth}px`;
@@ -187,5 +226,23 @@ function autoPlay() {
 
     fadeCountSetting('++');
     fadeInOut(current);
-  }, 5000);
+  }, autoPlayInterval);
+}
+
+function changeSwitch() {
+  let num = 0;
+
+  // 設定 count 不會到最前與最後
+  if (count === main.childElementCount - 1) {
+    num = 0;
+  } else if (count === 0) {
+    num = main.childElementCount - 3;
+  } else {
+    num = count - 1;
+  }
+
+  for (let i = 0; i < btns.children.length; i++) {
+    btns.children[i].classList.remove('switch-active');
+  }
+  btns.children[num].classList.add('switch-active');
 }

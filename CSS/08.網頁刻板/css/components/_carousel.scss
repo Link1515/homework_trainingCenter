@@ -41,7 +41,8 @@
     cursor: pointer;
     transition: width 0.3s, background-color 0.3s;
 
-    &:hover {
+    &:hover,
+    &.switch-active {
       width: 35px;
       border-width: 0;
       background-color: $color-primary;

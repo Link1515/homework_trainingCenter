@@ -249,8 +249,7 @@ button {
 
 .cardType2_img {
   width: 150px;
-  padding-left: 20px;
-  padding-right: 10px;
+  padding: 0 20px;
 }
 
 .cardType2_img img {
@@ -315,7 +314,7 @@ button {
   transition: width 0.3s, background-color 0.3s;
 }
 
-.carouselType1_switch span:hover {
+.carouselType1_switch span:hover, .carouselType1_switch span.switch-active {
   width: 35px;
   border-width: 0;
   background-color: #ff4b2b;
@@ -528,7 +527,6 @@ button {
 }
 
 .nav_toTopBtn {
-  display: none;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -547,6 +545,10 @@ button {
 
 .nav_toTopBtn:hover {
   background-color: #5a1e90;
+}
+
+.nav_toTopBtn.nav_toTopBtn-active {
+  right: 5%;
 }
 
 @media (min-width: 1200px) {
@@ -656,12 +658,6 @@ button {
   }
   .nav_main .nav_toggleBtn {
     display: none;
-  }
-  .nav_toTopBtn {
-    display: block;
-  }
-  .nav_toTopBtn.nav_toTopBtn-active {
-    right: 5%;
   }
 }
 
