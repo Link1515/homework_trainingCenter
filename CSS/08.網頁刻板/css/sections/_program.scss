@@ -1,0 +1,96 @@
+.program {
+  background-color: $color-primary;
+  padding: 90px 0;
+  position: relative;
+
+  .titleCard {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 48px;
+
+    h1,
+    p {
+      color: #fff;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+    }
+  }
+  .titleCard_subTitle {
+    background-color: #fff;
+    color: $color-p;
+  }
+}
+
+.program_img {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.program_videoPlayBtn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  border: 8px solid $color-primary;
+  background-color: $color-thirdary;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: outlineAnimate 1.2s linear infinite;
+}
+
+// .program_iframe {
+//   background-color: rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   z-index: 999;
+
+//   iframe {
+//   }
+// }
+
+@keyframes outlineAnimate {
+  from {
+    outline: 0px solid rgba(255, 255, 255, 0.5);
+  }
+  to {
+    outline: 20px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (min-width: 992px) {
+  .program_header {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .program .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .program_header,
+  .program_video {
+    width: 48%;
+  }
+
+  .program_header {
+    max-width: none;
+    margin: 0;
+  }
+}

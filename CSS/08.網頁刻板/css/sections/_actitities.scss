@@ -1,0 +1,43 @@
+.activities {
+  padding: 90px 0;
+}
+
+@media (min-width: 768px) {
+  .activities_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .activities_leftBox,
+  .carouselType1,
+  .activities_rightBox {
+    width: 48%;
+  }
+
+  .carouselType1 {
+    padding: 6rem 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .activities_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .activities_leftBox,
+  .carouselType1,
+  .activities_rightBox {
+    width: 32%;
+  }
+
+  .carouselType1 {
+    padding: 0;
+  }
+
+  .cardType2_img {
+    padding: 0 1rem;
+  }
+}

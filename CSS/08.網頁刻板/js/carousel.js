@@ -136,10 +136,13 @@ main.onmousedown = (e) => {
   };
 };
 
-main.onmouseup = () => {
+document.onmouseup = () => {
   main.onmousemove = null;
   item[0].style.transition = 'margin 0.3s';
   moveDetermine(mouseStartPos, mouseNewPos);
+
+  mouseStartPos = 0;
+  mouseNewPos = 0;
 
   // 更換 switch
   changeSwitch();
