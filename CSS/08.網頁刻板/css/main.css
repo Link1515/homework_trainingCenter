@@ -46,6 +46,8 @@ img {
 }
 
 button {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
   outline: none;
   border: none;
   padding: 0;
@@ -136,6 +138,29 @@ button {
   left: 0;
   -webkit-transition: 0.2s 0.3s ease-in-out;
   transition: 0.2s 0.3s ease-in-out;
+}
+
+.filterBtn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  -webkit-box-shadow: 1px 1px 0 #000;
+          box-shadow: 1px 1px 0 #000;
+  color: #fff;
+  background-color: #5a1e90;
+}
+
+.filterBtn:hover {
+  background-color: #ff4b2b;
+}
+
+.filterBtn:active {
+  -webkit-box-shadow: inset 1px 1px 0 #000;
+          box-shadow: inset 1px 1px 0 #000;
+}
+
+.filterBtn-active {
+  background-color: #ff4b2b;
 }
 
 .titleCard {
@@ -1176,5 +1201,31 @@ button {
     max-width: none;
     margin: 0;
   }
+}
+
+.gallery {
+  padding: 90px 0;
+}
+
+.gallery_filterBtns {
+  font-size: 0;
+  text-align: center;
+}
+
+.gallery_filterBtns button {
+  margin: 0 10px;
+}
+
+.gallery_item {
+  position: relative;
+}
+
+.gallery_item > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(90, 30, 144, 0.5);
 }
 /*# sourceMappingURL=main.css.map */

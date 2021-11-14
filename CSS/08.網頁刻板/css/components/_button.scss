@@ -59,3 +59,25 @@
     }
   }
 }
+
+// filterBtn
+.filterBtn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  box-shadow: 1px 1px 0 #000;
+  color: #fff;
+  background-color: $color-secondary;
+}
+
+.filterBtn:hover {
+  background-color: $color-primary;
+}
+
+.filterBtn:active {
+  box-shadow: inset 1px 1px 0 #000;
+}
+
+.filterBtn-active {
+  background-color: $color-primary;
+}

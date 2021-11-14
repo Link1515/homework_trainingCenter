@@ -1,0 +1,25 @@
+.gallery {
+  padding: 90px 0;
+}
+
+.gallery_filterBtns {
+  font-size: 0;
+  text-align: center;
+
+  button {
+    margin: 0 10px;
+  }
+}
+
+.gallery_item {
+  position: relative;
+
+  > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(90, 30, 144, 0.5);
+  }
+}
