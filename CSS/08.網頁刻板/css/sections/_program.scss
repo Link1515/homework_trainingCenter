@@ -46,21 +46,40 @@
   animation: outlineAnimate 1.2s linear infinite;
 }
 
-// .program_iframe {
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 999;
+.program_iframePopup {
+  display: none;
+  padding: 2rem 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
 
-//   iframe {
-//   }
-// }
+.program_iframeBox {
+  // 神奇的方法，利用height: 0 無法闔上padding來做高度百分比
+  width: 100%;
+  max-width: 900px;
+
+  > div {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+}
 
 @keyframes outlineAnimate {
   from {

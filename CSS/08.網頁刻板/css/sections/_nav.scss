@@ -2,6 +2,7 @@
   width: 100%;
   position: fixed;
   z-index: 99;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .nav_contactInfo {
@@ -191,16 +192,6 @@
     right: 5%;
   }
 }
-
-// @media (min-width: 768px) {
-//   .nav_toTopBtn {
-//     display: block;
-
-//     &.nav_toTopBtn-active {
-//       right: 5%;
-//     }
-//   }
-// }
 
 @media (min-width: 1200px) {
   .nav_contactInfo {

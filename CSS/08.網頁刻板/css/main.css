@@ -413,6 +413,8 @@ button {
   width: 100%;
   position: fixed;
   z-index: 99;
+  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .nav_contactInfo {
@@ -1092,6 +1094,44 @@ button {
           transform: translate(-50%, -50%);
   -webkit-animation: outlineAnimate 1.2s linear infinite;
           animation: outlineAnimate 1.2s linear infinite;
+}
+
+.program_iframePopup {
+  display: none;
+  padding: 2rem 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.program_iframeBox {
+  width: 100%;
+  max-width: 900px;
+}
+
+.program_iframeBox > div {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.program_iframeBox iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 @-webkit-keyframes outlineAnimate {
