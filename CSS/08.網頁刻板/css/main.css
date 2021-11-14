@@ -43,6 +43,7 @@ p {
 
 img {
   width: 100%;
+  vertical-align: middle;
 }
 
 button {
@@ -1210,22 +1211,120 @@ button {
 .gallery_filterBtns {
   font-size: 0;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .gallery_filterBtns button {
-  margin: 0 10px;
+  margin: 10px 8px;
 }
 
 .gallery_item {
   position: relative;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .gallery_item > div {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 40%;
   left: 0;
   right: 0;
-  background-color: rgba(90, 30, 144, 0.5);
+  background-color: rgba(90, 30, 144, 0.6);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gallery_item > div h2 {
+  color: #fff;
+  margin: 1.5rem 0;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.gallery_item > div h2:hover {
+  color: #ccc;
+}
+
+.gallery_item > div button {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.gallery_item > div button:hover {
+  background-color: #fff;
+  color: #5a1e90;
+}
+
+.gallery_item:hover > div {
+  visibility: visible;
+  opacity: 1;
+  bottom: 0;
+}
+
+.gallery_item img {
+  height: 100%;
+}
+
+.gallery_item-hidden {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+}
+
+.gallery_footer {
+  text-align: center;
+}
+
+.gallery_footer button {
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .gallery_body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .gallery_item {
+    width: 49%;
+  }
+}
+
+@media (min-width: 992px) {
+  .gallery_item {
+    width: 32%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

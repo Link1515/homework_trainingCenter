@@ -450,23 +450,77 @@
           </div>
         </div>
         <div class="gallery_filterBtns">
-          <button class="filterBtn filterBtn-active">ALL</button>
-          <button class="filterBtn">EVENT</button>
-          <button class="filterBtn">ACTIVITIES</button>
-          <button class="filterBtn">TEACHING</button>
+          <button class="filterBtn filterBtn-active" id="filterBtn_allBtn">ALL</button>
+          <button class="filterBtn" id="filterBtn_eventBtn">EVENT</button>
+          <button class="filterBtn" id="filterBtn_classBtn">CLASS</button>
+          <button class="filterBtn" id="filterBtn_activitiesBtn">ACTIVITIES</button>
+          <button class="filterBtn" id="filterBtn_teachingBtn">TEACHING</button>
         </div>
         <div class="gallery_body">
-          <div class="gallery_item">
+          <div class="gallery_item" data-type="event teaching">
             <img src="./images/Gallery/1.jpg" />
             <div>
               <div>
-                <i class="fa fa-search"></i>
-                <h2>School</h2>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>School</h2></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery_item" data-type="class activities">
+            <img src="./images/Gallery/2.jpg" />
+            <div>
+              <div>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>Sings & Songs</h2></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery_item" data-type="event teaching">
+            <img src="./images/Gallery/3.jpg" />
+            <div>
+              <div>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>Music</h2></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery_item" data-type="class activities">
+            <img src="./images/Gallery/4.jpg" />
+            <div>
+              <div>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>Activities</h2></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery_item" data-type="event">
+            <img src="./images/Gallery/5.jpg" />
+            <div>
+              <div>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>Playing</h2></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery_item" data-type="event teaching">
+            <img src="./images/Gallery/6.jpg" />
+            <div>
+              <div>
+                <button><i class="fa fa-search"></i></button>
+                <a href="#"><h2>Gaming</h2></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="gallery_footer"></div>
+        <div class="gallery_footer">
+          <button class="primary-btn">
+            <a href="#">Learn more</a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </div>
 
