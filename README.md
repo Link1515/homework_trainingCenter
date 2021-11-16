@@ -4,6 +4,11 @@
 
 ## css homework
 
+### Dateline: 2021/12/31
+
+- [ ] [CSS 網頁切板 (template monster)](https://link1515.github.io/homework_trainingCenter/CSS/08.%E7%B6%B2%E9%A0%81%E5%88%BB%E6%9D%BF/)
+  - reference: [kingdergarden web](https://www.templatemonsterpreview.com/demo/179714.html?_gl=1*1a7ye87*_ga*MTU1NjYyNjgwNy4xNjM1OTA5MzY1*_ga_FTPYEGT5LY*MTYzNTkxNTg1Ny4yLjEuMTYzNTkxNTk2OS4yNA..&_ga=2.173690662.400592392.1635909365-1556626807.1635909365&_gac=1.262858424.1635909384.EAIaIQobChMIho-BoZ378wIVCYrICh0MMAu3EAAYAiAAEgIjhPD_BwE)
+
 ### Dateline: 2021/11/15
 
 - [x] [媒體查詢](https://link1515.github.io/homework_trainingCenter/CSS/07.%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2/media_query_wda.html)
@@ -22,11 +27,13 @@
 
 ## JS homework
 
+### Dateline: 2021/12/31
+
 - [x] [時鐘](https://link1515.github.io/homework_trainingCenter/JS/02.%E6%99%82%E9%90%98/%E4%BD%9C%E6%A5%AD_%E6%99%82%E9%90%98.html)
 - [x] [顏色選擇器](https://link1515.github.io/homework_trainingCenter/JS/03.%E9%A1%8F%E8%89%B2%E9%81%B8%E6%93%87%E5%99%A8/%E4%BD%9C%E6%A5%AD_%E9%A1%8F%E8%89%B2%E9%81%B8%E6%93%87%E5%99%A8.html) - 不用繳交
 - [x] [打地鼠 (FindQ)](https://link1515.github.io/homework_trainingCenter/JS/04.%E6%89%93%E5%9C%B0%E9%BC%A0/index.html)
 - [x] [打殭屍 (飛機遊戲)](https://link1515.github.io/homework_trainingCenter/JS/05.%E6%89%93%E6%AE%AD%E5%B1%8D/)
-- [ ] [翻牌](https://link1515.github.io/homework_trainingCenter/JS/06.%E7%BF%BB%E7%89%8C/)
+- [x] [翻牌](https://link1515.github.io/homework_trainingCenter/JS/06.%E7%BF%BB%E7%89%8C/)
 
 ## PS homework
 
