@@ -439,8 +439,6 @@ button {
   width: 100%;
   position: fixed;
   z-index: 99;
-  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-          box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .nav_contactInfo {
@@ -493,8 +491,12 @@ button {
 .nav_main {
   height: 80px;
   background-color: #5a1e90;
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
+  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .nav_main .container {
@@ -1143,6 +1145,7 @@ button {
 .program_iframeBox {
   width: 100%;
   max-width: 900px;
+  position: relative;
 }
 
 .program_iframeBox > div {
@@ -1151,6 +1154,21 @@ button {
   overflow: hidden;
   padding-top: 56.25%;
   position: relative;
+}
+
+.program_iframeBox button {
+  position: absolute;
+  background-color: transparent;
+  top: -8%;
+  right: 0;
+  color: #ccc;
+  font-size: 1.5rem;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+.program_iframeBox button:hover {
+  color: #fff;
 }
 
 .program_iframeBox iframe {

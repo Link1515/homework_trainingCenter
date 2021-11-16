@@ -64,6 +64,7 @@
   // 神奇的方法，利用height: 0 無法闔上padding來做高度百分比
   width: 100%;
   max-width: 900px;
+  position: relative;
 
   > div {
     width: 100%;
@@ -71,6 +72,20 @@
     overflow: hidden;
     padding-top: 56.25%;
     position: relative;
+  }
+
+  button {
+    position: absolute;
+    background-color: transparent;
+    top: -8%;
+    right: 0;
+    color: #ccc;
+    font-size: 1.5rem;
+    transition: color 0.5s;
+
+    &:hover {
+      color: #fff;
+    }
   }
 
   iframe {

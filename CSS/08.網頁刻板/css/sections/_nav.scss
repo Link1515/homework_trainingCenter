@@ -2,7 +2,6 @@
   width: 100%;
   position: fixed;
   z-index: 99;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .nav_contactInfo {
@@ -48,7 +47,8 @@
 .nav_main {
   height: 80px;
   background-color: $color-secondary;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 
   .container {
     max-width: none;

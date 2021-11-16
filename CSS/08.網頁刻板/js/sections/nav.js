@@ -50,9 +50,11 @@ window.onscroll = () => {
     contactInfo.style.height = '0px';
     main.style.backgroundColor = '#ff4b2b';
     toTopBtn.classList.add('nav_toTopBtn-active');
+    main.style.boxShadow = '';
   } else {
     contactInfo.style.height = '';
     main.style.backgroundColor = '';
+    main.style.boxShadow = '0 0 0 transparent';
     toTopBtn.classList.remove('nav_toTopBtn-active');
   }
 };

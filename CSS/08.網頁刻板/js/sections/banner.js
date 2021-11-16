@@ -179,7 +179,7 @@ function fadeCountSetting(str) {
   if (count === main.childElementCount - 1) {
     count = 1;
   } else if (count === 0) {
-    conut = 3;
+    count = 3;
   }
 }
 
