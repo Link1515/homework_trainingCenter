@@ -50,7 +50,7 @@ window.onscroll = () => {
     contactInfo.style.height = '0px';
     main.style.backgroundColor = '#ff4b2b';
     toTopBtn.classList.add('nav_toTopBtn-active');
-    main.style.boxShadow = '';
+    main.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.8)';
   } else {
     contactInfo.style.height = '';
     main.style.backgroundColor = '';
