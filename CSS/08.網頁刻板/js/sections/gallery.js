@@ -1,81 +1,85 @@
-const allBtn = document.getElementById('filterBtn_allBtn');
-const eventBtn = document.getElementById('filterBtn_eventBtn');
-const classBtn = document.getElementById('filterBtn_classBtn');
-const activitiesBtn = document.getElementById('filterBtn_activitiesBtn');
-const teachingBtn = document.getElementById('filterBtn_teachingBtn');
-const items = document.querySelectorAll('.gallery_item');
-const btns = allBtn.parentElement;
+const body = document.querySelector('.gallery_body');
+const moveBoxes = document.querySelectorAll('.gallery_itemMoveBox');
+const btns = document.querySelectorAll('.gallery_filterBtns button');
+const allBtn = document.querySelector('#filterBtn_allBtn');
+const eventBtn = document.querySelector('#filterBtn_eventBtn');
+const classBtn = document.querySelector('#filterBtn_classBtn');
+const activitiesBtn = document.querySelector('#filterBtn_activitiesBtn');
+const teachingBtn = document.querySelector('#filterBtn_teachingBtn');
 
-let reg = '';
+arrangeBox();
 
-allBtn.onclick = function () {
-  removeBtnActive();
-  this.classList.add('filterBtn-active');
+window.addEventListener('resize', () => {
+  arrangeBox();
+});
 
-  for (let i = 0; i < items.length; i++) {
-    items[i].style.display = '';
-    setTimeout(() => {
-      items[i].classList.remove('gallery_item-hidden');
-    }, 0);
+// btn click event
+
+allBtn.onclick = () => {
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('filterBtn-active');
   }
-};
 
-eventBtn.onclick = function () {
-  reg = /event/;
+  allBtn.classList.add('filterBtn-active');
 
-  removeBtnActive();
-  this.classList.add('filterBtn-active');
-
-  filterFun(reg);
-};
-
-classBtn.onclick = function () {
-  reg = /class/;
-
-  removeBtnActive();
-  this.classList.add('filterBtn-active');
-
-  filterFun(reg);
-};
-
-activitiesBtn.onclick = function () {
-  reg = /activities/;
-
-  removeBtnActive();
-  this.classList.add('filterBtn-active');
-
-  filterFun(reg);
-};
-
-teachingBtn.onclick = function () {
-  reg = /teaching/;
-
-  removeBtnActive();
-  this.classList.add('filterBtn-active');
-
-  filterFun(reg);
-};
-
-// ****** function ******
-
-function removeBtnActive() {
-  for (let i = 0; i < btns.childElementCount; i++) {
-    btns.children[i].classList.remove('filterBtn-active');
+  for (let i = 0; i < moveBoxes.length; i++) {
+    moveBoxes[i].classList.remove('gallery_itemMoveBox-hidden');
   }
-}
 
-function filterFun(reg) {
-  for (let i = 0; i < items.length; i++) {
-    if (reg.test(items[i].dataset.type)) {
-      items[i].style.display = '';
-      setTimeout(() => {
-        items[i].classList.remove('gallery_item-hidden');
-      }, 0);
-    } else {
-      items[i].classList.add('gallery_item-hidden');
-      setTimeout(() => {
-        items[i].style.display = 'none';
-      }, 500);
+  arrangeBox();
+};
+
+// ******** function ********
+
+function arrangeBox() {
+  // getComputedStyle 取值時會受到transition干擾，要先關掉
+  for (let i = 0; i < moveBoxes.length; i++) {
+    moveBoxes[i].style.transition = '';
+  }
+  const moveBoxesNow = document.querySelectorAll('.gallery_body > div:not(.gallery_itemMoveBox-hidden)');
+  const moveBoxHeight = parseInt(getComputedStyle(moveBoxesNow[0]).height);
+  for (let i = 0; i < moveBoxes.length; i++) {
+    moveBoxes[i].style.transition = '0.5s';
+  }
+
+  console.log(moveBoxHeight);
+  console.log(window.innerWidth);
+  let floor = 0;
+
+  if (window.innerWidth >= 992) {
+    for (let i = 0; i < moveBoxesNow.length; i++) {
+      moveBoxesNow[i].style.top = floor * moveBoxHeight + 'px';
+
+      if (i % 3 === 0) {
+        moveBoxesNow[i].style.left = '0';
+      } else if (i % 3 === 1) {
+        moveBoxesNow[i].style.left = '33.333%';
+      } else {
+        moveBoxesNow[i].style.left = '66.666%';
+        floor++;
+      }
     }
+
+    body.style.height = moveBoxHeight * floor + 'px';
+  } else if (window.innerWidth >= 768) {
+    for (let i = 0; i < moveBoxesNow.length; i++) {
+      moveBoxesNow[i].style.top = floor * moveBoxHeight + 'px';
+
+      if (i % 2 === 0) {
+        moveBoxesNow[i].style.left = '0';
+      } else {
+        moveBoxesNow[i].style.left = '50%';
+        floor++;
+      }
+    }
+
+    body.style.height = moveBoxHeight * floor + 'px';
+  } else {
+    for (let i = 0; i < moveBoxesNow.length; i++) {
+      moveBoxesNow[i].style.left = '0';
+      moveBoxesNow[i].style.top = `${i * moveBoxHeight}px`;
+    }
+
+    body.style.height = moveBoxHeight * moveBoxesNow.length + 'px';
   }
 }
