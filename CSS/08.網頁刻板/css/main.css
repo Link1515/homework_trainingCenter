@@ -6,6 +6,10 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -660,6 +664,11 @@ button {
   bottom: 8%;
 }
 
+.nav_toTopBtn a {
+  display: block;
+  height: 100%;
+}
+
 .nav_toTopBtn:hover {
   background-color: #5a1e90;
 }
@@ -1243,14 +1252,23 @@ button {
   position: absolute;
 }
 
-.gallery_itemMoveBox-hidden {
+.gallery_body .gallery_itemMoveBox-hidden {
   visibility: hidden;
+}
+
+.gallery_body .gallery_itemMoveBox-hidden .gallery_item {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
 }
 
 .gallery_item {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }

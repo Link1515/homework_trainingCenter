@@ -149,10 +149,10 @@ document.onmouseup = () => {
 };
 
 // resize更新輪播圖寬度
-window.onresize = () => {
+window.addEventListener('resize', () => {
   itemWidth = parseInt(getComputedStyle(item[0]).width);
   item[0].style.marginLeft = `-${count * itemWidth}px`;
-};
+});
 
 // ************ function **************
 function fadeCountSetting(str) {

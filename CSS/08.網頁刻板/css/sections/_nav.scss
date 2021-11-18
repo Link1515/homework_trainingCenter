@@ -183,6 +183,11 @@
   right: 105%;
   bottom: 8%;
 
+  a {
+    display: block;
+    height: 100%;
+  }
+
   &:hover {
     background-color: $color-secondary;
   }

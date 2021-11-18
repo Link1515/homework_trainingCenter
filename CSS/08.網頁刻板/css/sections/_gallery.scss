@@ -17,19 +17,26 @@
 
   .gallery_itemMoveBox {
     padding: 0 1rem 1rem 1rem;
-    position: absolute;
-    // transition: 0.5s;
-  }
-}
 
-.gallery_itemMoveBox-hidden {
-  visibility: hidden;
+    position: absolute;
+  }
+
+  .gallery_itemMoveBox-hidden {
+    visibility: hidden;
+  }
+
+  .gallery_itemMoveBox-hidden .gallery_item {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .gallery_item {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  transform: scale(1);
+  opacity: 1;
   transition: 0.5s;
 
   > div {

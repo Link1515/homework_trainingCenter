@@ -60,7 +60,7 @@ window.onscroll = () => {
 };
 
 // 視窗大小改變，修正nav
-window.onresize = () => {
+window.addEventListener('resize', () => {
   if (window.innerWidth > 1200) {
     menu.style.height = '';
     for (let i = 0; i < subToggleBtn.length; i++) {
@@ -77,4 +77,4 @@ window.onresize = () => {
       }
     }
   }
-};
+});

@@ -16,16 +16,53 @@ window.addEventListener('resize', () => {
 // btn click event
 
 allBtn.onclick = () => {
-  for (let i = 0; i < btns.length; i++) {
-    btns[i].classList.remove('filterBtn-active');
-  }
-
+  removeBtnActiveClass();
   allBtn.classList.add('filterBtn-active');
 
   for (let i = 0; i < moveBoxes.length; i++) {
     moveBoxes[i].classList.remove('gallery_itemMoveBox-hidden');
   }
 
+  arrangeBox();
+};
+
+eventBtn.onclick = () => {
+  removeBtnActiveClass();
+  eventBtn.classList.add('filterBtn-active');
+
+  const reg = /event/;
+
+  testItemType(reg);
+  arrangeBox();
+};
+
+classBtn.onclick = () => {
+  removeBtnActiveClass();
+  classBtn.classList.add('filterBtn-active');
+
+  const reg = /class/;
+
+  testItemType(reg);
+  arrangeBox();
+};
+
+activitiesBtn.onclick = () => {
+  removeBtnActiveClass();
+  activitiesBtn.classList.add('filterBtn-active');
+
+  const reg = /activities/;
+
+  testItemType(reg);
+  arrangeBox();
+};
+
+teachingBtn.onclick = () => {
+  removeBtnActiveClass();
+  teachingBtn.classList.add('filterBtn-active');
+
+  const reg = /teaching/;
+
+  testItemType(reg);
   arrangeBox();
 };
 
@@ -39,11 +76,12 @@ function arrangeBox() {
   const moveBoxesNow = document.querySelectorAll('.gallery_body > div:not(.gallery_itemMoveBox-hidden)');
   const moveBoxHeight = parseInt(getComputedStyle(moveBoxesNow[0]).height);
   for (let i = 0; i < moveBoxes.length; i++) {
-    moveBoxes[i].style.transition = '0.5s';
+    moveBoxes[i].style.transition = 'all 0.5s';
   }
 
   console.log(moveBoxHeight);
-  console.log(window.innerWidth);
+  console.log(moveBoxesNow.length);
+
   let floor = 0;
 
   if (window.innerWidth >= 992) {
@@ -60,6 +98,11 @@ function arrangeBox() {
       }
     }
 
+    // 為了後續高度計算，修正item不為3的倍數時的狀況
+    if (moveBoxesNow.length % 3 === 1 || moveBoxesNow.length % 3 === 2) {
+      floor++;
+    }
+
     body.style.height = moveBoxHeight * floor + 'px';
   } else if (window.innerWidth >= 768) {
     for (let i = 0; i < moveBoxesNow.length; i++) {
@@ -73,6 +116,11 @@ function arrangeBox() {
       }
     }
 
+    // 為了後續高度計算，修正item為奇數時的狀況
+    if (moveBoxesNow.length % 2 === 1) {
+      floor++;
+    }
+
     body.style.height = moveBoxHeight * floor + 'px';
   } else {
     for (let i = 0; i < moveBoxesNow.length; i++) {
@@ -81,5 +129,21 @@ function arrangeBox() {
     }
 
     body.style.height = moveBoxHeight * moveBoxesNow.length + 'px';
+  }
+}
+
+function removeBtnActiveClass() {
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('filterBtn-active');
+  }
+}
+
+function testItemType(reg) {
+  for (let i = 0; i < moveBoxes.length; i++) {
+    if (reg.test(moveBoxes[i].dataset.type)) {
+      moveBoxes[i].classList.remove('gallery_itemMoveBox-hidden');
+    } else {
+      moveBoxes[i].classList.add('gallery_itemMoveBox-hidden');
+    }
   }
 }
