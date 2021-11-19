@@ -2,7 +2,7 @@
 
 - 打勾代表已繳交作業
 
-## css homework
+## CSS Homework
 
 ### Dateline: 2021/12/31
 
@@ -23,9 +23,9 @@
 - [x] [我的第一個網站](https://link1515.github.io/homework_trainingCenter/CSS/01.%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B6%B2%E9%A0%81/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B6%B2%E9%A0%81.html)
 - [x] [inline-block](https://link1515.github.io/homework_trainingCenter/CSS/02.inline_block_float/youtube_inline-block%E6%8E%92%E7%89%88.html) 與 [float](https://link1515.github.io/homework_trainingCenter/CSS/02.inline_block_float/youtube_float%E6%8E%92%E7%89%88.html) 排版
 - [x] [熊](https://link1515.github.io/homework_trainingCenter/CSS/03.%E7%86%8A%E8%88%87%E9%87%9D%E7%AD%92/bear.html) 與 [針筒](https://link1515.github.io/homework_trainingCenter/CSS/03.%E7%86%8A%E8%88%87%E9%87%9D%E7%AD%92/syringe.html)
-- [x] [youtube](https://link1515.github.io/homework_trainingCenter/CSS/04.youtube/youtube.html)
+- [x] [YouTube](https://link1515.github.io/homework_trainingCenter/CSS/04.youtube/youtube.html)
 
-## JS homework
+## JS Homework
 
 ### Dateline: 2021/12/31
 
@@ -34,9 +34,14 @@
 - [x] [打地鼠 (FindQ)](https://link1515.github.io/homework_trainingCenter/JS/04.%E6%89%93%E5%9C%B0%E9%BC%A0/index.html)
 - [x] [打殭屍 (飛機遊戲)](https://link1515.github.io/homework_trainingCenter/JS/05.%E6%89%93%E6%AE%AD%E5%B1%8D/)
 - [x] [翻牌](https://link1515.github.io/homework_trainingCenter/JS/06.%E7%BF%BB%E7%89%8C/)
+- [ ] [linebot]
 
-## PS homework
+## PS Homework
 
 - [x] [banner](https://link1515.github.io/homework_trainingCenter/PS/01.banner/)
 - [x] [poster](https://link1515.github.io/homework_trainingCenter/PS/02.poster/)
 - [x] [calender](https://link1515.github.io/homework_trainingCenter/PS/03.calendar/)
+
+## AI Homework
+- [ ] [Animal 30 CHALLENGE]
+  - reference: https://www.behance.net/gallery/30671987/30-ANIMAL-LOGOS-CHALLENGE
