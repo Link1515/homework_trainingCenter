@@ -5,97 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        /* overflow: hidden; */
-      }
-
-      body {
-        height: 3000px;
-        /* overflow: hidden; */
-      }
-
-      .box {
-        height: 50px;
-        background-color: #fa0;
-      }
-
-      .box2 {
-        height: 60px;
-        background-color: #0fa;
-        position: sticky;
-        top: 0px;
-      }
-
-      .box123 {
-        height: 80px;
-        background-color: #faa;
-        position: sticky;
-        top: 0px;
-      }
-
-      .iframe {
-        background-color: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/extension/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./css/extension/owl.theme.default.min.css" />
   </head>
   <body>
-    <div class="iframe">
-      <div class="ff"></div>
+    <div class="owl-carousel owl-theme">
+      <div><h4>1</h4></div>
+      <div><h4>2</h4></div>
+      <div><h4>3</h4></div>
+      <div><h4>4</h4></div>
     </div>
-    <div class="content">
-      <div class="box"></div>
-      <div class="box123">
-        <div class="box2"></div>
-      </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique vero cum voluptates illo voluptate modi
-        cumque commodi optio consequuntur eos. Unde molestias perspiciatis nemo assumenda nesciunt rem quam eius, porro,
-        a consectetur itaque quae! Temporibus minima id sequi tempora eaque maxime inventore nulla fugit sapiente
-        voluptatibus. Culpa dignissimos eligendi quas aut nemo assumenda magnam. Labore eos hic nulla reiciendis odit
-        natus quasi modi sequi, quae in, autem architecto ea distinctio ex. Veritatis id assumenda earum reiciendis
-        minus expedita maiores provident consequuntur illum quaerat odit ad voluptatem nemo cupiditate, adipisci
-        doloribus officia aliquid velit itaque omnis, eveniet ullam esse nesciunt laudantium? Perferendis adipisci,
-        architecto quasi sed rem, explicabo, tempore ex quam eaque distinctio nulla repudiandae. Repellendus, dolorem
-        impedit? Officia vero fuga accusantium atque, expedita facilis dolore ipsa repellendus, architecto laudantium
-        cumque aut voluptate distinctio perspiciatis quam quia culpa tenetur mollitia maxime ab. Recusandae est adipisci
-        provident perspiciatis, dignissimos eaque ipsam optio, neque dicta vero sequi dolores aliquam deleniti autem aut
-        quisquam blanditiis totam? At ex et tempore rerum fugiat debitis recusandae sint nostrum nesciunt aspernatur,
-        voluptas cum exercitationem incidunt eius quos provident suscipit, dolorem tempora alias cupiditate odit ducimus
-        inventore! Ipsa et alias debitis eligendi, voluptates tenetur. Placeat dolor blanditiis nam omnis. Debitis,
-        exercitationem alias recusandae inventore laudantium enim similique animi quas, provident magni quis repellat?
-        Possimus quae eum quam, culpa doloremque molestiae voluptas dignissimos ducimus, quis quasi mollitia in
-        necessitatibus, voluptatibus incidunt odio? Placeat, architecto? Commodi vitae nisi quis corporis ut tempore ex?
-        Id iusto tempora, commodi voluptates harum fugiat labore repellendus perspiciatis officia omnis. Nisi veritatis
-        reiciendis nesciunt esse, expedita aliquam sed iusto consequatur suscipit exercitationem quo dicta molestias, id
-        inventore explicabo quasi eum. Provident harum beatae ea minus quo! Quos delectus, minus nisi consequuntur
-        placeat pariatur odit repellendus. Illo exercitationem nulla voluptatem accusamus natus labore perferendis iusto
-        neque explicabo voluptatum, officiis earum enim. Modi neque, dolorem eligendi quod sit iure quae, obcaecati
-        suscipit dolorum ducimus maiores nisi unde? Cum quidem iste vitae voluptatum sed dolores! Obcaecati sed, tenetur
-        quibusdam ipsa, beatae enim ex natus voluptatibus voluptas possimus iusto. Nostrum amet repudiandae dicta
-        perspiciatis. Expedita minima dicta vel delectus suscipit, quas quisquam facilis reprehenderit doloribus.
-        Mollitia distinctio quis ex delectus iure esse sequi. Delectus vel rem odit illo laborum sit cumque sapiente
-        nemo eum saepe quod natus autem dolore iusto maxime, tempora, magni consectetur voluptatibus dignissimos quia
-        assumenda. Adipisci, tempore maiores ducimus nulla accusantium nesciunt perferendis. Odio unde voluptatum
-        exercitationem fugit eveniet! Cumque aliquid dolorum pariatur est adipisci at impedit velit aliquam ut laborum
-        cum, temporibus earum debitis fugit nulla ad nisi nobis nemo voluptate similique, eum asperiores illum!
-        Recusandae amet, nihil nemo in, libero nostrum earum cupiditate cum, autem officiis pariatur ducimus! Tempora,
-        tenetur recusandae. Est labore, possimus voluptatum minus unde dolorem eum sit dolorum, hic aut error
-        laudantium, rerum reprehenderit fugiat earum vel numquam provident asperiores aliquid voluptas! Dolor vitae
-        aperiam, libero quod odio laboriosam quis repellendus necessitatibus doloribus! Debitis vero rerum commodi
-        consequuntur alias! Dicta dolorum libero aut possimus itaque eos ipsa cumque amet dolorem non?
-      </p>
-    </div>
+
+    <script src="./js/extension/jquery-3.6.0.min.js"></script>
+    <script src="./js/extension/owl.carousel.min.js"></script>
+    <script>
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        animateOut: 'fadeOut',
+        nav: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+    </script>
   </body>
 </html>

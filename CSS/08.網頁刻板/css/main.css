@@ -289,6 +289,126 @@ button {
   border: 1px dashed #6b6f92;
 }
 
+.sellClassCard {
+  border: 6px solid #ff4b2b;
+}
+
+.sellClassCard_img {
+  position: relative;
+}
+
+.sellClassCard_price {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
+.sellClassCard_price p {
+  line-height: 28px;
+  padding: 0 10px;
+}
+
+.sellClassCard_price p:first-child {
+  background-color: #feda00;
+  color: #ff4b2b;
+  font-weight: bold;
+}
+
+.sellClassCard_price p:last-child {
+  background-color: #ff4b2b;
+  color: #fff;
+}
+
+.sellClassCard_content {
+  padding: 20px 20px 20px 30px;
+  background-color: #fff;
+}
+
+.sellClassCard_content h2 {
+  margin: 25px 0 10px;
+}
+
+.sellClassCard_content h2 a {
+  color: #5a1e90;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sellClassCard_content h2 a:hover {
+  color: #ff4b2b;
+}
+
+.sellClassCard_footer {
+  padding: 10px 0;
+  background-color: #ff4b2b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sellClassCard_info {
+  padding: 10px 20px;
+  margin-right: 8px;
+  background-color: #feda00;
+  border-radius: 5px;
+}
+
+.sellClassCard_info a {
+  font-size: 14px;
+  color: #ff4b2b;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.sellClassCard_info a:hover {
+  color: #fff;
+}
+
+.sellClassCard_info p {
+  margin-top: 8px;
+  line-height: 14px;
+  color: #333;
+}
+
+.clientCard {
+  padding: 30px;
+  background-color: #f3f3f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.clientCard h2 {
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+.clientCard h2 span {
+  font-size: 13px;
+  color: #ff4b2b;
+}
+
+.clientCard_img {
+  width: 90px;
+  height: 90px;
+  margin-right: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.clientCard_img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
 .carouselType1_box {
   position: relative;
   -webkit-user-drag: none;
@@ -1353,5 +1473,67 @@ button {
   .gallery_itemMoveBox {
     width: 33.333%;
   }
+}
+
+.bestClass {
+  background-color: #f3f3f3;
+  padding: 90px 0;
+}
+
+.clientReview {
+  padding: 90px 0;
+}
+
+.statistics {
+  padding: 90px 0;
+}
+
+.statistics .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.statistics_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+}
+
+.statistics_icon {
+  width: 60px;
+  height: 60px;
+  background-color: #ff4b2b;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.statistics_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.statistics_text .odometer {
+  font-size: 25px;
+  color: #ff4b2b;
+}
+
+.statistics_text h2 {
+  font-size: 18px;
 }
 /*# sourceMappingURL=main.css.map */

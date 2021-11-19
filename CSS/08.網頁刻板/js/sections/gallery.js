@@ -7,12 +7,6 @@ const classBtn = document.querySelector('#filterBtn_classBtn');
 const activitiesBtn = document.querySelector('#filterBtn_activitiesBtn');
 const teachingBtn = document.querySelector('#filterBtn_teachingBtn');
 
-arrangeBox();
-
-window.addEventListener('resize', () => {
-  arrangeBox();
-});
-
 // btn click event
 
 allBtn.onclick = () => {
@@ -66,6 +60,15 @@ teachingBtn.onclick = () => {
   arrangeBox();
 };
 
+// first load and resize
+window.addEventListener('load', () => {
+  arrangeBox();
+});
+
+window.addEventListener('resize', () => {
+  arrangeBox();
+});
+
 // ******** function ********
 
 function arrangeBox() {
@@ -78,9 +81,6 @@ function arrangeBox() {
   for (let i = 0; i < moveBoxes.length; i++) {
     moveBoxes[i].style.transition = 'all 0.5s';
   }
-
-  console.log(moveBoxHeight);
-  console.log(moveBoxesNow.length);
 
   let floor = 0;
 

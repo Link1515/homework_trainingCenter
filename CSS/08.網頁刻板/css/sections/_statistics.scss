@@ -1,0 +1,39 @@
+.statistics {
+  padding: 90px 0;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.statistics_item {
+  display: flex;
+  width: 50%;
+}
+
+.statistics_icon {
+  width: 60px;
+  height: 60px;
+  background-color: $color-primary;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.statistics_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .odometer {
+    font-size: 25px;
+    color: $color-primary;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}

@@ -94,3 +94,112 @@
     border: 1px dashed $color-p;
   }
 }
+
+// sell Class Card
+.sellClassCard {
+  border: 6px solid $color-primary;
+}
+
+.sellClassCard_img {
+  position: relative;
+}
+.sellClassCard_price {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  transform: translateY(50%);
+
+  p {
+    line-height: 28px;
+    padding: 0 10px;
+
+    &:first-child {
+      background-color: $color-thirdary;
+      color: $color-primary;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+}
+
+.sellClassCard_content {
+  padding: 20px 20px 20px 30px;
+  background-color: #fff;
+
+  h2 {
+    margin: 25px 0 10px;
+
+    a {
+      color: $color-secondary;
+      transition: 0.3s;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.sellClassCard_footer {
+  padding: 10px 0;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+}
+
+.sellClassCard_info {
+  padding: 10px 20px;
+  margin-right: 8px;
+  background-color: $color-thirdary;
+  border-radius: 5px;
+
+  a {
+    font-size: 14px;
+    color: $color-primary;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  p {
+    margin-top: 8px;
+    line-height: 14px;
+    color: #333;
+  }
+}
+
+// client Card
+.clientCard {
+  padding: 30px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: flex-start;
+
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 8px;
+
+    span {
+      font-size: 13px;
+      color: $color-primary;
+    }
+  }
+}
+
+.clientCard_img {
+  width: 90px;
+  height: 90px;
+  margin-right: 30px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
