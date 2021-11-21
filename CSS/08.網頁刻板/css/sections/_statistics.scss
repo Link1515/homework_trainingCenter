@@ -1,5 +1,6 @@
 .statistics {
   padding: 90px 0;
+  background-color: #f1f8ff;
 
   .container {
     display: flex;
@@ -9,12 +10,14 @@
 
 .statistics_item {
   display: flex;
+  padding: 30px 0;
   width: 50%;
 }
 
 .statistics_icon {
   width: 60px;
   height: 60px;
+  margin-right: 24px;
   background-color: $color-primary;
   color: #fff;
   font-size: 25px;
@@ -24,6 +27,7 @@
 }
 
 .statistics_text {
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,5 +39,11 @@
 
   h2 {
     font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .statistics_item {
+    width: 25%;
   }
 }

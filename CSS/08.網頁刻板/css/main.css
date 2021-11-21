@@ -8,6 +8,10 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
@@ -63,6 +67,10 @@ button {
   height: 100%;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.flexForceWrap {
+  width: 100%;
 }
 
 @media (min-width: 576px) {
@@ -293,16 +301,52 @@ button {
   border: 6px solid #ff4b2b;
 }
 
+.sellClassCard:hover img {
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 .sellClassCard_img {
+  overflow: hidden;
+}
+
+.sellClassCard_img img {
+  -webkit-filter: opacity(0.75);
+          filter: opacity(0.75);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sellClassCard_content {
+  padding: 20px 20px 20px 30px;
+  background-color: #fff;
   position: relative;
+}
+
+.sellClassCard_content h2 {
+  margin: 25px 0 10px;
+}
+
+.sellClassCard_content h2 a {
+  color: #5a1e90;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sellClassCard_content h2 a:hover {
+  color: #ff4b2b;
 }
 
 .sellClassCard_price {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 30px;
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .sellClassCard_price p {
@@ -319,25 +363,6 @@ button {
 .sellClassCard_price p:last-child {
   background-color: #ff4b2b;
   color: #fff;
-}
-
-.sellClassCard_content {
-  padding: 20px 20px 20px 30px;
-  background-color: #fff;
-}
-
-.sellClassCard_content h2 {
-  margin: 25px 0 10px;
-}
-
-.sellClassCard_content h2 a {
-  color: #5a1e90;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.sellClassCard_content h2 a:hover {
-  color: #ff4b2b;
 }
 
 .sellClassCard_footer {
@@ -407,6 +432,58 @@ button {
 .clientCard_img img {
   width: 100%;
   border-radius: 50%;
+}
+
+.personCard {
+  padding: 25px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.personCard_img {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.personCard_img a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.personCard_content {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.personCard_media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.personCard_media a {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #efefef;
+  color: #727cb6;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.personCard_media a:hover {
+  background-color: #ff4b2b;
+  color: #fff;
 }
 
 .carouselType1_box {
@@ -1486,6 +1563,7 @@ button {
 
 .statistics {
   padding: 90px 0;
+  background-color: #f1f8ff;
 }
 
 .statistics .container {
@@ -1500,12 +1578,14 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 30px 0;
   width: 50%;
 }
 
 .statistics_icon {
   width: 60px;
   height: 60px;
+  margin-right: 24px;
   background-color: #ff4b2b;
   color: #fff;
   font-size: 25px;
@@ -1516,6 +1596,7 @@ button {
 }
 
 .statistics_text {
+  font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1535,5 +1616,124 @@ button {
 
 .statistics_text h2 {
   font-size: 18px;
+}
+
+@media (min-width: 992px) {
+  .statistics_item {
+    width: 25%;
+  }
+}
+
+.teachers {
+  padding: 90px 0;
+}
+
+.teachers_body {
+  margin-bottom: 1rem;
+}
+
+.teachers_body .personCard {
+  margin-bottom: 30px;
+}
+
+.teachers_footer {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .teachers_body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .teachers_body .personCard {
+    width: 48%;
+  }
+}
+
+@media (min-width: 992px) {
+  .teachers_body .personCard {
+    width: 23%;
+  }
+}
+
+.eventCountdown {
+  padding: 90px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(9, 33, 159, 0.46)), to(rgba(9, 33, 159, 0.46)));
+  background: linear-gradient(rgba(9, 33, 159, 0.46) 0%, rgba(9, 33, 159, 0.46) 100%);
+}
+
+.eventCountdown_header {
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.eventCountdown_header h2 {
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 7px;
+  border: 1px solid #fff;
+  font-size: 20px;
+  background-color: #feda00;
+}
+
+.eventCountdown_header h1 {
+  color: #fff;
+  text-align: center;
+}
+
+.eventCountdown_body {
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.eventCountdown_body div:not(.flexForceWrap) {
+  padding: 15px 30px;
+  margin: 0 30px 30px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #ff4b2b;
+  text-align: center;
+}
+
+.eventCountdown_body div:not(.flexForceWrap) h4 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.eventCountdown_body div:not(.flexForceWrap) p {
+  color: #fff;
+  font-weight: 300;
+}
+
+.eventCountdown_footer {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .eventCountdown_body .flexForceWrap {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

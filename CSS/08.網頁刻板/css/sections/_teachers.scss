@@ -1,0 +1,35 @@
+.teachers {
+  padding: 90px 0;
+}
+
+.teachers_body {
+  margin-bottom: 1rem;
+
+  .personCard {
+    margin-bottom: 30px;
+  }
+}
+
+.teachers_footer {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .teachers_body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .personCard {
+      width: 48%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .teachers_body {
+    .personCard {
+      width: 23%;
+    }
+  }
+}

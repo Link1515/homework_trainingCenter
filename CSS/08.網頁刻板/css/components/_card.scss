@@ -98,16 +98,47 @@
 // sell Class Card
 .sellClassCard {
   border: 6px solid $color-primary;
+
+  &:hover img {
+    filter: opacity(1);
+    transform: scale(1.2);
+  }
 }
 
 .sellClassCard_img {
-  position: relative;
+  overflow: hidden;
+
+  img {
+    filter: opacity(0.75);
+    transform: scale(1);
+    transition: 0.3s;
+  }
 }
+
+.sellClassCard_content {
+  padding: 20px 20px 20px 30px;
+  background-color: #fff;
+  position: relative;
+
+  h2 {
+    margin: 25px 0 10px;
+
+    a {
+      color: $color-secondary;
+      transition: 0.3s;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
 .sellClassCard_price {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 30px;
-  transform: translateY(50%);
+  transform: translateY(-50%);
 
   p {
     line-height: 28px;
@@ -122,24 +153,6 @@
     &:last-child {
       background-color: $color-primary;
       color: #fff;
-    }
-  }
-}
-
-.sellClassCard_content {
-  padding: 20px 20px 20px 30px;
-  background-color: #fff;
-
-  h2 {
-    margin: 25px 0 10px;
-
-    a {
-      color: $color-secondary;
-      transition: 0.3s;
-
-      &:hover {
-        color: $color-primary;
-      }
     }
   }
 }
@@ -201,5 +214,51 @@
   img {
     width: 100%;
     border-radius: 50%;
+  }
+}
+
+// person card
+.personCard {
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.personCard_img {
+  margin-bottom: 20px;
+  position: relative;
+
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.personCard_content {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.personCard_media {
+  display: flex;
+  justify-content: center;
+
+  a {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #efefef;
+    color: #727cb6;
+    display: grid;
+    place-items: center;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
   }
 }
