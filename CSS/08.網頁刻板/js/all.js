@@ -11,3 +11,5 @@ import './sections/gallery.js';
 import './sections/bestClass.js';
 import './sections/clientReview.js';
 import './sections/statistics.js';
+import './sections/eventCountdown.js';
+import './sections/blog.js';

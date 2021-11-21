@@ -1,0 +1,103 @@
+.contactUs_body {
+  h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+%formbox {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  color: #495057;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.contactUs_form {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0;
+
+  input {
+    @extend %formbox;
+  }
+
+  textarea {
+    @extend %formbox;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
+  }
+}
+
+.contactUs_info {
+  padding: 35px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactUs_infoItem {
+  margin-bottom: 20px;
+  display: flex;
+
+  div:first-child {
+    width: 45px;
+    height: 45px;
+    margin-right: 25px;
+    background-color: $color-primary;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+  }
+}
+
+.contactUs_infoIcons {
+  font-size: 0;
+
+  a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: $color-secondary;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $color-thirdary;
+      color: $color-secondary;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .contactUs_form {
+    input {
+      &#clientName,
+      &#clientEmail {
+        width: 48%;
+      }
+    }
+
+    .centerSpace {
+      display: inline-block;
+      width: 4%;
+    }
+  }
+}

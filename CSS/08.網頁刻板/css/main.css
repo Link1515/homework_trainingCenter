@@ -108,7 +108,7 @@ button {
 
 .primary-btn a {
   height: 100%;
-  font-size: 1rem;
+  font-size: 15px;
   display: -ms-grid;
   display: grid;
   place-items: center;
@@ -295,6 +295,56 @@ button {
   padding: 5px;
   border-radius: 50%;
   border: 1px dashed #6b6f92;
+}
+
+.cardType3 {
+  padding: 22px;
+  border: 2px solid #eee;
+  -webkit-transition: border-top 0.3s;
+  transition: border-top 0.3s;
+}
+
+.cardType3:hover {
+  border-top: 2px solid #3398db;
+}
+
+.cardType3 h2 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.cardType3 p {
+  margin-bottom: 20px;
+}
+
+.cardType3_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #6b6f92;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.cardType3_info li {
+  padding: 0 10px;
+}
+
+.cardType3_info li:first-child {
+  padding-left: 0;
+}
+
+.cardType3_info li + li {
+  border-left: 1px solid #ff4b2b;
+}
+
+.cardType3_info i {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.cardType3_info a {
+  color: #6b6f92;
 }
 
 .sellClassCard {
@@ -1664,8 +1714,8 @@ button {
 
 .eventCountdown {
   padding: 90px 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(9, 33, 159, 0.46)), to(rgba(9, 33, 159, 0.46)));
-  background: linear-gradient(rgba(9, 33, 159, 0.46) 0%, rgba(9, 33, 159, 0.46) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(9, 33, 159, 0.46)), to(rgba(9, 33, 159, 0.46))), url("../images/program.jpg") fixed center/cover;
+  background: linear-gradient(rgba(9, 33, 159, 0.46) 0%, rgba(9, 33, 159, 0.46) 100%), url("../images/program.jpg") fixed center/cover;
 }
 
 .eventCountdown_header {
@@ -1734,6 +1784,112 @@ button {
 @media (min-width: 768px) {
   .eventCountdown_body .flexForceWrap {
     display: none;
+  }
+}
+
+.blog {
+  padding: 90px 0;
+}
+
+.contactUs_body h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.contactUs_body h2 {
+  margin-bottom: 16px;
+}
+
+.contactUs_form input, .contactUs_form textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  color: #495057;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  -webkit-transition: border-color 0.3s;
+  transition: border-color 0.3s;
+}
+
+.contactUs_form input:focus, .contactUs_form textarea:focus {
+  outline: none;
+  border-color: #ff4b2b;
+}
+
+.contactUs_form {
+  margin-bottom: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 0;
+}
+
+.contactUs_form textarea {
+  font-family: 'Open Sans', sans-serif;
+  resize: none;
+}
+
+.contactUs_info {
+  padding: 35px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactUs_infoItem {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contactUs_infoItem div:first-child {
+  width: 45px;
+  height: 45px;
+  margin-right: 25px;
+  background-color: #ff4b2b;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 8px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.contactUs_infoIcons {
+  font-size: 0;
+}
+
+.contactUs_infoIcons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #5a1e90;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.contactUs_infoIcons a:hover {
+  background-color: #feda00;
+  color: #5a1e90;
+}
+
+@media (min-width: 768px) {
+  .contactUs_form input#clientName, .contactUs_form input#clientEmail {
+    width: 48%;
+  }
+  .contactUs_form .centerSpace {
+    display: inline-block;
+    width: 4%;
   }
 }
 /*# sourceMappingURL=main.css.map */

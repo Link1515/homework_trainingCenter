@@ -95,6 +95,54 @@
   }
 }
 
+// card type 3
+.cardType3 {
+  padding: 22px;
+  border: 2px solid #eee;
+  transition: border-top 0.3s;
+
+  &:hover {
+    border-top: 2px solid #3398db;
+  }
+
+  h2 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.cardType3_info {
+  display: flex;
+  color: #6b6f92;
+  font-size: 12px;
+  margin: 10px 0;
+
+  li {
+    padding: 0 10px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    & + li {
+      border-left: 1px solid $color-primary;
+    }
+  }
+
+  i {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  a {
+    color: #6b6f92;
+  }
+}
+
 // sell Class Card
 .sellClassCard {
   border: 6px solid $color-primary;
