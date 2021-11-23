@@ -1,0 +1,64 @@
+.ratiobox {
+  max-width: 900px;
+}
+
+.ratiobox .row .cornerShadow {
+  display: none;
+}
+
+.info_main h2 {
+  letter-spacing: 15px;
+}
+
+.info_main h1 {
+  font-size: calc(3rem + 1vw);
+}
+
+@media (min-width: 768px) {
+  .ratiobox .row .cornerShadow {
+    display: block;
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    background-color: #fff;
+  }
+
+  .ratiobox .row .cornerShadow::before {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    left: -10%;
+    right: -10%;
+    bottom: 0;
+    top: -10%;
+  }
+
+  .ratiobox .row .cornerShadow:nth-of-type(2):before {
+    top: 0;
+    bottom: -10%;
+  }
+
+  .ratiobox .row .cornerShadow:nth-of-type(1) {
+    left: 3%;
+    top: 5%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .ratiobox .row .cornerShadow:nth-of-type(2) {
+    right: 3%;
+    bottom: 5%;
+    transform: translate(50%, 50%) rotate(-45deg);
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (min-width: 992px) {
+  .info {
+    padding: 5rem !important;
+  }
+
+  .info_main h2 {
+    letter-spacing: 25px;
+  }
+}
