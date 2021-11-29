@@ -117,12 +117,15 @@
 
 .cardType3_info {
   display: flex;
+  flex-wrap: wrap;
   color: #6b6f92;
   font-size: 12px;
   margin: 10px 0;
 
   li {
     padding: 0 10px;
+    margin: 5px 0;
+    font-size: 11px;
 
     &:first-child {
       padding-left: 0;
