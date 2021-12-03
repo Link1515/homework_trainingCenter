@@ -22,7 +22,8 @@
   border-bottom: 1px dashed #fff;
 
   h1 {
-    font-size: calc(25px + 0.5vw);
+    font-size: calc(20px + 0.5vw);
+    text-align: center;
     color: #fff;
     margin: 1rem 0;
   }
@@ -59,7 +60,7 @@
 }
 
 .footer_body {
-  padding: 3rem 0;
+  padding-top: 3rem;
 
   ul {
     margin-bottom: 3rem;
@@ -69,20 +70,54 @@
     color: #fff;
     margin: 1rem 0;
     font-size: 14px;
+    transition: 0.3s;
 
-    h2 {
+    h2,
+    p {
       color: #fff;
     }
-  }
 
-  li:not(:first-child):not(.noIcon):before {
-    content: '\f105';
-    display: inline-block;
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: #fff;
-    margin-right: 6px;
-    font-size: 14px;
+    &:not(:first-child):not(.noHover):hover {
+      a {
+        color: $color-thirdary;
+      }
+      transform: translateX(5px);
+    }
+
+    &:first-child {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    &:first-child::before {
+      content: '';
+      width: 10px;
+      height: 5px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+    }
+
+    &:first-child::after {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -9px;
+      left: 20px;
+    }
+
+    &:not(:first-child):not(.noIcon)::before {
+      content: '\f105';
+      display: inline-block;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: #fff;
+      margin-right: 6px;
+      font-size: 14px;
+    }
   }
 }
 
@@ -90,5 +125,65 @@ li.footer_iconBtn {
   margin: 2rem 0;
   a {
     @extend .iconBtn;
+  }
+}
+
+.footer_map {
+  iframe {
+    width: 100%;
+  }
+}
+
+.footer_copyright {
+  padding: 35px 0;
+  background-color: #992d1a;
+
+  p {
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.5px;
+
+    a {
+      font-weight: bold;
+      color: #afb2bf;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .footer_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+      width: 50%;
+    }
+  }
+
+  .footer_body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    ul {
+      width: 48%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .footer_body {
+    ul {
+      width: auto;
+      margin: 0 2rem;
+
+      &:first-child {
+        width: 20%;
+      }
+      &:last-child {
+        flex-grow: 1;
+      }
+    }
   }
 }
