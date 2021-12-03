@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+img {
+  width: 100%;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+}
+
+#carousel {
+  width: 100vw;
+  border: 4px double #000;
+}
+
+@media (min-width: 992px) {
+  #carousel {
+    width: 50vw;
+  }
+}
