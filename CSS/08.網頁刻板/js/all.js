@@ -3,6 +3,7 @@ import './components/carousel.js';
 import './components/accordion.js';
 
 // sections
+import './sections/loading.js';
 import './sections/nav.js';
 import './sections/banner.js';
 import './sections/welcome_img3DHover.js';
