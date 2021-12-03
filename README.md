@@ -45,5 +45,5 @@
 - [x] [calender](https://link1515.github.io/homework_trainingCenter/PS/03.calendar/)
 
 ## AI Homework
-- [ ] [Animal 30 CHALLENGE]
+- [x] [Animal 30 CHALLENGE](https://link1515.github.io/homework_trainingCenter/AI/01.animal_30/)
   - reference: https://www.behance.net/gallery/30671987/30-ANIMAL-LOGOS-CHALLENGE
