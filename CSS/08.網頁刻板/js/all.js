@@ -1,6 +1,7 @@
 // components
 import './components/carousel.js';
 import './components/accordion.js';
+import './components/wowjsSetting.js';
 
 // sections
 import './sections/loading.js';

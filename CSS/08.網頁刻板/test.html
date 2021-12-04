@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/extension/owl.carousel.min.css" />
     <link rel="stylesheet" href="./css/extension/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="./css/extension/animate.min.css" />
   </head>
   <body>
     <div class="owl-carousel owl-theme">
@@ -15,24 +16,41 @@
       <div><h4>3</h4></div>
       <div><h4>4</h4></div>
     </div>
+    <div style="height: 500px"></div>
+    <p class="wow animate__bounce">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, suscipit nam? Non magnam, nihil numquam at
+      consectetur vero aspernatur veniam sunt corporis officia. Dolorum culpa itaque at ad voluptates repellat?
+    </p>
+    <div style="height: 500px"></div>
 
     <script src="./js/extension/jquery-3.6.0.min.js"></script>
     <script src="./js/extension/owl.carousel.min.js"></script>
+    <script src="./js/extension/wow.min.js"></script>
     <script>
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        animateOut: 'fadeOut',
-        nav: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          1000: {
-            items: 3
-          }
-        }
+      // $('.owl-carousel').owlCarousel({
+      //   loop: true,
+      //   margin: 10,
+      //   animateOut: 'fadeOut',
+      //   nav: true,
+      //   responsive: {
+      //     0: {
+      //       items: 1
+      //     },
+      //     1000: {
+      //       items: 3
+      //     }
+      //   }
+      // });
+
+      const wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animate__animated',
+        offset: 0,
+        mobile: true,
+        live: true
       });
+
+      wow.init();
     </script>
   </body>
 </html>
