@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue To-Do List</title>
+    <style>
+      :root {
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input
+        type="text"
+        v-model="newItem"
+        placeholder="新增事項"
+        @keydown.enter="add"
+        :style="{border: `5px solid ${borderColor}`}"
+      />
+      <input type="button" value="新增" @click="add" />
+
+      <hr />
+
+      <input type="button" value="全部標記成已完成" @click="doneAll(true)" />
+      <input type="button" value="全部標記成未完成" @click="doneAll(false)" />
+      <br />
+      <input type="button" value="顯示全部" @click="filter = 'all'" />
+      <input type="button" value="顯示已完成" @click="filter = 'finished'" />
+      <input type="button" value="顯示未完成" @click="filter = 'unfinished'" />
+      <br />
+      <input type="button" value="清除全部" @click="del('all')" />
+      <input type="button" value="清除已完成" @click="del('finished')" />
+      <input type="button" value="清除未完成" @click="del('unfinished')" />
+
+      <hr />
+      <p>目前顯示: ，共 {{ currentList.length }} 個</p>
+      <input type="text" placeholder="查詢" V-model="search" />
+      <ul>
+        <li v-for="item in currentList">
+          <input type="checkbox" :value="item.ok" v-model="item.ok" />
+          <input
+            type="text"
+            v-if="item.editing"
+            v-model="item.modify"
+            @keydown.enter="save(item)"
+            @keydown.esc="cancel(item)"
+          />
+          <span v-else>
+            <del v-if="item.ok" @dblclick="item.editing = true">{{ item.name }}</del>
+            <span v-else @dblclick="item.editing = true">{{ item.name }}</span>
+          </span>
+          <input type="button" value="x" @click="del(item.id)" />
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            newItem: '',
+            items: [],
+            filter: 'all'
+          };
+        },
+        methods: {
+          add() {
+            if (this.newItem.length >= 2) {
+              this.items.push({
+                id: Date.now(),
+                name: this.newItem,
+                ok: false,
+                editing: false,
+                modify: this.newItem
+              });
+
+              this.newItem = '';
+            } else {
+              alert('文字長度必須大於等於 2');
+            }
+          },
+          del(para) {
+            if (typeof para === 'number') {
+              const index = this.items.findIndex((item) => item.id === para);
+              this.items.splice(index, 1);
+            } else if (para === 'all') {
+              this.items = [];
+            } else if (para === 'finished') {
+              this.items = this.items.filter((item) => !item.ok);
+            } else if (para === 'unfinished') {
+              this.items = this.items.filter((item) => item.ok);
+            }
+          },
+          doneAll(bool) {
+            this.items = this.items.map((item) => {
+              item.ok = bool;
+              return item;
+            });
+          },
+          save(item) {
+            item.name = item.modify;
+            item.editing = false;
+          },
+          cancel(item) {
+            item.modify = item.name;
+            item.editing = false;
+          }
+        },
+        computed: {
+          borderColor() {
+            return this.newItem.length === 0 ? 'black' : this.newItem.length > 2 ? 'blue' : 'red';
+          },
+          currentList() {
+            return this.items.filter((item) => {
+              if (this.filter === 'all') return true;
+              else if (this.filter === 'finished') return item.ok;
+              else if (this.filter === 'unfinished') return !item.ok;
+            });
+          }
+        },
+        watch: {
+          items: {
+            deep: true,
+            handler(value) {
+              localStorage.setItem('HW_list', JSON.stringify(value));
+            }
+          }
+        },
+        mounted() {
+          this.items = JSON.parse(localStorage.getItem('HW_list')) || [];
+        }
+      });
+    </script>
+  </body>
+</html>
