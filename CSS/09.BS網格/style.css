@@ -54,10 +54,6 @@
 }
 
 @media (min-width: 992px) {
-  .info {
-    padding: 5rem !important;
-  }
-
   .info_main h2 {
     letter-spacing: 25px;
   }
