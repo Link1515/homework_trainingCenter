@@ -1,177 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap 元件</title>
-  <link rel="stylesheet" href="./bootstrap.min.css">
-  <style>
-    .bg-gray{
-      background-color: #e4e4e4 !important;
-    }
-
-    @media (min-width: 992px){
-      .vh-lg-100{
-        height: 100vh !important;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap 元件</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <style>
+      .bg-gray {
+        background-color: #e4e4e4 !important;
       }
 
-      .vh-lg-50{
-        height: 50vh !important;
+      @media (min-width: 992px) {
+        .vh-lg-100 {
+          height: 100vh !important;
+        }
+
+        .vh-lg-50 {
+          height: 50vh !important;
+        }
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">泰山咖啡莊園</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">泰山咖啡莊園</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">菜單餐點</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">周邊景點</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">莊園位置</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">聯絡我們</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">咖啡故事</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide vh-100" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner h-100">
+        <div class="carousel-item h-100 active">
+          <img src="https://picsum.photos/1920/1080/?random=1" class="d-block w-100 h-100" style="object-fit: cover" />
+        </div>
+        <div class="carousel-item h-100">
+          <img src="https://picsum.photos/1920/1080/?random=2" class="d-block w-100 h-100" style="object-fit: cover" />
+        </div>
+        <div class="carousel-item h-100">
+          <img src="https://picsum.photos/1920/1080/?random=3" class="d-block w-100 h-100" style="object-fit: cover" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">菜單餐點</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">周邊景點</a>
-          <li class="nav-item">
-            <a class="nav-link" href="#">莊園位置</a>
-          <li class="nav-item">
-            <a class="nav-link" href="#">聯絡我們</a>
-          <li class="nav-item">
-            <a class="nav-link" href="#">咖啡故事</a>
-          </li>
-        </ul>
-      </div>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-  </nav>
-  
-  <!-- carousel -->
-  <div id="carouselExampleIndicators" class="carousel slide vh-100" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-    </div>
-    <div class="carousel-inner h-100">
-      <div class="carousel-item h-100 active">
-        <img src="https://picsum.photos/1920/1080/?random=1" class="d-block w-100 h-100" style="object-fit: cover;">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="https://picsum.photos/1920/1080/?random=2" class="d-block w-100 h-100" style="object-fit: cover;">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="https://picsum.photos/1920/1080/?random=3" class="d-block w-100 h-100" style="object-fit: cover;">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
-  <!-- section 1 -->
-  <div class="container py-5 vh-lg-100">
-    <div class="row g-3 h-100 align-items-center">
-      <div class="col-12 col-lg-4">
-        <div class="card">
-          <img class="card-img-top"  src="https://picsum.photos/400/300/?random=4">
-          <div class="card-body">
-            <h5 class="card-title">Lorem, ipsum.</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam, ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad aut?</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="card">
-          <img class="card-img-top"  src="https://picsum.photos/400/300/?random=5">
-          <div class="card-body">
-            <h5 class="card-title">Lorem, ipsum.</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam, ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad aut?</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="card">
-          <img class="card-img-top"  src="https://picsum.photos/400/300/?random=6">
-          <div class="card-body">
-            <h5 class="card-title">Lorem, ipsum.</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam, ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad aut?</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- section 2  -->
-  <div class="container-fluid vh-lg-100 px-0">
-    <div class="row g-0">
-      <div class="col-12 col-lg-6">
-        <img class="w-100 vh-lg-50" src="https://picsum.photos/1920/1080?random=7" style="object-fit: cover;">
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="ratio ratio-16x9 vh-lg-50">
-          <div class="card bg-gray border-0">
-            <div class="card-body text-center d-flex flex-column justify-content-around align-items-center">
-              <h2 class="card-title">Coffee Shop</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore at officia a nam non? Ut consequuntur aspernatur, delectus reiciendis nihil placeat atque fugiat dolor temporibus vero, voluptatum, maxime voluptates iure. Architecto quaerat recusandae, aliquam amet quia ducimus. Ullam quae eligendi ad necessitatibus temporibus, ab, quod nostrum sunt repellendus nulla et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex corporis blanditiis asperiores laborum odio maiores nobis perferendis minus ullam nam.</p>
-              <a href="#" class="btn btn-success">VIEW COLLECTION</a>
+    <!-- section 1 -->
+    <div class="container py-5 vh-lg-100">
+      <div class="row g-3 h-100 align-items-center">
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="https://picsum.photos/400/300/?random=4" />
+            <div class="card-body">
+              <h5 class="card-title">Lorem, ipsum.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam,
+                ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad
+                aut?
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-lg-6 order-lg-last">
-        <img class="w-100 vh-lg-50" src="https://picsum.photos/1920/1080?random=8" style="object-fit: cover;">
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="ratio ratio-16x9 vh-lg-50">
-          <div class="card bg-gray border-0">
-            <div class="card-body text-center d-flex flex-column justify-content-around align-items-center">
-              <h2 class="card-title">Coffee Shop</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore at officia a nam non? Ut consequuntur aspernatur, delectus reiciendis nihil placeat atque fugiat dolor temporibus vero, voluptatum, maxime voluptates iure. Architecto quaerat recusandae, aliquam amet quia ducimus. Ullam quae eligendi ad necessitatibus temporibus, ab, quod nostrum sunt repellendus nulla et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex corporis blanditiis asperiores laborum odio maiores nobis perferendis minus ullam nam.</p>
-              <a href="#" class="btn btn-success">VIEW COLLECTION</a>
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="https://picsum.photos/400/300/?random=5" />
+            <div class="card-body">
+              <h5 class="card-title">Lorem, ipsum.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam,
+                ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad
+                aut?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="https://picsum.photos/400/300/?random=6" />
+            <div class="card-body">
+              <h5 class="card-title">Lorem, ipsum.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo accusamus, omnis, aut quos eum laboriosam,
+                ad corrupti dolorum eligendi laborum maxime expedita! Obcaecati, accusantium soluta magni omnis amet ad
+                aut?
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- map -->
-  <div>
-    <iframe class="w-100 vh-lg-100 align-middle" style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7036497990507!2d121.41732691484208!3d25.044129283967617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1sen!2stw!4v1638967172494!5m2!1sen!2stw" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-
-  <!-- contact us -->
-  <div class="bg-gray">
-    <div class="container  py-5">
-      <div class="text-center">
-        <h1>聯絡我們</h1>
-        <h2>泰山咖啡莊園，傳承熱情 coding 精神</h2>
-        <p>任何服務或建議，歡迎您透過客服表單告知我們，謝謝!</p>
-      </div>
-      <div class="row">
+    <!-- section 2  -->
+    <div class="container-fluid vh-lg-100 px-0">
+      <div class="row g-0">
         <div class="col-12 col-lg-6">
-          <label for="inputName" class="form-label">姓名</label>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" id="inputName">
-            <span class="input-group-text" id="basic-addon1">@</span>
+          <img class="w-100 vh-lg-50" src="https://picsum.photos/1920/1080?random=7" style="object-fit: cover" />
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="ratio ratio-16x9 vh-lg-50">
+            <div class="card bg-gray border-0">
+              <div class="card-body text-center d-flex flex-column justify-content-around align-items-center">
+                <h2 class="card-title">Coffee Shop</h2>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore at officia a nam non? Ut
+                  consequuntur aspernatur, delectus reiciendis nihil placeat atque fugiat dolor temporibus vero,
+                  voluptatum, maxime voluptates iure. Architecto quaerat recusandae, aliquam amet quia ducimus. Ullam
+                  quae eligendi ad necessitatibus temporibus, ab, quod nostrum sunt repellendus nulla et. Lorem ipsum
+                  dolor sit amet, consectetur adipisicing elit. Ex corporis blanditiis asperiores laborum odio maiores
+                  nobis perferendis minus ullam nam.
+                </p>
+                <a href="#" class="btn btn-success">VIEW COLLECTION</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-lg-6"></div>
-        <div class="col-12 col-lg-6"></div>
-        <div class="col-12 col-lg-6"></div>
+        <div class="col-12 col-lg-6 order-lg-last">
+          <img class="w-100 vh-lg-50" src="https://picsum.photos/1920/1080?random=8" style="object-fit: cover" />
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="ratio ratio-16x9 vh-lg-50">
+            <div class="card bg-gray border-0">
+              <div class="card-body text-center d-flex flex-column justify-content-around align-items-center">
+                <h2 class="card-title">Coffee Shop</h2>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore at officia a nam non? Ut
+                  consequuntur aspernatur, delectus reiciendis nihil placeat atque fugiat dolor temporibus vero,
+                  voluptatum, maxime voluptates iure. Architecto quaerat recusandae, aliquam amet quia ducimus. Ullam
+                  quae eligendi ad necessitatibus temporibus, ab, quod nostrum sunt repellendus nulla et. Lorem ipsum
+                  dolor sit amet, consectetur adipisicing elit. Ex corporis blanditiis asperiores laborum odio maiores
+                  nobis perferendis minus ullam nam.
+                </p>
+                <a href="#" class="btn btn-success">VIEW COLLECTION</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="./bootstrap.bundle.min.js"></script>
-</body>
+    <!-- map -->
+    <div>
+      <iframe
+        class="w-100 vh-lg-100 align-middle"
+        style="height: 400px"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7036497990507!2d121.41732691484208!3d25.044129283967617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1sen!2stw!4v1638967172494!5m2!1sen!2stw"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <!-- contact us -->
+    <div class="bg-gray">
+      <div class="container py-5">
+        <div class="text-center">
+          <h1>聯絡我們</h1>
+          <h2>泰山咖啡莊園，傳承熱情 coding 精神</h2>
+          <p>任何服務或建議，歡迎您透過客服表單告知我們，謝謝!</p>
+        </div>
+        <form class="row needs-validation" novalidate>
+          <div class="col-12 col-lg-6">
+            <label for="inputName" class="form-label">姓名</label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="inputName" required />
+              <div class="input-group-text">
+                <label for="radio-male" class="user-select-none me-2">先生</label>
+                <input id="radio-male" class="form-check-input mt-0" type="radio" name="gender" value="male" required />
+              </div>
+              <div class="input-group-text">
+                <label for="radio-female" class="user-select-none me-2">女士</label>
+                <input
+                  id="radio-female"
+                  class="form-check-input mt-0"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  required
+                />
+              </div>
+              <div class="invalid-feedback">請輸入姓名</div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="mb-3">
+              <label for="inputPhone" class="form-label">電話</label>
+              <input type="text" class="form-control" id="inputPhone" required />
+              <div class="invalid-feedback">請輸入電話</div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">電子信箱</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required />
+              <div class="invalid-feedback">請輸入電子信箱</div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="mb-3">
+              <label class="form-label">問題類型</label>
+              <select class="form-select" required>
+                <option selected disabled value="">-- 請選擇 --</option>
+                <option value="1">餐飲建議</option>
+                <option value="2">服務建議</option>
+                <option value="3">其他</option>
+              </select>
+              <div class="invalid-feedback">請選擇問題類型</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="inputTxt" class="form-label">意見需求</label>
+              <textarea class="form-control" id="inputTxt" rows="5" style="resize: none"></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <input class="me-1" type="checkbox" id="subscribe" />
+              <label class="user-select-none" for="subscribe">訂閱泰山莊園最新消息</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="text-center">
+              <button class="btn btn-secondary" type="submit">送出</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer bg-dark text-light pt-5 pb-3">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-6 col-lg-3">
+            <img class="rounded-circle" src="https://picsum.photos/id/30/150/150" />
+          </div>
+          <div class="col-6 col-lg-3">
+            <h4>Address</h4>
+            <ul class="list-unstyled">
+              <li>1234 Street Name</li>
+              <li>City, AA 99999</li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h4>Links</h4>
+            <ul class="list-unstyled">
+              <li>Website builder</li>
+              <li>Download for Windows</li>
+              <li>Download for Mac</li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h4>Contact</h4>
+            <ul class="list-unstyled">
+              <li>Email: support@mobirise.com</li>
+              <li>Phone: +1 (0) 000 0000 001</li>
+              <li>Fax: +1 (0) 000 0000 002</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <div class="text-center" style="color: #999">&copy; Copyright 2021 Link1515 - All Rights Reserved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add('was-validated');
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
 </html>
