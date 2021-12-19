@@ -43,6 +43,7 @@
 - [x] [打殭屍 (飛機遊戲)](https://link1515.github.io/homework_trainingCenter/JS/05.%E6%89%93%E6%AE%AD%E5%B1%8D/)
 - [x] [翻牌](https://link1515.github.io/homework_trainingCenter/JS/06.%E7%BF%BB%E7%89%8C/)
 - [x] [linebot](https://github.com/Link1515/linebot-volleyballCourtFinding)
+- [ ] [番茄鐘]
 
 ## PS Homework
 
@@ -53,3 +54,4 @@
 ## AI Homework
 - [x] [Animal 30 CHALLENGE](https://link1515.github.io/homework_trainingCenter/AI/01.animal_30/)
   - reference: https://www.behance.net/gallery/30671987/30-ANIMAL-LOGOS-CHALLENGE
+- [ ] [Olive Oil Logo]
