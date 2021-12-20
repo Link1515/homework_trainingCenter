@@ -7,6 +7,10 @@
     <title>Bootstrap 元件</title>
     <link rel="stylesheet" href="./bootstrap.min.css" />
     <style>
+      :root {
+        scroll-padding-top: 3rem;
+      }
+
       .bg-gray {
         background-color: #e4e4e4 !important;
       }
@@ -33,22 +37,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="#">菜單餐點</a>
+              <a class="nav-link active" href="#section01">菜單餐點</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">周邊景點</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">莊園位置</a>
+              <a class="nav-link" href="#section02">周邊景點</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">聯絡我們</a>
+              <a class="nav-link" href="#map">莊園位置</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">咖啡故事</a>
+              <a class="nav-link" href="#contactus">聯絡我們</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">咖啡故事</a>
             </li>
           </ul>
         </div>
@@ -56,11 +60,11 @@
     </nav>
 
     <!-- carousel -->
-    <div id="carouselExampleIndicators" class="carousel slide vh-100" data-bs-ride="carousel">
+    <div id="carousel" class="carousel slide vh-100" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
       </div>
       <div class="carousel-inner h-100">
         <div class="carousel-item h-100 active">
@@ -76,7 +80,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleIndicators"
+        data-bs-target="#carousel"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -85,7 +89,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleIndicators"
+        data-bs-target="#carousel"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>
@@ -94,7 +98,7 @@
     </div>
 
     <!-- section 1 -->
-    <div class="container py-5 vh-lg-100">
+    <div id="section01" class="container py-5 vh-lg-100">
       <div class="row g-3 h-100 align-items-center">
         <div class="col-12 col-lg-4">
           <div class="card">
@@ -139,7 +143,7 @@
     </div>
 
     <!-- section 2  -->
-    <div class="container-fluid vh-lg-100 px-0">
+    <div id="section02" class="container-fluid vh-lg-100 px-0">
       <div class="row g-0">
         <div class="col-12 col-lg-6">
           <img class="w-100 vh-lg-50" src="https://picsum.photos/1920/1080?random=7" style="object-fit: cover" />
@@ -187,7 +191,7 @@
     </div>
 
     <!-- map -->
-    <div>
+    <div id="map">
       <iframe
         class="w-100 vh-lg-100 align-middle"
         style="height: 400px"
@@ -199,7 +203,7 @@
     </div>
 
     <!-- contact us -->
-    <div class="bg-gray">
+    <div id="contactus" class="bg-gray">
       <div class="container py-5">
         <div class="text-center">
           <h1>聯絡我們</h1>
@@ -276,7 +280,7 @@
       </div>
     </div>
 
-    <div class="footer bg-dark text-light pt-5 pb-3">
+    <div id="footer" class="footer bg-dark text-light pt-5 pb-3">
       <div class="container">
         <div class="row g-5">
           <div class="col-6 col-lg-3">
@@ -292,9 +296,9 @@
           <div class="col-6 col-lg-3">
             <h4>Links</h4>
             <ul class="list-unstyled">
-              <li>Website builder</li>
-              <li>Download for Windows</li>
-              <li>Download for Mac</li>
+              <li><a href="#">Website builder</a></li>
+              <li><a href="#">Download for Windows</a></li>
+              <li><a href="#">Download for Mac</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
