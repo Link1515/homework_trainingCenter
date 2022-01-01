@@ -8,7 +8,7 @@
 
 - [x] [CSS 網頁切板 (template monster)](https://link1515.github.io/homework_trainingCenter/CSS/08.%E7%B6%B2%E9%A0%81%E5%88%BB%E6%9D%BF/)
   - reference: [kingdergarden web](https://www.templatemonsterpreview.com/demo/179714.html?_gl=1*1a7ye87*_ga*MTU1NjYyNjgwNy4xNjM1OTA5MzY1*_ga_FTPYEGT5LY*MTYzNTkxNTg1Ny4yLjEuMTYzNTkxNTk2OS4yNA..&_ga=2.173690662.400592392.1635909365-1556626807.1635909365&_gac=1.262858424.1635909384.EAIaIQobChMIho-BoZ378wIVCYrICh0MMAu3EAAYAiAAEgIjhPD_BwE)
-- [ ] [Bootstrap 元件](https://link1515.github.io/homework_trainingCenter/CSS/11.BS%E5%85%83%E4%BB%B6/)
+- [x] [Bootstrap 元件](https://link1515.github.io/homework_trainingCenter/CSS/11.BS%E5%85%83%E4%BB%B6/)
 
 ### Deadline: 2022/01/07
 - [x] [Bootstrap 網格(backdrap-filter)](https://link1515.github.io/homework_trainingCenter/CSS/10.BS%E7%B6%B2%E6%A0%BC2/)
@@ -43,7 +43,7 @@
 - [x] [打殭屍 (飛機遊戲)](https://link1515.github.io/homework_trainingCenter/JS/05.%E6%89%93%E6%AE%AD%E5%B1%8D/)
 - [x] [翻牌](https://link1515.github.io/homework_trainingCenter/JS/06.%E7%BF%BB%E7%89%8C/)
 - [x] [linebot](https://github.com/Link1515/linebot-volleyballCourtFinding)
-- [ ] [番茄鐘]
+- [x] [番茄鐘](https://link1515.github.io/vue-pomodoro/)
 
 ## PS Homework
 
