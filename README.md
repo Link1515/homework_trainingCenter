@@ -54,4 +54,4 @@
 ## AI Homework
 - [x] [Animal 30 CHALLENGE](https://link1515.github.io/homework_trainingCenter/AI/01.animal_30/)
   - reference: https://www.behance.net/gallery/30671987/30-ANIMAL-LOGOS-CHALLENGE
-- [ ] [Olive Oil Logo]
+- [ ] [Olive Oil Logo](https://link1515.github.io/homework_trainingCenter/AI/02.olive_oil_logo/)
