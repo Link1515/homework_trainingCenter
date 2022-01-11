@@ -1,5 +1,9 @@
 # 桌遊網
 
+## name
+- 易桌遊 E-TableTopGame
+  - 讓下一場桌遊更容易!
+  - 也同音"一桌遊"，同時指大家一同玩桌遊
 ## 發想
 
 - 讓桌遊玩家有更好的遊戲體驗
@@ -35,6 +39,24 @@
 ## 參考
 
 - 配色 http://k.sina.com.cn/article_3925604985_pe9fbfa7902700yn11.html?from=cul
+  - danger
+    - #F06771
+    - #EA4738
+  - comfirm
+    - #C5DB5F
+    - #05AC54
+  - warning
+    - #F6943D
+  - warning-light
+    - #FFE2B6
+  - info
+    - #FDD31C  
+  - primary
+    - #5EC5FF
+  - primary-dark
+    - #5A7AB5
+  - primary-light
+    - #C6EBFE
 - 語音
   - https://www.gushiciku.cn/pl/gH25/zh-tw
   - https://www.itread01.com/content/1551254652.html
