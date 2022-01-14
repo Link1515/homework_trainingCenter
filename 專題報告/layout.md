@@ -1,9 +1,11 @@
 # 桌遊網
 
 ## name
+
 - 易桌遊 E-TableTopGame
   - 讓下一場桌遊更容易!
   - 也同音"一桌遊"，同時指大家一同玩桌遊
+
 ## 發想
 
 - 讓桌遊玩家有更好的遊戲體驗
@@ -50,7 +52,7 @@
   - warning-light
     - #FFE2B6
   - info
-    - #FDD31C  
+    - #FDD31C
   - primary
     - #5EC5FF
   - primary-dark
