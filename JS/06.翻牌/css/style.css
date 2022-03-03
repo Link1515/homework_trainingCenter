@@ -123,6 +123,7 @@ body {
   height: 100%;
   background-color: #000;
   position: absolute;
+  z-index: 10;
   backface-visibility: hidden;
   color: #fff;
   font-size: 6rem;
